@@ -20,3 +20,43 @@ In the context of the sources, "sorting" usually refers to the **ranking** of va
 *   **Bipartite Graph Representation:** In MILP, variables are "sorted" or prioritized by representing them in a **bipartite graph** alongside constraints. Features are assigned to each variable node (such as objective coefficients or fractional values), and the ML model uses these to rank which variable will provide the best lower-bound improvement.
 
 In summary, while traditional heuristics often rely on a fixed "sorting" rule (like domain size), modern ML approaches attempt to **learn the ranking** by approximating the decisions an expert (like SB) would make or by discovering new sequences through reinforcement learning.
+
+
+
+Based on the methodology detailed in the paper and your specific dissertation goals, here is a structured research plan designed to achieve exact solutions at a scale of millions of nodes without relying on Strong Branching.
+
+### 1. Architectural Template: ML Alongside Optimization
+To achieve your goal of finding the **exact optimal solution**, your plan must follow the **"Machine Learning Alongside Optimization"** template.
+*   **Exactness:** Use a traditional Mixed-Integer Linear Programming (MILP) solver as the master algorithm to maintain mathematical guarantees and bounds.
+*   **Delegation:** The ML model will act as a sub-routine that is repeatedly queried for **variable selection** at each node, but the solver's exact framework ensures that every decision leads to a valid proof of optimality.
+
+### 2. Feature Engineering: The Static MWU Snapshot
+The paper highlights that a major bottleneck is the "computational burden" of recalculating features at every node. Your approach addresses this through a specific feature split:
+*   **Static Features (MWU):** Use the **Multiplicative Weight Update (MWU)** method at the very start to generate structural scores for all variables. These are "static features descriptive of the instance" that capture global structural regularities.
+*   **Dynamic Features:** Combine the MWU scores with minimal dynamic data, specifically the **fractional values (e.g., 0.5)** from the current LP relaxation, which indicate the immediate uncertainty of a variable. 
+*   **Conciseness:** By relying primarily on the initial global snapshot, you maintain a "concise" state representation that avoids the "high-dimensional statistical problem" of full graph recalculation at scale.
+
+### 3. Training Strategy: Learning through Experience
+Since **Strong Branching** is not an option due to its extreme cost, you must switch from "Imitation Learning" to **"Learning through Experience" (Reinforcement Learning)**.
+*   **The Reward Signal:** Train your lightweight model to maximize a reward tied to **minimizing the number of opened nodes** or reducing the time to reach the proven optimum.
+*   **Data Generation:** Solve diverse, medium-sized instances to optimality offline to gather trajectories. The agent learns to associate specific MWU structural patterns with the decisions that led to the fastest path to the exact solution.
+*   **Targeting the Path:** Alternatively, use **pre-computed optimal solutions** as supervised targets. The model learns to prioritize variables that were part of the "exact optimal path" in previously solved instances.
+
+### 4. Generalization and Scaling to Millions
+The paper identifies "size" as a primary challenge for generalization. Your plan should mitigate this by:
+*   **Structural Regularity:** Training on smaller, structurally similar graphs and evaluating on much larger instances (millions of nodes). The paper notes that if a model captures **"structure"** rather than just "size," it can generalize effectively to larger distributions.
+*   **Representation:** Use a **Graph Neural Network (GNN)** or attention mechanism to process the bipartite graph of variables and constraints. These architectures handle variable-sized inputs naturally, which is essential for scaling from training instances to million-node test cases.
+
+### 5. Critical Research Phase: Snapshot Decay Analysis
+A unique part of your plan is determining the **"useful life"** of the initial global snapshot.
+*   **Policy Switching:** The paper suggests that variable selection needs may change as the search progresses. You should analyze the point in the B&B tree where the pre-computed MWU scores lose their predictive power.
+*   **Hybrid Fallback:** Design the system to transition from the ML policy back to a fast, basic heuristic (like the "Most Constrained Variable") once the global snapshot is no longer descriptive of the local sub-problem.
+
+### Summary of the Plan
+| Phase | Action | Purpose |
+| :--- | :--- | :--- |
+| **Integration** | Embed ML in an exact B&B solver. | Ensures the exact optimal solution is found. |
+| **Feature Extraction** | Pre-compute MWU scores at the root. | Bypasses the iterative feature recalculation bottleneck. |
+| **Learning** | Use Reinforcement Learning with a tree-size reward. | Removes the need for expensive Strong Branching labels. |
+| **Scaling** | Focus on structural graph features. | Enables generalization from small training sets to millions of nodes. |
+| **Validation** | Track performance decay vs. depth. | Determines the efficiency limit of the global snapshot approach. |
