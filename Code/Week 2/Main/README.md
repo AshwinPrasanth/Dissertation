@@ -1,142 +1,150 @@
 # Week 1 — Branch-and-Bound with a Static MWUA Snapshot
 
-This folder contains code, experiments, and results for Week 1 of the dissertation project: designing a scalable Branch-and-Bound (B&B) framework for graph problems (Minimum Vertex Cover / Maximum Independent Set) that uses a static root-level Multiplicative Weights Update (MWUA) snapshot to guide branching together with cheap dynamic signals (LP certainty, residual degree, pseudo-cost).
+## Abstract
 
-This README documents what was implemented, how to reproduce the results, and where to find the generated artifacts (CSV and PNG outputs). It is intentionally detailed so the work is self-contained and directly runnable on the provided workspace.
+This Week 1 prototype builds an exact Branch-and-Bound solver for graph problems such as Minimum Vertex Cover and Maximum Independent Set. The main idea is to compute a single root-level Multiplicative Weights Update (MWUA) snapshot and reuse it as a static structural signal throughout the search, combined with three cheap dynamic signals: LP certainty, residual degree ratio, and pseudo-cost. The implementation was simplified to keep the heuristic hypothesis-driven rather than feature-heavy, and the solver was corrected so per-node graph state and pseudo-cost updates are consistent.
 
-**Repository layout (this folder)**
+## Slide-ready summary
+
+We implemented a research-grade B&B solver that branches using four signals: root MWUA certainty, LP certainty, residual degree, and pseudo-cost. The solver uses one static MWUA snapshot at the root, updates pseudo-costs from observed child outcomes, and reconstructs node-local graph state to preserve correctness. Experiments compare this policy against degree, most-fractional, random, MWUA-only, and pseudo-cost baselines.
+
+## What was built
+
+This folder contains the code, experiments, and results for Week 1 of the dissertation project: designing a scalable Branch-and-Bound framework for graph problems that uses a static root-level MWUA snapshot to guide branching together with lightweight dynamic signals.
+
+### Repository layout
+
 - `core.py` — core problem model, LP wrapper, `PrincipledMWUA`, `StructuralFeatureEngine`, and `GraphState` utilities.
-- `branching.py` — branching strategies and `PseudoCostTracker`; the main composite strategy is `CertaintyFirstBranching` (four signals: LP certainty, MWUA certainty, residual degree ratio, pseudo-cost).
-- `solver.py` — Branch-and-Bound driver, reductions, instrumentation (`SolverTrace`), and wiring to update pseudo-costs from child outcomes. Node-local `GraphState` reconstruction ensures correctness.
-- `experiments.py` — experiment harness: strategy comparisons, ablations, scaling, density sweeps, backbone analysis, and plotting code. Use `--quick` for smoke tests.
-- `results/` — generated artifacts from the quick/full runs (CSV and PNG).
-- `results_focus/` — outputs from focused, short comparison runs.
+- `branching.py` — branching strategies and `PseudoCostTracker`; the main composite strategy is `CertaintyFirstBranching` with four signals: LP certainty, MWUA certainty, residual degree ratio, and pseudo-cost.
+- `solver.py` — Branch-and-Bound driver, reductions, instrumentation (`SolverTrace`), and pseudo-cost update wiring. Node-local `GraphState` reconstruction preserves correctness.
+- `experiments.py` — experiment harness for strategy comparisons, ablations, scaling, density sweeps, backbone analysis, and plotting. Use `--quick` for smoke tests.
+- `results/` — generated artifacts from quick/full runs.
+- `results_focus/` — outputs from focused comparison runs.
 
-Summary of the Week-1 goals and achievements
-- Goal: design a minimal, research-driven B&B solver that uses a static root-level MWUA snapshot + four lightweight dynamic signals to make fast branching decisions.
-- Implemented a trimmed signal set: `mwua_certainty`, `root_lp_certainty`, `residual_degree_ratio`, and `pseudo_cost`.
-- Implemented `PrincipledMWUA` run at the root (single snapshot) inside `StructuralFeatureEngine.compute()`.
-- Simplified and refactored branching to `CertaintyFirstBranching` (weighted linear combination of the four signals) and several baselines (degree, most-fractional, pseudo-cost-only, random, mwua-only).
-- Fixed correctness issues: `GraphState` reconstruction per node (avoids stale state) and wiring of pseudo-cost updates so pseudo-cost branching becomes empirically useful.
-- Collected experimental artifacts saved under `results/` and `results_focus/` (CSV and PNG).
+### Core implementation summary
 
-Key design decisions (concise)
-- MWUA snapshot is computed once at the root and used as a static structural signal during search.
-- LP solves use `scipy.optimize.linprog(method='highs')` and provide fractional information and certainties.
-- Residual-graph info (`residual_degree`, `residual_degree_ratio`) is computed per-node from a node-local `GraphState` reconstructed from fixings — correct but conservative (can be optimized later to incremental push/pop undo operations).
-- Pseudo-costs are empirical in-run estimators updated when child nodes are solved (reliable only after several observations; `PseudoCostTracker` supports a `min_obs` threshold).
+- A single MWUA run is computed at the root and reused as a static structural snapshot during search.
+- The branching rule in `CertaintyFirstBranching` combines four lightweight signals rather than a large feature soup.
+- `GraphState` is reconstructed per node so reductions and residual-degree calculations stay correct.
+- Pseudo-costs are updated from child LP outcomes so the pseudo-cost baseline actually reflects observed branching behavior.
 
-Available results and figures
+## Main outcomes
 
-The following artifacts were generated by the experimental harness and are included in this folder. Open the PNG files to inspect the figures; CSV files contain the numeric results for tables and further analysis.
+- The solver now uses a minimal, research-driven signal set: `mwua_certainty`, `root_lp_certainty`, `residual_degree_ratio`, and `pseudo_cost`.
+- `PrincipledMWUA` runs once at the root inside `StructuralFeatureEngine.compute()`.
+- Branching was simplified to `CertaintyFirstBranching` plus baselines: degree, most-fractional, pseudo-cost-only, random, and MWUA-only.
+- Correctness issues were fixed by rebuilding node-local `GraphState` and wiring pseudo-cost updates into the solver.
+- Experimental artifacts were saved under `results/` and `results_focus/` as CSV and PNG files.
 
-- Strategy comparison (focused):
-  - Image: [Lit/week-1/results_focus/strategy_comparison.png](Lit/week-1/results_focus/strategy_comparison.png)
-  - CSV: [Lit/week-1/results_focus/strategy_comparison.csv](Lit/week-1/results_focus/strategy_comparison.csv)
+## Design choices
 
-- Global `results/` artifacts (quick/full runs):
-  - Strategy comparison image: [Lit/week-1/results/strategy_comparison.png](Lit/week-1/results/strategy_comparison.png)
-  - Strategy comparison CSV: [Lit/week-1/results/strategy_comparison.csv](Lit/week-1/results/strategy_comparison.csv)
-  - Certainty evolution (LP certainty vs depth): [Lit/week-1/results/certainty_evolution.png](Lit/week-1/results/certainty_evolution.png)
-  - Scaling benchmark: [Lit/week-1/results/scaling_benchmark.png](Lit/week-1/results/scaling_benchmark.png)
-  - Scaling CSV: [Lit/week-1/results/scaling_benchmark.csv](Lit/week-1/results/scaling_benchmark.csv)
-  - Density sweep image: [Lit/week-1/results/density_sweep.png](Lit/week-1/results/density_sweep.png)
-  - Density sweep CSV: [Lit/week-1/results/density_sweep.csv](Lit/week-1/results/density_sweep.csv)
-  - Backbone analysis image: [Lit/week-1/results/backbone_analysis.png](Lit/week-1/results/backbone_analysis.png)
-  - Backbone CSV: [Lit/week-1/results/backbone_analysis.csv](Lit/week-1/results/backbone_analysis.csv)
-  - MWUA ablation image: [Lit/week-1/results/mwua_ablation.png](Lit/week-1/results/mwua_ablation.png)
-  - MWUA ablation CSV: [Lit/week-1/results/mwua_ablation.csv](Lit/week-1/results/mwua_ablation.csv)
-  - Reductions impact image: [Lit/week-1/results/reductions_impact.png](Lit/week-1/results/reductions_impact.png)
-  - Reductions CSV: [Lit/week-1/results/reductions_impact.csv](Lit/week-1/results/reductions_impact.csv)
-  - Depth pruning heatmap: [Lit/week-1/results/depth_pruning_heatmap.png](Lit/week-1/results/depth_pruning_heatmap.png)
+- The MWUA snapshot is computed once at the root and treated as a static structural signal.
+- LP solves use `scipy.optimize.linprog(method='highs')` and provide fractional information and certainty values.
+- Residual graph features are computed from a node-local `GraphState` reconstructed from fixings. This is correct and safe, though not the fastest possible approach.
+- Pseudo-costs are empirical in-run estimators updated when child nodes are solved. Reliability improves only after several observations, so `PseudoCostTracker` includes a `min_obs` threshold.
 
-  Inline figures (thumbnails)
+## Results and artifacts
 
-  Below are inline thumbnails of a few key figures for quick inspection. Click any image to open the full-size file in the repository.
+The following artifacts were generated by the experimental harness and are included in this folder. Open the PNG files to inspect the figures; CSV files contain the numeric values for tables and further analysis.
 
-  <p align="center">
-    <img src="Lit/week-1/results/strategy_comparison.png" alt="strategy comparison" width="600"/>
-  </p>
+### Focused strategy comparison
 
-  <p align="center">
-    <img src="Lit/week-1/results/certainty_evolution.png" alt="certainty evolution" width="600"/>
-  </p>
+- Image: [Lit/week-1/results_focus/strategy_comparison.png](Lit/week-1/results_focus/strategy_comparison.png)
+- CSV: [Lit/week-1/results_focus/strategy_comparison.csv](Lit/week-1/results_focus/strategy_comparison.csv)
 
-  <p align="center">
-    <img src="Lit/week-1/results/depth_pruning_heatmap.png" alt="depth pruning heatmap" width="600"/>
-  </p>
+### Full results folder
 
-Quick summary of key numeric observations (from focused runs)
-- Focused `strategy_comparison.csv` mean summaries (approx):
-  - `degree`: mean_nodes 8.67, mean_time 0.015s, mean_first_inc_depth 3.83, prune_rate 0.4148
-  - `certainty_first`: mean_nodes 9.33, mean_time 0.0199s, mean_first_inc_depth 4.17, prune_rate 0.4065
-  - `mwua_only`: mean_nodes 9.33, mean_time 0.0161s, mean_first_inc_depth 4.17, prune_rate 0.4065
-  - `random`: mean_nodes 12.33, mean_time 0.0223s, mean_first_inc_depth 2.50, prune_rate 0.3150
-  - `most_fractional` & `pseudo_cost`: mean_nodes ~33.33, mean_time ~0.049s, mean_first_inc_depth 8.67, prune_rate ~0.3565
+- Strategy comparison image: [Lit/week-1/results/strategy_comparison.png](Lit/week-1/results/strategy_comparison.png)
+- Strategy comparison CSV: [Lit/week-1/results/strategy_comparison.csv](Lit/week-1/results/strategy_comparison.csv)
+- Certainty evolution: [Lit/week-1/results/certainty_evolution.png](Lit/week-1/results/certainty_evolution.png)
+- Scaling benchmark: [Lit/week-1/results/scaling_benchmark.png](Lit/week-1/results/scaling_benchmark.png)
+- Scaling CSV: [Lit/week-1/results/scaling_benchmark.csv](Lit/week-1/results/scaling_benchmark.csv)
+- Density sweep: [Lit/week-1/results/density_sweep.png](Lit/week-1/results/density_sweep.png)
+- Density sweep CSV: [Lit/week-1/results/density_sweep.csv](Lit/week-1/results/density_sweep.csv)
+- Backbone analysis: [Lit/week-1/results/backbone_analysis.png](Lit/week-1/results/backbone_analysis.png)
+- Backbone CSV: [Lit/week-1/results/backbone_analysis.csv](Lit/week-1/results/backbone_analysis.csv)
+- MWUA ablation: [Lit/week-1/results/mwua_ablation.png](Lit/week-1/results/mwua_ablation.png)
+- MWUA ablation CSV: [Lit/week-1/results/mwua_ablation.csv](Lit/week-1/results/mwua_ablation.csv)
+- Reductions impact: [Lit/week-1/results/reductions_impact.png](Lit/week-1/results/reductions_impact.png)
+- Reductions impact CSV: [Lit/week-1/results/reductions_impact.csv](Lit/week-1/results/reductions_impact.csv)
+- Depth pruning heatmap: [Lit/week-1/results/depth_pruning_heatmap.png](Lit/week-1/results/depth_pruning_heatmap.png)
 
-(See CSV files for exact numbers and per-instance breakdown.)
+## Inline figures
 
-Reproducibility — how to run the experiments locally
+<p align="center">
+  <img src="Lit/week-1/results/strategy_comparison.png" alt="strategy comparison" width="600"/>
+</p>
 
-Prerequisites (macOS environment used for development):
-- Python 3.13 available in virtualenv: `.venv/` (the workspace `Dissertation/.venv` was used during development).
-- Recommended: run inside the provided venv or create your own.
+<p align="center">
+  <img src="Lit/week-1/results/certainty_evolution.png" alt="certainty evolution" width="600"/>
+</p>
 
-Install minimal required packages (if not already installed in the venv):
+<p align="center">
+  <img src="Lit/week-1/results/depth_pruning_heatmap.png" alt="depth pruning heatmap" width="600"/>
+</p>
+
+## Key numeric observations
+
+From the focused `strategy_comparison.csv` run:
+
+- `degree`: mean_nodes 8.67, mean_time 0.015s, mean_first_inc_depth 3.83, prune_rate 0.4148
+- `certainty_first`: mean_nodes 9.33, mean_time 0.0199s, mean_first_inc_depth 4.17, prune_rate 0.4065
+- `mwua_only`: mean_nodes 9.33, mean_time 0.0161s, mean_first_inc_depth 4.17, prune_rate 0.4065
+- `random`: mean_nodes 12.33, mean_time 0.0223s, mean_first_inc_depth 2.50, prune_rate 0.3150
+- `most_fractional` and `pseudo_cost`: mean_nodes about 33.33, mean_time about 0.049s, mean_first_inc_depth 8.67, prune_rate about 0.3565
+
+See the CSV files for exact values and per-instance breakdowns.
+
+## Reproducibility
+
+### Prerequisites
+
+- Python 3.13 in the workspace virtual environment: `.venv/`
+- Recommended: run inside the provided venv or create your own
+
+### Install dependencies
 
 ```bash
-# activate your venv (example path used during development)
 source /Users/ambikaprasanth/Desktop/Dissertation/.venv/bin/activate
-
-# install required Python packages
 pip install -r requirements.txt
-# If there's no requirements.txt, install these:
+# If there is no requirements.txt, install these:
 # pip install networkx numpy scipy matplotlib
 ```
 
-Run a quick smoke test (fast):
+### Run the quick smoke test
 
 ```bash
-# quick smoke test of the full week-1 experiment suite
 python Lit/week-1/experiments.py --quick
 ```
 
-Run a focused strategy comparison (the run that produced `results_focus/strategy_comparison.png`):
+### Run the focused strategy comparison
 
 ```bash
 python Lit/week-1/experiments.py --strategy-comparison --n-repeats 10 --sizes 20 40 --out-dir Lit/week-1/results_focus
 ```
 
-Run the full suite (may take much longer depending on instance sizes):
+### Run the full suite
 
 ```bash
 python Lit/week-1/experiments.py --run-all --out-dir Lit/week-1/results
 ```
 
-Notes on run-time and reproducibility
-- Root MWUA is deterministic given the same inputs and algorithm seed; pseudo-costs introduce run-dependent behavior because they depend on search trajectories, but the solver instrumentation logs observed counts.
-- If you need exact reproducibility for experimental runs across machines, capture Python package versions and random seeds; extend `experiments.py` to log `sys.version`, `numpy.__version__`, and `scipy.__version__` in the CSV outputs.
+## Notes on runtime and reproducibility
 
-Developer notes and where to look in the code
-- `CertaintyFirstBranching.select()` in `branching.py`: composite weighted score and tie-break rules.
-- `PrincipledMWUA.run()` in `core.py`: single-shot MWUA snapshot at the root used as `VertexFeatures.mwua_certainty` and `mwua_x_avg`.
-- `BranchAndBoundSolver.solve()` in `solver.py`: the main DFS loop, reduction application, LP re-solve, pseudo-cost updates recorded when a child LP result is available.
-- `GraphState` in `core.py`: node-local rebuild is used for correctness. To optimize, implement incremental push/pop with an undo stack for neighbor-degree updates.
+- Root MWUA is deterministic for the same inputs and algorithm seed.
+- Pseudo-costs depend on search trajectories, so they can vary across runs.
+- For exact reproducibility across machines, record Python package versions and random seeds, and consider logging `sys.version`, `numpy.__version__`, and `scipy.__version__` in future experiment outputs.
 
-Suggested next steps (shortlist)
-- Optimize `GraphState` reconstruction to an efficient incremental push/pop undo model to reduce overhead per node.
-- Run larger-scale experiments (n ∈ {100, 200, 500}) and more seeds to build statistical confidence in the heuristic comparisons.
-- Evaluate pseudo-cost reliability vs `min_obs` thresholds; plot how many variables become reliably estimated with increased problem sizes.
-- Prepare a 1-page figure comparing `certainty_first` vs `degree` on nodes explored and prune rate for the paper.
+## Where to look in the code
 
-Contact / provenance
-- This Week-1 deliverable is part of a dissertation project. If you need a modified README layout (LaTeX-ready summary, or a short abstract for a slide), tell me which format and I will produce it and update the artifacts.
+- `CertaintyFirstBranching.select()` in `branching.py` — weighted branching score and tie-breaking.
+- `PrincipledMWUA.run()` in `core.py` — single-shot MWUA snapshot and certainty output.
+- `BranchAndBoundSolver.solve()` in `solver.py` — DFS loop, reductions, LP re-solve, and pseudo-cost updates.
+- `GraphState` in `core.py` — node-local residual graph handling for correctness.
 
----
+## Suggested next steps
 
-If you want, I can now:
-- (A) embed the PNG images as inline thumbnails in a Markdown-friendly way (already linked above),
-- (B) create a short `README_figures.md` that contains figure captions and latex-ready captions, or
-- (C) implement the incremental `GraphState` push/pop optimization.
-
-Which next action should I perform?
+- Optimize `GraphState` reconstruction to an incremental push/pop undo model.
+- Run larger-scale experiments with more seeds and bigger graphs.
+- Evaluate pseudo-cost reliability as a function of `min_obs`.
+- Prepare a one-page figure comparing `certainty_first` versus `degree` on nodes explored and prune rate.
