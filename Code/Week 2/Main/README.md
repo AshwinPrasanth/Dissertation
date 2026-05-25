@@ -114,19 +114,19 @@ pip install -r requirements.txt
 ### Run the quick smoke test
 
 ```bash
-python Lit/week-1/experiments.py --quick
+python experiments.py --quick
 ```
 
 ### Run the focused strategy comparison
 
 ```bash
-python Lit/week-1/experiments.py --strategy-comparison --n-repeats 10 --sizes 20 40 --out-dir Lit/week-1/results_focus
+python experiments.py --strategy-comparison --n-repeats 10 --sizes 20 40 --out-dir Lit/week-1/results_focus
 ```
 
 ### Run the full suite
 
 ```bash
-python Lit/week-1/experiments.py --run-all --out-dir Lit/week-1/results
+python experiments.py --run-all --out-dir Lit/week-1/results
 ```
 
 ## Notes on runtime and reproducibility
