@@ -1,0 +1,13 @@
+n,edges,density,strategy,status,obj,explored,pruned,prune_rate,time_s,reduction_fixes,first_inc_depth
+10,17,0.3778,certainty_first,optimal,5.0,1,0,0.0000,0.003510,10,0
+10,17,0.3778,most_fractional,optimal,5.0,1,0,0.0000,0.003120,10,0
+10,17,0.3778,random,optimal,5.0,1,0,0.0000,0.004181,10,0
+15,42,0.4000,certainty_first,optimal,9.0,7,3,0.4286,0.014399,20,3
+15,42,0.4000,most_fractional,optimal,9.0,23,8,0.3478,0.040042,59,9
+15,42,0.4000,random,optimal,9.0,15,5,0.3333,0.024948,24,2
+20,79,0.4158,certainty_first,optimal,14.0,25,11,0.4400,0.044076,109,9
+20,79,0.4158,most_fractional,optimal,14.0,45,18,0.4000,0.074465,192,16
+20,79,0.4158,random,optimal,14.0,21,9,0.4286,0.041832,97,3
+25,120,0.4000,certainty_first,optimal,18.0,27,12,0.4444,0.052416,88,13
+25,120,0.4000,most_fractional,optimal,18.0,87,39,0.4483,0.158008,526,19
+25,120,0.4000,random,optimal,18.0,47,22,0.4681,0.082455,204,4
