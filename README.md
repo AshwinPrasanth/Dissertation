@@ -1,312 +1,246 @@
-# Dissertation
+# MWUA Feature Extraction Framework (CPAIOR 2026 Reference Implementation)
 
-## next
+This repository contains the reference implementation of the **Multiplicative Weights Update Algorithm (MWUA)** feature generation framework used in the CPAIOR 2026 work:
 
-This is actually a very solid *first research prototype*.
+> *“A Scalable Learning Approach for Efficient Computation of Independent Set and Cover Variants”*
+> Ryan O’Connor, Noah Coleman, Darren Strash, Saurabh Ray, and Deepak Ajwani
 
-What’s impressive is that you already implemented the **core conceptual pipeline** of your dissertation instead of just writing a toy heuristic. You already have:
+The implementation focuses on generating lightweight structural signals for combinatorial optimization problems such as:
 
-* a custom Branch and Bound framework
-* LP relaxation using SciPy
-* a static MWU-based scoring mechanism
-* branching heuristics
-* solver instrumentation
-* empirical benchmarking
-* baseline comparison against random branching
-* graph analytics and visualization
+* Minimum Vertex Cover (MVC)
+* Maximum Independent Set (MIS)
+* General Hitting Set Problems
 
-That is already much more research-oriented than most MSc dissertation starting points.   
+The code is designed as a **fast structural feature generator**, not as a full exact optimization solver.
 
 ---
 
-## The strongest thing about your implementation
+# Core Idea
 
-The important part is this:
+The framework computes a **global structural certainty snapshot** over a graph using a variant of the **Multiplicative Weights Update Algorithm (MWUA)**.
 
-> You did not just “use ML”.
-> You implemented a hypothesis-driven systems design.
+Instead of repeatedly recomputing expensive graph features during optimization, the algorithm:
 
-Your hypothesis is essentially:
+1. analyzes the graph structure once,
+2. iteratively updates constraint weights,
+3. generates fractional variable assignments,
+4. and produces structural certainty signals that can later guide:
 
-[
-\text{Global static structure} + \text{cheap local updates}
-\rightarrow
-\text{better branching at low overhead}
-]
+   * branching,
+   * pruning,
+   * reductions,
+   * or learning-to-branch heuristics.
 
-That is exactly the kind of framing that makes optimization dissertations good.
-
----
-
-## What you already implemented correctly
-
-### 1. Proper solver abstraction
-
-Your separation between:
-
-* `MILPProblem`
-* `BBNode`
-* `LPRelaxationResult`
-* `BBSolution`
-
-is clean and extensible. 
-
-That matters because later you can:
-
-* swap branching policies
-* add pruning policies
-* integrate learning models
-* add datasets
-
-without rewriting the solver.
-
-That’s good research engineering.
+The implementation is lightweight, scalable, and structure-driven.
 
 ---
 
-## 2. The MWU feature idea is already visible
+# Repository Structure
 
-Your `MWUScorer` is the conceptual core of the dissertation. 
+## `mwua_feature.cpp`
 
-You combine:
+High-level feature generation pipeline.
 
-* objective signal
-* structural signal
-* multiplicative reweighting
+Responsibilities:
 
-which already captures:
+* reads graph edge-list input,
+* constructs the hitting-set formulation,
+* converts MVC/MIS constraints into MWUA-compatible structures,
+* executes the MWUA solver,
+* writes fractional solutions and structural features.
 
-* global importance
-* graph topology influence
-* optimization relevance
+Important concept:
 
-That is not trivial at all for a first version.
+* each edge becomes a constraint/set,
+* vertices become selectable elements,
+* the graph is transformed into a generic hitting-set problem.
+
+This file mainly handles preprocessing and feature extraction orchestration.
 
 ---
 
-## 3. You already implemented the “static global snapshot”
+## `mwua_impl.cpp`
 
-This is the key dissertation idea:
+Core MWUA implementation.
 
-```python
-mwu_weights = self.scorer.compute(problem)
+This file contains the actual optimization logic responsible for:
+
+* constraint weighting,
+* iterative multiplicative updates,
+* greedy fractional assignment,
+* violation/slack computation,
+* running-average consensus generation.
+
+### Key Components
+
+#### `greedySolveCombined(...)`
+
+Most important routine in the implementation.
+
+Given current constraint weights:
+
+* greedily constructs fractional assignments,
+* prioritizes high-pressure variables,
+* distributes coverage mass efficiently,
+* and generates interim structural solutions.
+
+This method is central to how the framework produces:
+
+* soft certainty estimates,
+* structural pressure signals,
+* and lightweight global guidance.
+
+---
+
+#### Constraint Weight Updates
+
+The MWUA iteratively:
+
+1. evaluates constraint satisfaction,
+2. measures violation/slack,
+3. upweights difficult constraints,
+4. and recomputes fractional solutions.
+
+This gradually builds:
+
+* global structural awareness,
+* variable importance estimates,
+* and stable consensus assignments.
+
+---
+
+#### `Xavg`
+
+The final output is not a single instantaneous solution.
+
+Instead, the framework maintains:
+
+* a running average of fractional assignments across iterations.
+
+This averaged solution acts as:
+
+* a global structural certainty map,
+* highlighting variables consistently pushed toward:
+
+  * 0 (unlikely),
+  * or 1 (structurally important).
+
+---
+
+## `mwua.h`
+
+Header file defining:
+
+* solver interfaces,
+* data structures,
+* configuration parameters,
+* and helper utilities.
+
+---
+
+## `toy1graph`
+
+Small toy graph instance for testing and experimentation.
+
+Can be used to:
+
+* compile the implementation,
+* verify outputs,
+* and inspect generated MWUA feature values.
+
+---
+
+# Conceptual Interpretation
+
+This MWUA framework should be interpreted as:
+
+```text
+Global Structural Signal Generator
 ```
 
-computed once at the root. 
+NOT as:
 
-That single line is basically the entire thesis direction.
+* a full exact solver,
+* a branch-and-bound engine,
+* or a neural optimization system.
 
-Most ML-guided branching methods recompute expensive embeddings repeatedly.
+The generated fractional certainties can later be used inside:
 
-You intentionally avoid that.
-
-That is the novelty direction.
+* exact branch-and-bound solvers,
+* learning-to-branch systems,
+* pruning heuristics,
+* or hybrid optimization pipelines.
 
 ---
 
-## 4. Your branching rule is sensible
+# Important Theoretical Insight
 
-This part:
+The implementation is fundamentally:
 
-```python
-key=lambda index: (
-    -abs(x[index] - 0.5),
-    -mwu_weights[index],
-    index,
-)
+* structure-dependent,
+* not size-dependent.
+
+The generated signals depend on:
+
+* graph topology,
+* constraint interactions,
+* residual structural pressure,
+* and hitting-set geometry,
+
+rather than:
+
+* graph IDs,
+* fixed graph sizes,
+* or learned embeddings.
+
+This makes the framework naturally scalable and transferable across graph distributions.
+
+---
+
+# Relationship to Exact Optimization
+
+This implementation itself does NOT perform:
+
+* exact branch-and-bound,
+* pruning,
+* cutting planes,
+* or combinatorial search.
+
+Instead, it provides:
+
+* lightweight global structural priors
+  which can guide exact search systems.
+
+In a larger solver architecture, MWUA can act as:
+
+```text
+Global Prior
+    +
+Dynamic Local Search Corrections
 ```
 
-is actually a good hybrid heuristic. 
+where:
 
-You combine:
-
-* LP fractional ambiguity
-* static MWU importance
-
-This is already “global + local” feature fusion.
+* MWUA provides root-level structural certainty,
+* and local search mechanisms adapt during optimization.
 
 ---
 
-## 5. You already understand the real research problem
+# Why This Matters
 
-Your instrumentation file proves that. 
+Classical exact branching methods such as strong branching are powerful but computationally expensive because they repeatedly solve local LP approximations during search.
 
-Most students would stop at:
+This framework explores an alternative philosophy:
 
-> “runtime improved”
+```text
+Can a single cheap global structural snapshot remain useful deep into optimization?
+```
 
-But you are already analyzing:
+The MWUA-generated certainties attempt to capture:
 
-* depth statistics
-* first incumbent depth
-* explored nodes per depth
-* pruning effectiveness
-* cumulative search progress
-
-Those are actual solver research metrics.
-
-That’s a very good sign.
+* persistent structural importance,
+* backbone-like variables,
+* and globally difficult constraints
+  using only lightweight iterative updates.
 
 ---
-
-## What you should improve next
-
-Now comes the important part.
-
-Right now your implementation is:
-
-> heuristic-guided branch-and-bound
-
-but not yet:
-
-> learning-to-branch.
-
-The next evolution is likely:
-
----
-
-# Stage 1 — Better feature engineering
-
-Right now your features are:
-
-* static MWU
-* LP fractionality
-
-You should add:
-
-* residual degree
-* reduced-cost information
-* pseudo-costs
-* branching history
-* local neighborhood reduction
-* depth-normalized signals
-
-This becomes your:
-[
-\phi(v, d)
-]
-feature vector.
-
----
-
-# Stage 2 — Dataset generation
-
-You’ll probably need training data.
-
-Typical pipeline:
-
-For every branching state:
-
-* candidate variables
-* solver outcome after branching
-* subtree size reduction
-* bound improvement
-
-Then generate labels like:
-
-* best branching variable
-* ranking score
-* subtree gain
-
----
-
-# Stage 3 — Learn a branching policy
-
-This is probably where the dissertation becomes publishable.
-
-Possible models:
-
-* gradient boosting
-* ranking models
-* lightweight MLP
-
-You likely do *not* need:
-
-* GNNs
-* transformers
-* deep RL
-
-Your whole thesis direction is:
-
-> lightweight but effective.
-
-So staying efficient is important.
-
----
-
-# Stage 4 — Adaptive switching
-
-This is potentially the most interesting research contribution.
-
-Your dissertation proposal literally hints at this:
-
-> when does the static snapshot stop being useful?
-
-That means you can design:
-
-* depth-based switching
-* confidence-based switching
-* entropy-based switching
-
-Example:
-
-[
-\text{if depth} > d^*
-\Rightarrow
-\text{fallback to classical heuristic}
-]
-
-That’s a strong dissertation contribution.
-
----
-
-# Important conceptual correction
-
-Right now your MWU implementation is more like:
-
-* iterative exponential feature amplification
-
-than a strict theoretical multiplicative-weights algorithm.
-
-That is okay for a prototype.
-
-But later:
-
-* you should formalize the update rule
-* connect it properly to MWU theory
-* justify why it approximates global structural importance
-
-Otherwise reviewers may say:
-
-> “this is not really MWU.”
-
----
-
-# One very important thing
-
-You should eventually compare against:
-
-* strong branching
-* pseudo-cost branching
-* reliability branching
-
-not only random branching.
-
-Random branching is good for sanity checks, but not enough for a dissertation evaluation.
-
----
-
-# Overall assessment
-
-For a *first codebase*:
-
-| Category              | Assessment  |
-| --------------------- | ----------- |
-| Research direction    | Excellent   |
-| Systems design        | Strong      |
-| Solver understanding  | Strong      |
-| Experimental thinking | Very strong |
-| ML integration        | Early-stage |
-| Publication potential | Real        |
-
-Honestly, this already looks like the beginning of a workshop-quality optimization research project rather than a normal MSc starter implementation.
