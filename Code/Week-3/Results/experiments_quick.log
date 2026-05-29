@@ -1,0 +1,85 @@
+============================================================
+  Research-Grade B&B Experimental Suite
+============================================================
+
+[MODE: QUICK — reduced parameters for speed]
+  n= 10 trial=0 certainty_first      nodes=      1 prune=100.00% t=0.040s
+  n= 10 trial=0 most_fractional      nodes=      1 prune=100.00% t=0.039s
+  n= 10 trial=0 random               nodes=      1 prune=100.00% t=0.040s
+  n= 10 trial=0 degree               nodes=      1 prune=100.00% t=0.039s
+  n= 10 trial=0 pseudo_cost          nodes=      1 prune=100.00% t=0.039s
+  n= 10 trial=0 mwua_only            nodes=      1 prune=100.00% t=0.040s
+  n= 10 trial=1 certainty_first      nodes=      1 prune=100.00% t=0.019s
+  n= 10 trial=1 most_fractional      nodes=      1 prune=100.00% t=0.018s
+  n= 10 trial=1 random               nodes=      1 prune=100.00% t=0.018s
+  n= 10 trial=1 degree               nodes=      1 prune=100.00% t=0.018s
+  n= 10 trial=1 pseudo_cost          nodes=      1 prune=100.00% t=0.018s
+  n= 10 trial=1 mwua_only            nodes=      1 prune=100.00% t=0.018s
+  n= 15 trial=0 certainty_first      nodes=      7 prune=57.14% t=0.074s
+  n= 15 trial=0 most_fractional      nodes=      7 prune=57.14% t=0.072s
+  n= 15 trial=0 random               nodes=      7 prune=57.14% t=0.073s
+  n= 15 trial=0 degree               nodes=      7 prune=57.14% t=0.073s
+  n= 15 trial=0 pseudo_cost          nodes=      7 prune=57.14% t=0.073s
+  n= 15 trial=0 mwua_only            nodes=      7 prune=57.14% t=0.074s
+  n= 15 trial=1 certainty_first      nodes=     11 prune=54.55% t=0.089s
+  n= 15 trial=1 most_fractional      nodes=     23 prune=52.17% t=0.112s
+  n= 15 trial=1 random               nodes=     13 prune=53.85% t=0.092s
+  n= 15 trial=1 degree               nodes=     11 prune=54.55% t=0.088s
+  n= 15 trial=1 pseudo_cost          nodes=     23 prune=52.17% t=0.111s
+  n= 15 trial=1 mwua_only            nodes=     11 prune=54.55% t=0.087s
+  n= 20 trial=0 certainty_first      nodes=     13 prune=53.85% t=0.114s
+  n= 20 trial=0 most_fractional      nodes=     19 prune=52.63% t=0.126s
+  n= 20 trial=0 random               nodes=     15 prune=53.33% t=0.118s
+  n= 20 trial=0 degree               nodes=     13 prune=53.85% t=0.114s
+  n= 20 trial=0 pseudo_cost          nodes=     19 prune=52.63% t=0.127s
+  n= 20 trial=0 mwua_only            nodes=     13 prune=53.85% t=0.114s
+  n= 20 trial=1 certainty_first      nodes=     13 prune=53.85% t=0.135s
+  n= 20 trial=1 most_fractional      nodes=     19 prune=52.63% t=0.147s
+  n= 20 trial=1 random               nodes=     17 prune=52.94% t=0.143s
+  n= 20 trial=1 degree               nodes=     13 prune=53.85% t=0.134s
+  n= 20 trial=1 pseudo_cost          nodes=     19 prune=52.63% t=0.147s
+  n= 20 trial=1 mwua_only            nodes=     13 prune=53.85% t=0.136s
+[strategy_comparison] saved to /Users/ambikaprasanth/Desktop/Dissertation/Lit/week-2/results
+[backbone] MWUA–stability correlation: r=0.679
+[backbone] MWUA–frac_freq correlation:  r=-0.814
+[certainty_evolution] saved
+[deferred_uncertainty_analysis] saved
+  scaling n= 10 certainty_first      nodes=       1 t=0.013s
+  scaling n= 10 most_fractional      nodes=       1 t=0.013s
+  scaling n= 10 random               nodes=       1 t=0.012s
+  scaling n= 15 certainty_first      nodes=       7 t=0.061s
+  scaling n= 15 most_fractional      nodes=       9 t=0.064s
+  scaling n= 15 random               nodes=       7 t=0.067s
+  scaling n= 20 certainty_first      nodes=      23 t=0.214s
+  scaling n= 20 most_fractional      nodes=      19 t=0.221s
+  scaling n= 20 random               nodes=      27 t=0.216s
+  scaling n= 25 certainty_first      nodes=      25 t=0.308s
+  scaling n= 25 most_fractional      nodes=      51 t=0.389s
+  scaling n= 25 random               nodes=      31 t=0.313s
+[scaling] saved
+  density p=0.10 certainty_first      nodes=       1 t=0.017s
+  density p=0.10 most_fractional      nodes=       1 t=0.015s
+  density p=0.10 degree               nodes=       1 t=0.015s
+  density p=0.20 certainty_first      nodes=       9 t=0.085s
+  density p=0.20 most_fractional      nodes=      15 t=0.106s
+  density p=0.20 degree               nodes=       9 t=0.104s
+  density p=0.30 certainty_first      nodes=      33 t=0.277s
+  density p=0.30 most_fractional      nodes=      25 t=0.252s
+  density p=0.30 degree               nodes=      13 t=0.236s
+  density p=0.40 certainty_first      nodes=      17 t=0.157s
+  density p=0.40 most_fractional      nodes=      29 t=0.168s
+  density p=0.40 degree               nodes=      17 t=0.147s
+  density p=0.50 certainty_first      nodes=      21 t=0.208s
+  density p=0.50 most_fractional      nodes=      29 t=0.221s
+  density p=0.50 degree               nodes=      21 t=0.200s
+  density p=0.60 certainty_first      nodes=      31 t=0.302s
+  density p=0.60 most_fractional      nodes=      43 t=0.330s
+  density p=0.60 degree               nodes=      27 t=0.292s
+[density_sweep] saved
+[mwua_ablation] saved
+[reductions_impact] saved
+[depth_pruning_heatmap] saved
+
+============================================================
+  All results saved to: /Users/ambikaprasanth/Desktop/Dissertation/Lit/week-2/results
+============================================================
