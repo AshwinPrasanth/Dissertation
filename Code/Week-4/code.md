@@ -11,6 +11,8 @@ The framework explores the hypothesis that:
 
 > structurally stable variables produce stronger long-range search guidance than classical uncertainty-first branching.
 
+<img src="diagram/branching_py_diagram.svg" width="100%">
+
 ---
 
 # Core Idea
