@@ -605,3 +605,267 @@ where:
 * and exact branch-and-reduce search
 
 are combined to study long-range structural behaviour in combinatorial optimization.
+
+
+# experiments.py — Structural Persistence Experimental Suite
+
+`experiments.py` implements the full experimental framework used to evaluate the dissertation hypotheses on:
+
+* structural persistence,
+* certainty-guided exact search,
+* residual graph collapse,
+* and lightweight global-local branching guidance.
+
+The suite goes beyond standard runtime benchmarking and studies how structural information evolves throughout exact DFS Branch-and-Bound search.
+
+---
+
+# Experimental Philosophy
+
+The experiments investigate the central hypothesis that:
+
+> root-level structural certainty remains informative surprisingly deep into exact combinatorial search.
+
+The framework studies:
+
+```text id="ehv2ri"
+Root Structural Snapshot
+            │
+            ▼
+   Search Trajectory Evolution
+            │
+            ▼
+  Residual Graph Simplification
+            │
+            ▼
+ Structural Stabilization
+            │
+            ▼
+ Exact Search Efficiency
+```
+
+---
+
+# Experimental Pipeline
+
+```text id="hgmfvu"
+      Random Graph / MVC Instance
+                    │
+                    ▼
+          MWUA Feature Extraction
+                    │
+                    ▼
+       Exact Branch-and-Bound Solver
+                    │
+      ┌─────────────┼─────────────┐
+      ▼             ▼             ▼
+  Persistence   Residual Graph   LP Dynamics
+    Tracking       Evolution      Tracking
+      │             │             │
+      └─────────────┼─────────────┘
+                    ▼
+         CSV + Publication Plots
+```
+
+---
+
+# Implemented Experimental Studies
+
+| Experiment                            | Research Question                                    |
+| ------------------------------------- | ---------------------------------------------------- |
+| `run_strategy_comparison()`           | Does certainty-first branching improve exact search? |
+| `run_backbone_analysis()`             | Does MWUA certainty correlate with stabilization?    |
+| `run_certainty_evolution()`           | Does certainty increase faster during search?        |
+| `run_deferred_uncertainty_analysis()` | Does ambiguity stabilize with depth?                 |
+| `run_scaling_benchmark()`             | Do structural gains persist at scale?                |
+| `run_density_sweep()`                 | How does graph density affect guidance quality?      |
+| `run_mwua_ablation()`                 | Which structural signals matter most?                |
+| `run_reductions_impact()`             | Are gains caused by reductions alone?                |
+| `run_depth_pruning_heatmap()`         | How does pruning evolve across depth?                |
+
+---
+
+# 1. Strategy Comparison
+
+Compares:
+
+* certainty-first branching,
+* most-fractional branching,
+* MWUA-only branching,
+* pseudo-cost branching,
+* degree heuristics,
+* and random baselines.
+
+Tracked metrics include:
+
+| Metric                | Purpose                  |
+| --------------------- | ------------------------ |
+| explored nodes        | search efficiency        |
+| prune rate            | subtree effectiveness    |
+| first incumbent depth | early solution discovery |
+| persistence           | stabilization behaviour  |
+| residual density      | structural collapse      |
+| local gain            | simplification potential |
+
+The experiments evaluate whether certainty-guided search produces better search trajectories than classical uncertainty-first branching.
+
+---
+
+# 2. Backbone / Stability Analysis
+
+Studies whether high-MWUA-certainty variables stabilize consistently during DFS exploration.
+
+The framework tracks:
+
+* fractional frequency,
+* fixed-zero frequency,
+* fixed-one frequency,
+* and backbone-style stability statistics.
+
+This experiment investigates whether MWUA certainty behaves similarly to lightweight backbone estimation.
+
+---
+
+# 3. Certainty Evolution
+
+Tracks how LP certainty evolves during exact search:
+
+```math id="ztgqyy"
+|x_i - 0.5|
+```
+
+The experiment studies:
+
+* stabilization speed,
+* ambiguity collapse,
+* and certainty accumulation across depth.
+
+The central question is:
+
+> does certainty-first branching make the residual search space easier faster?
+
+---
+
+# 4. Deferred-Uncertainty Analysis
+
+A major research component of the framework.
+
+Simultaneously tracks:
+
+| Signal           | Meaning                         |
+| ---------------- | ------------------------------- |
+| LP certainty     | ambiguity reduction             |
+| persistence      | long-range stabilization        |
+| residual density | remaining structural complexity |
+| active vertices  | search-space shrinkage          |
+| local gain       | propagation strength            |
+
+This experiment studies search as a dynamic evolving system rather than only measuring final runtime.
+
+---
+
+# 5. Scaling Benchmark
+
+Evaluates how branching strategies behave as graph size increases.
+
+The experiments analyze:
+
+* runtime scaling,
+* node-count growth,
+* and log-scale search complexity.
+
+The goal is to determine whether:
+
+* global structural guidance,
+* persistence effects,
+* and residual collapse
+
+become more valuable as ambiguity increases.
+
+---
+
+# 6. Density Sweep
+
+Studies solver behaviour across graph densities.
+
+Different densities induce:
+
+* different ambiguity regimes,
+* propagation behaviour,
+* and structural interaction complexity.
+
+The experiment evaluates where structural guidance becomes most beneficial.
+
+---
+
+# 7. MWUA Signal Ablation
+
+Decomposes the certainty-first branching score into individual signal groups.
+
+The ablation evaluates:
+
+| Signal          | Purpose                       |
+| --------------- | ----------------------------- |
+| LP certainty    | local relaxation confidence   |
+| MWUA certainty  | global structural information |
+| residual degree | local topology                |
+| depth decay     | persistence of root guidance  |
+
+This experiment directly evaluates the dissertation hypothesis:
+
+> static global structure + dynamic local refinement improves exact search.
+
+---
+
+# 8. Reduction Impact Analysis
+
+Compares certainty-first search:
+
+* with reductions,
+* and without reductions.
+
+This isolates whether improvements originate from:
+
+* reductions alone,
+* or from the branching trajectory itself.
+
+The experiment strengthens causal interpretation of the search dynamics.
+
+---
+
+# 9. Depth-wise Pruning Heatmaps
+
+Tracks pruning behaviour across DFS depth.
+
+This enables visualization of:
+
+* stabilization phases,
+* pruning concentration,
+* and search-collapse regions.
+
+The analysis provides a depth-local view of exact search dynamics.
+
+---
+
+# Research Direction
+
+The experimental framework is evolving toward:
+
+## Structural Persistence in Exact Search
+
+where:
+
+* root-level structural certainty,
+* lightweight local refinement,
+* residual graph evolution,
+* and persistence tracking
+
+are studied as interacting dynamical processes inside exact combinatorial optimization.
+
+---
+
+# Current Hypothesis
+
+The current experiments increasingly suggest that:
+
+> MWUA structural certainty behaves like a lightweight approximation of backbone stability and remains informative surprisingly deep into exact DFS search.
