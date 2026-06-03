@@ -348,3 +348,260 @@ Current experiments investigate:
 * residual graph collapse,
 * and long-range usefulness of root-level MWUA certainty.
 
+# solver.py — Structural Persistence Guided Exact Search
+
+`solver.py` implements the exact Branch-and-Bound search engine used throughout the dissertation experiments.
+
+The solver combines:
+
+* root-level MWUA structural guidance,
+* lightweight dynamic graph refinement,
+* confidence-guided DFS diving,
+* branch-and-reduce simplification,
+* persistence tracking,
+* and exact LP-based optimization.
+
+The framework preserves exact optimality while studying how structural certainty evolves during combinatorial search.
+
+---
+
+# Solver Architecture
+
+```text id="l6e95m"
+            Root LP Relaxation
+                     │
+                     ▼
+       MWUA Structural Snapshot
+                     │
+                     ▼
+        Exact DFS Branch-and-Bound
+                     │
+      ┌──────────────┼──────────────┐
+      ▼              ▼              ▼
+ Reductions     Persistence     Pseudo-Costs
+      │              │              │
+      └──────────────┼──────────────┘
+                     ▼
+      Certainty-Guided Branching
+                     │
+                     ▼
+        Residual Graph Evolution
+                     │
+                     ▼
+             Exact Optimality
+```
+
+---
+
+# Core Solver Components
+
+| Component              | Purpose                             |
+| ---------------------- | ----------------------------------- |
+| `BranchAndBoundSolver` | Main exact DFS solver               |
+| `SolverTrace`          | Full search instrumentation         |
+| `DepthStats`           | Per-depth structural analysis       |
+| `Reductions`           | Lightweight branch-and-reduce rules |
+| `BBNode`               | Search node representation          |
+| persistence tracking   | structural stabilization analysis   |
+
+---
+
+# 1. Exact DFS Branch-and-Bound
+
+The solver performs classical exact DFS Branch-and-Bound:
+
+```text id="tqmql6"
+solve LP
+    ↓
+prune / reduce
+    ↓
+branch
+    ↓
+explore recursively
+```
+
+The framework remains fully exact:
+
+* LP bounds preserve correctness,
+* pruning remains safe,
+* and optimality guarantees are retained.
+
+Structural guidance influences:
+
+* branch ordering,
+* search trajectory,
+* and residual simplification,
+  not correctness.
+
+---
+
+# 2. Confidence-Guided DFS Diving
+
+The solver biases DFS exploration toward structurally stable trajectories using:
+
+```text id="j6j2di"
+priority(node) =
+    depth
+  + λ · certainty
+```
+
+High-certainty branches are explored earlier, encouraging:
+
+* faster stabilization,
+* accelerated simplification,
+* and earlier incumbent discovery.
+
+This creates a certainty-aware DFS exploration policy instead of purely depth-first traversal.
+
+---
+
+# 3. Branch-and-Reduce Framework
+
+Before branching, lightweight exact reductions are applied:
+
+| Reduction               | Purpose                           |
+| ----------------------- | --------------------------------- |
+| LP-forced assignments   | Nemhauser–Trotter simplifications |
+| isolated vertex removal | eliminate irrelevant variables    |
+| pendant reductions      | exact graph simplification        |
+| LP-degree agreement     | certainty-guided exact reductions |
+
+The solver therefore combines:
+
+* exact reductions,
+* structural certainty,
+* and local graph dynamics.
+
+---
+
+# 4. Structural Persistence Tracking
+
+A central research component of the solver is:
+
+## Persistence Tracking
+
+Variables repeatedly stabilizing toward the same assignment accumulate persistence scores during DFS exploration.
+
+The solver maintains:
+
+```text id="h6qlzb"
+persistence_zero
+persistence_one
+persistence_visits
+```
+
+which approximate:
+
+* long-range stabilization,
+* structural rigidity,
+* and pseudo-backbone behaviour.
+
+This mechanism enables analysis of:
+
+> how root-level structural information persists during exact search.
+
+---
+
+# 5. Residual Graph Evolution
+
+The solver continuously tracks residual graph dynamics:
+
+| Signal           | Meaning                         |
+| ---------------- | ------------------------------- |
+| residual density | remaining structural complexity |
+| residual degree  | surviving graph influence       |
+| local gain       | expected simplification power   |
+| active vertices  | remaining search size           |
+
+These measurements enable study of:
+
+* residual graph collapse,
+* search stabilization,
+* and structural simplification trajectories.
+
+---
+
+# 6. Pseudo-Cost Learning
+
+The framework includes full pseudo-cost tracking with reliability gating.
+
+Pseudo-costs estimate the historical usefulness of branching decisions:
+
+```text id="8od0if"
+large LP improvement
+    →
+higher future branch preference
+```
+
+Pseudo-costs are combined with:
+
+* MWUA certainty,
+* persistence,
+* and local graph structure
+
+to guide future branching.
+
+---
+
+# 7. Diversified Incumbent Search
+
+The solver performs shallow exploratory dives using perturbed certainty weights to discover early incumbents.
+
+This lightweight diversification strategy improves:
+
+* early upper bounds,
+* subtree pruning,
+* and trajectory diversity
+
+without expensive strong branching or large-scale parallel search.
+
+---
+
+# 8. Full Search Instrumentation
+
+The solver records complete search dynamics for research analysis.
+
+Tracked signals include:
+
+| Metric                     | Purpose                     |
+| -------------------------- | --------------------------- |
+| certainty evolution        | stabilization analysis      |
+| persistence evolution      | structural consistency      |
+| pruning statistics         | subtree effectiveness       |
+| incumbent improvements     | solution trajectory         |
+| residual density evolution | graph collapse analysis     |
+| backbone-style statistics  | variable stability analysis |
+
+This instrumentation forms the basis of the dissertation’s structural persistence experiments.
+
+---
+
+# Main Research Hypothesis
+
+The solver investigates whether:
+
+> root-level structural certainty remains informative surprisingly deep into exact combinatorial search.
+
+Current experiments suggest:
+
+* structurally certain variables stabilize earlier,
+* residual graph density collapses faster,
+* MWUA certainty behaves similarly to lightweight backbone estimation,
+* and certainty-guided branching scales better than uncertainty-first branching.
+
+---
+
+# Research Direction
+
+The framework is evolving toward:
+
+## Structural Persistence Guided Exact Search
+
+where:
+
+* lightweight global structural snapshots,
+* dynamic local refinement,
+* persistence tracking,
+* and exact branch-and-reduce search
+
+are combined to study long-range structural behaviour in combinatorial optimization.
