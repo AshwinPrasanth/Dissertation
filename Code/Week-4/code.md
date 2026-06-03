@@ -11,7 +11,7 @@ The framework explores the hypothesis that:
 
 > structurally stable variables produce stronger long-range search guidance than classical uncertainty-first branching.
 
-<img src="diagram/branching_py_diagram.svg" width="100%">
+<img src="diagram/branching_py_diagram.svg" width="80%">
 
 ---
 
@@ -123,6 +123,8 @@ The module combines:
 * and exact LP relaxation support.
 
 The design intentionally avoids expensive repeated global recomputation during search.
+
+<img src="diagram/core_py_diagram.svg" width="80%">
 
 ---
 
@@ -364,6 +366,8 @@ The solver combines:
 * and exact LP-based optimization.
 
 The framework preserves exact optimality while studying how structural certainty evolves during combinatorial search.
+
+<img src="diagram/solver_py_diagram_fixed_v2.svg" width="80%">
 
 ---
 
@@ -619,6 +623,8 @@ are combined to study long-range structural behaviour in combinatorial optimizat
 * and lightweight global-local branching guidance.
 
 The suite goes beyond standard runtime benchmarking and studies how structural information evolves throughout exact DFS Branch-and-Bound search.
+
+<img src="diagram/experiments_py_diagram.svg" width="80%">
 
 ---
 
