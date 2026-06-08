@@ -1,6 +1,6 @@
 ## Here, I keep track of all the insights and next step brainstorming ideas for Week_4-2
 
-#### Insight 1**
+#### Insight 1
 
 * Current MWU oracle is a weighted degree accumulation and hence it doesnt outperform the nodes explored, when tested agains the Degree based approach.
 * variable pressure = sum of incident edge weights for MVC. MWU computes the weighted degree and not the global features.
