@@ -153,6 +153,10 @@ To evaluate how graph density affects branching effectiveness, we fixed the grap
 
 **Preliminary evidence suggests that a single root-level MWUA structural snapshot can significantly reduce exact Branch-and-Bound search effort, with benefits increasing as graph size grows.**
 
+## Next Steps:
+1. Current MWU oracle is a weighted degree accumulation and hence it doesnt outperform the nodes explored, when tested agains the Degree based approach.
+2. variable pressure = sum of incident edge weights for MVC. MWU computes the weighted degree and not the global features.
+3. Hence the current shift happen towards reworking on the oracle to the greedy based strategy followed in the **CPAIOR** paper.
 ---
 
 ## Key Takeaway
