@@ -1,6 +1,6 @@
 ## Here, I keep track of all the insights and next step brainstorming ideas for Week_4-2
 
-#### Insight 1
+### Insight 1
 
 * Current MWU oracle is a weighted degree accumulation and hence it doesnt outperform the nodes explored, when tested agains the Degree based approach.
 * variable pressure = sum of incident edge weights for MVC. MWU computes the weighted degree and not the global features.
@@ -21,3 +21,21 @@ $$ constraint weights -> oracle -> update weights -> oracle -> update weights $$
 The oracle is typically: Given current constraint weights, find a greedy solution that minimizes weighted violation.
 
 > For Vertex Cover this becomes something like: edge weights -> (pick vertices that cover, high-weight edges)
+
+**Algorithm**
+
+Inside each MWUA iteration:
+
+1. Compute weighted edge importance.
+2. Greedily choose vertices covering highest-weight edges.
+3. Produce:
+
+   $x_t$
+
+   Update violated constraints.
+
+   Average:
+
+   $x_{\text{avg}}$
+
+   across rounds.
