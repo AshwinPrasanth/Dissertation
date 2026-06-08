@@ -26,6 +26,10 @@ class MILPProblem:
     b_eq: Optional[np.ndarray] = None
 #variable names
     variable_names: Optional[List[str]] = None
+    # add graph structure for vertex cover problems (greedy oracle)
+    graph: Optional[nx.Graph] = None
+    
+    problem_type: str = ""
 
     @property
     def num_variables(self) -> int:
@@ -89,6 +93,8 @@ def build_vertex_cover_problem(G: nx.Graph) -> MILPProblem:
         A_ub=A_ub,
         b_ub=b_ub,
         variable_names=[str(v) for v in vertices],
+        graph=G,
+        problem_type="mvc"
     )
 
 import networkx as nx
@@ -97,6 +103,76 @@ import networkx as nx
 G = nx.cycle_graph(4)
 
 problem = build_vertex_cover_problem(G)
+
+def build_mis_problem(
+    G,
+):
+    """
+    Maximum Independent Set
+
+    maximize:
+        sum x_v
+
+    subject to:
+        x_u + x_v <= 1
+        for every edge (u,v)
+
+    converted to minimization:
+
+        minimize:
+            -sum x_v
+    """
+
+    vertices = list(G.nodes())
+
+    node_to_idx = {
+        v: i
+        for i, v in enumerate(vertices)
+    }
+
+    n = len(vertices)
+
+    c = -np.ones(n)
+
+    A_ub = []
+    b_ub = []
+
+    for u, v in G.edges():
+
+        row = np.zeros(n)
+
+        row[
+            node_to_idx[u]
+        ] = 1.0
+
+        row[
+            node_to_idx[v]
+        ] = 1.0
+
+        A_ub.append(row)
+
+        b_ub.append(1.0)
+
+    A_ub = np.array(
+        A_ub,
+        dtype=float,
+    )
+
+    b_ub = np.array(
+        b_ub,
+        dtype=float,
+    )
+
+    return MILPProblem(
+        c=c,
+        A_ub=A_ub,
+        b_ub=b_ub,
+        variable_names=[
+            str(v)
+            for v in vertices
+        ],
+        graph=G, problem_type="mis"
+    )
 
 print(problem.num_variables)
 print(problem.num_constraints)
