@@ -1,11 +1,11 @@
 import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
-from problem import build_vertex_cover_problem
+from problem import (build_vertex_cover_problem, build_mis_problem)
 from solver import BranchAndBoundSolver
 from mwua import MWUAFeatureExtractor
 from lp import solve_lp_relaxation
-from branching import (MostFractionalBranching,MWUABranching)
+from branching import (MostFractionalBranching,MWUABranching,DegreeBranching)
 
 def run_demo():
 
@@ -26,32 +26,58 @@ def run_demo():
     print("LP Solves:", result.lp_solves)
 
 def run_demo2():
+
     G = nx.erdos_renyi_graph(
         n=30,
         p=0.2,
         seed=42,
     )
-    mwua = MWUAFeatureExtractor()
+
     problem = build_vertex_cover_problem(G)
+
+    mwua = MWUAFeatureExtractor()
+
     result = mwua.compute(problem)
-    lp = solve_lp_relaxation(problem)
 
-    lp_certainty = np.abs(
-        lp.x - 0.5
+    print("\nMWUA x_avg (first 10)")
+    print(np.round(result.x_avg[:10], 3))
+
+    print("\nMWUA certainty (first 10)")
+    print(np.round(result.certainty[:10], 3))
+
+    degrees = np.array(
+        [G.degree(v) for v in G.nodes()]
     )
-    corr = np.corrcoef(
-        lp_certainty,
-        result.certainty
-    )[0, 1]
-    print(lp.x)
-    print("LP-MWUA Correlation:", corr)
-    for i in range(10):
 
-        print(
-            f"v={i:2d}",
-            f"LP={lp_certainty[i]:.3f}",
-            f"MWUA={result.certainty[i]:.3f}",
-        )
+    top_degree = np.argsort(
+        -degrees
+    )[:10]
+
+    top_mwua = np.argsort(
+        -result.certainty
+    )[:10]
+
+    print("\nTop Degree")
+    print(top_degree)
+
+    print("\nTop MWUA")
+    print(top_mwua)
+
+    overlap = len(
+        set(top_degree)
+        &
+        set(top_mwua)
+    )
+
+    print(
+        f"\nTop-10 overlap: {overlap}/10"
+    )
+    print(
+    "Unique x_avg values:",
+    len(np.unique(
+        np.round(result.x_avg, 3)
+    ))
+)
 
     #print(result.x_avg[:10])
     #print(result.certainty[:10])
@@ -97,7 +123,7 @@ def plot_mwua(G, result):
     plt.show()
 
 def compare_lp_vs_mwua():
-
+# Compare LP branching vs MWUA branching on one random graph(erdos_renyi_graph)
     G = nx.erdos_renyi_graph(
         n=30,
         p=0.2,
@@ -144,26 +170,34 @@ def compare_lp_vs_mwua():
     print("Objective:", mwua_result_solver.objective)
     print("Nodes:", mwua_result_solver.nodes_explored)
     
-def compare_lp_vs_mwua_many():
 
+def compare_lp_vs_mwua_many():
+# Compare multiple strategies branching on multiple random graphs(erdos_renyi_graph)
     lp_nodes = []
     mwua_nodes = []
+    degree_nodes = []
     results = []
     n1=p1=0
 
     for seed in range(20):
 
         G = nx.erdos_renyi_graph(
-            n=30,
+            n=50,
             p=0.2,
             seed=seed,
         )
         n1,p1=len(G),nx.density(G)
 
-        problem = build_vertex_cover_problem(G)
+        problem = build_mis_problem(G)
+        
+        lp = solve_lp_relaxation(problem)
 
         mwua = MWUAFeatureExtractor()
         mwua_result = mwua.compute(problem)
+        
+        #print("Unique MWUA:",len(np.unique(np.round(mwua_result.x_avg,4))))
+        #print(np.round(mwua_result.x_avg[:10],4))
+        
 
         lp_solver = BranchAndBoundSolver(
             MostFractionalBranching()
@@ -176,9 +210,14 @@ def compare_lp_vs_mwua_many():
                 mwua_result.certainty
             )
         )
-
         mwua_result_solver = mwua_solver.solve(problem)
-
+        
+        degrees = np.array([G.degree(v) for v in G.nodes()])
+        degree_solver = BranchAndBoundSolver(
+            DegreeBranching(degrees)
+        )    
+        degree_result = degree_solver.solve(problem)
+        
         lp_nodes.append(
             lp_result.nodes_explored
         )
@@ -186,6 +225,9 @@ def compare_lp_vs_mwua_many():
         mwua_nodes.append(
             mwua_result_solver.nodes_explored
         )
+        
+        degree_nodes.append(
+    degree_result.nodes_explored)
         
         
 
@@ -199,22 +241,76 @@ def compare_lp_vs_mwua_many():
         np.mean(mwua_nodes)
     )
     
+    print(
+    "Degree Avg:",
+    np.mean(degree_nodes)
+    )
+    
+    print(
+    "Unique LP values:",
+    len(np.unique(
+        np.round(lp.x, 4)
+    ))
+)
+
+    print(
+    "Unique MWUA values:",
+    len(np.unique(
+        np.round(
+            mwua_result.x_avg,
+            4
+        )
+    ))
+)
+    
     results.append([n1,p1,np.mean(lp_nodes),np.mean(mwua_nodes)]) 
-    print(results)
+    top_degree = np.argsort(-degrees)[:10]
+    top_mwua = np.argsort(
+    -mwua_result.certainty
+)[:10]
+    print(top_degree)
+    print(top_mwua)
 
+def test_mis():
 
+    G = nx.path_graph(4)
+
+    problem = build_mis_problem(G)
+
+    solver = BranchAndBoundSolver()
+
+    result = solver.solve(problem)
+
+    print(
+        "objective:",
+        result.objective
+    )
+
+    print(
+        "solution:",
+        result.solution
+    )
     
 if __name__ == "__main__":
     #run_demo()
     #run_demo2()
     #compare_lp_vs_mwua()
     compare_lp_vs_mwua_many()
-    '''G = nx.erdos_renyi_graph(
-        n=30,
-        p=0.2,
-        seed=42,
+    #test_mis()
+    '''G = nx.watts_strogatz_graph(
+        n=50,
+        k=6,
+        p=0.1
     )
-    problem = build_vertex_cover_problem(G)
+    problem=build_mis_problem(G)
+    lp=solve_lp_relaxation(problem)
+    n_half = np.sum(
+    np.abs(lp.x - 0.5) < 1e-6)
+
+    print( "Half-integral:",n_half,"/",len(lp.x))
+    print("Fraction:",n_half / len(lp.x))'''
+    
+    '''problem = build_vertex_cover_problem(G)
     mwua = MWUAFeatureExtractor()
     result = mwua.compute(problem)'''
     #plot_mwua(G, result)
