@@ -58,6 +58,27 @@ class MWUABranching(BranchingStrategy):
             key=lambda i:
             self.mwua_certainty[i]
         )
+
+class DegreeBranching(BranchingStrategy):
+# a simple heuristic: branch on the variable with highest degree in the constraint graph
+    def __init__(self, degrees):
+        self.degrees = degrees
+
+    def select(self, lp_solution):
+
+        fractional = [
+            i
+            for i, x in enumerate(lp_solution)
+            if 1e-6 < x < 1 - 1e-6
+        ]
+
+        if not fractional:
+            return -1
+
+        return max(
+            fractional,
+            key=lambda i: self.degrees[i]
+        )
         
 import numpy as np
 
