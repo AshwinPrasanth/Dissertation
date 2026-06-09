@@ -1,4 +1,4 @@
-# LOG 1: CPAIOR MWUA Reproduction & MIS Extension
+# LOG 1: CPAIOR MWUA Reproduction & MIS Extension: 9-6-26
 
 ### Motivation
 
