@@ -1,6 +1,10 @@
-# Week 4.2: Dissertation Progress (Phase 1 Prototype)
+# Week 4.2: Dissertation Progress (Phase 1 Prototype) 
 
-## Research Question
+### Link to Daily Logs [Last UPDATED: 9-6-26]: [Log File](Logs/log.md)
+### Link to Important Insights [Last UPDATED: 9-6-26]: [Insights File](Logs/insights.md)
+
+
+## Research Question [UPDATED: 8-6-26]
 
 **Can MWUA-derived structural features replace LP-derived features for guiding exact Branch-and-Bound search?**
 
