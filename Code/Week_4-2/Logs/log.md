@@ -1,4 +1,4 @@
-# LOG 1: CPAIOR MWUA Reproduction & MIS Extension: 9-6-26
+# LOG 1: CPAIOR MWUA Reproduction & MIS Extension: 8-6-26
 
 ### Motivation
 
@@ -99,3 +99,38 @@ Purpose:
 > LP features collapse on MIS, while MWUA generates a rich and informative feature spectrum.
 
 **Next Phase:** Feature extraction pipeline (MWUA + structural graph features) and feature-importance analysis using machine learning.
+
+
+# LOG 2: Feature Extraction Pipeline: 9-6-26
+
+Implemented a CPAIOR-inspired feature extraction pipeline consisting of:
+
+- Degree-rank features (4)
+- Centrality features (4)
+- MWUA features (4)
+- LP features (2)
+- Luby frequency feature (1)
+
+**Total:** 15 vertex-level features
+
+---
+
+## Initial Observations
+
+Experiments were conducted on Erdős–Rényi Maximum Independent Set (MIS) instances with:
+
+- $n = 50$
+- $p = 0.2$
+
+### Results
+
+- LP relaxation features collapsed to a single value ($x = 0.5$ for all vertices).
+- LP certainty was identically zero.
+- MWUA features produced approximately 20–22 distinct values across vertices.
+- Luby frequency produced approximately 24 distinct values across vertices.
+
+### Interpretation
+
+### Interpretation
+
+These preliminary results indicate that LP-derived features provide little discriminative information for the tested MIS instances, while MWUA and heuristic-based features generate richer vertex rankings that may be more useful for guiding exact search.
