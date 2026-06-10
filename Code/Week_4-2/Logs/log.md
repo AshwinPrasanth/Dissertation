@@ -131,6 +131,99 @@ Experiments were conducted on Erdős–Rényi Maximum Independent Set (MIS) inst
 
 ### Interpretation
 
-### Interpretation
-
 These preliminary results indicate that LP-derived features provide little discriminative information for the tested MIS instances, while MWUA and heuristic-based features generate richer vertex rankings that may be more useful for guiding exact search.
+
+
+
+# LOG 3: Testing on wider graph families for code reliability [9-6-26]
+
+## Objective
+
+Before generating the training dataset, the feature extraction pipeline was benchmarked on multiple graph families to verify that the extracted features provide meaningful and diverse signals.
+
+The goal was to evaluate feature variability and discriminative power rather than prediction performance.
+
+---
+
+## Graph Families
+
+The benchmark was performed on three synthetic graph families:
+
+| Graph Family | Parameters |
+|-------------|------------|
+| Erdős–Rényi (ER) | n = 100, p = 0.2 |
+| Barabási–Albert (BA) | n = 100, m = 3 |
+| Watts–Strogatz (WS) | n = 100, k = 6, β = 0.1 |
+
+
+---
+
+## Key Findings
+
+### LP Features Frequently Collapse
+
+LP-derived features provided very limited discrimination.
+
+| Graph | LP Unique Values |
+|---------|---------:|
+| ER | 1 |
+| BA | 2 |
+| WS | 1 |
+
+- ER and WS LP relaxations assigned every vertex a value of 0.5.
+- LP certainty collapsed to zero.
+- BA produced only binary LP values (0 or 1).
+- LP features contained little structural information overall.
+
+---
+
+### MWUA Features Remain Informative
+
+MWUA-derived features retained substantial variability across all graph families.
+
+| Graph | Unique MWUA x_avg Values |
+|---------|---------:|
+| ER | 43 |
+| BA | 22 |
+| WS | 48 |
+
+- MWUA features remained highly discriminative even when LP collapsed.
+- Weight-based features captured varying levels of constraint pressure.
+- MWUA signals consistently contained more information than LP signals.
+
+---
+
+### Luby Frequency Provides Strong Signal
+
+| Graph | Unique Frequency Values |
+|---------|---------:|
+| ER | 31 |
+| BA | 59 |
+| WS | 24 |
+
+- Luby frequency exhibited strong variability across all graph families.
+- The feature captures how consistently a vertex appears in maximal independent sets.
+- Provides a useful heuristic signal independent of LP and MWUA.
+
+---
+
+### Structural Features
+
+> Degree and centrality features remained informative across most graph families.
+> Particularly useful features included: Degree Rank, Neighbor Average Rank, PageRank
+> Core Number was informative on ER graphs but collapsed on BA and WS graphs.
+
+---
+
+## Preliminary Conclusion
+
+The benchmark suggests that:
+
+1. LP-derived features frequently collapse and provide limited information.
+2. MWUA-derived features consistently retain rich and diverse signals.
+3. Luby frequency provides a strong complementary heuristic signal.
+4. Degree and PageRank features remain informative across multiple graph structures.
+
+These results provide preliminary evidence that MWUA and structural features may offer more useful learning signals than LP-derived features for branching and optimization tasks.
+
+---
