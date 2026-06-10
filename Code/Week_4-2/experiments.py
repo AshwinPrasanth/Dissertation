@@ -9,7 +9,6 @@ from branching import (MostFractionalBranching,MWUABranching,DegreeBranching)
 from features import DegreeFeatureExtractor, CentralityFeatureExtractor, MWUAVertexFeatureExtractor, LPFeatureExtractor, LubyFeatureExtractor
 from dataset import DatasetBuilder
 
-
 ########## phase 1 early experiments ##########
 
 def run_demo():
