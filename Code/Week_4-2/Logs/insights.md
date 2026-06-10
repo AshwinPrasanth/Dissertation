@@ -106,3 +106,60 @@ The `features.py` module was developed prior to `datasets.py` and extracts verte
 | Luby | Luby Frequency |
 
 **Total: 15 vertex-level features**
+
+
+### Insight 3 (10-6-26)
+
+**MWUA Feature Alignment with CPAIOR Implementation**
+
+Today, the following changes were made to `mwua.py` and `features.py` after comparing the implementation against Ryan's CPAIOR codebase.
+
+**mwua.py**
+
+The existing implementation (last updated: 9 June) was reviewed against Ryan's oracle implementation and a few discrepancies were identified.
+
+> The main difference was the **Loop Exit Convergence Criteria**. The existing version executed a fixed number of iterations (`rounds = 100`) without checking the internal condition of the solution graph. In contrast, Ryan's implementation performs an early termination check based on maximum constraint violations:
+
+```cpp
+if (t % 10 == 0 && maxViolation(Xavg) <= delta) break;
+````
+
+* This change felt necessary because if Ryan's C++ loop terminates early at iteration 40 after reaching the delta feasibility threshold, while the Python implementation continues until iteration 100, then the final weights and `x_avg` values stored in the dataset will differ from the values used by the solver during runtime.
+
+* The updated `max_violation` implementation iterates through `problem.A_ub`, extracts active variables using `np.where(np.abs(row) > 0)`, evaluates the current coverage, and generalizes the feasibility check across both MVC and MIS problem formulations. This provides a closer conceptual match to the C++ implementation.
+
+* The feasibility scaling step present in the C++ code was intentionally not adopted. For a learning pipeline, retaining the raw MWUA trajectory may provide richer information about which vertices consistently receive high oracle mass, how much larger one signal is than another, and how the multiplicative updates evolve before the final projection step.
+
+---
+
+**features.py**
+
+A key observation concerned the distinction between **Temporal vs. Spatial MWUA Features**.
+
+> The initial implementation represented temporal statistics of edge weights accumulated across MWUA iterations. After comparing against `mwua_feature.cpp`, it became clear that the CPAIOR implementation instead computes per-vertex statistics using the final MWUA edge weights. The feature extractor was therefore redesigned to aggregate incident final edge weights for each vertex and produce:
+
+* `weight_min`
+* `weight_max`
+* `weight_avg`
+
+Another discrepancy involved **Global Weight Normalization**.
+
+> The original implementation aggregated raw final MWUA edge weights directly. Ryan's implementation first applies global normalization to the final constraint weights before performing vertex-level aggregation. A global min-max normalization step was therefore added to align the feature extraction process more closely with the CPAIOR implementation.
+
+A further investigation examined a potential **Edge-to-Constraint Mapping Mismatch**.
+
+The MWUA feature extractor initially assumed that:
+
+```python
+list(G.edges())[i]
+```
+
+corresponded directly to:
+
+```python
+problem.A_ub[i]
+```
+
+This mapping was verified because any mismatch would incorrectly associate MWUA constraint weights with graph vertices. Inspection of `build_mis_problem()` confirmed that `A_ub` is constructed by iterating over `G.edges()` in the same order. The existing implementation was therefore verified to be correct and no functional change was required.
+
+---
