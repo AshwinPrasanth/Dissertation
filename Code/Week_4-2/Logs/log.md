@@ -227,3 +227,119 @@ The benchmark suggests that:
 These results provide preliminary evidence that MWUA and structural features may offer more useful learning signals than LP-derived features for branching and optimization tasks.
 
 ---
+
+# LOG 4: MWU Oracle and features fix [10-6-26]
+
+## 1. mwua.py Changes
+
+### Oracle Alignment (Ryan CPAIOR)
+- Verified pressure computation:
+  - `scores = |A_ub|^T @ weights`
+  - Matches greedy weighted constraint pressure formulation in C++ implementation.
+
+- Greedy fractional oracle confirmed:
+  - Variables sorted by pressure
+  - Assignment: `can_give = min(1.0, need / scores[v])`
+  - Coverage updated dynamically via `need`
+
+---
+
+### Violation Logic Fix (MVC / MIS)
+- MVC:
+  - `violation = max(0, 1 - cover)`
+- MIS:
+  - `violation = max(0, cover - 1)`
+
+---
+
+### Convergence (Ryan-style)
+- Added:
+  ```python
+  if t % 10 == 0 and max_violation(x_avg) <= delta:
+      break
+  ```
+- Early stopping now enabled via `delta`
+
+---
+
+### MWUA Trajectory
+- Running average preserved:
+  ```
+  x_avg += (x_t - x_avg) / t
+  ```
+- No feasibility scaling applied (kept raw trajectory)
+
+---
+
+## 2. features.py Changes
+
+### MWUA Features (Vertex-level)
+- `x_avg`
+- `weight_min`
+- `weight_max`
+- `weight_avg`
+
+---
+
+### Normalization Fix
+- Added global min-max normalization on final MWUA edge weights before aggregation.
+
+---
+
+### Edge Mapping Validation
+- Verified:
+  - `G.edges()` ordering == `A_ub` construction order
+- No mismatch found
+
+---
+
+## 3. Runtime Validation (Experiment Output)
+
+### Oracle + MWUA Execution
+- Objective: 2.0
+- Solution: `[0 1 0 1]`
+- Nodes explored: 1
+
+---
+
+### MWUA Iteration Diagnostics
+```
+Round 1: max=1.10, min=1.00
+Round 2: max=1.21, min=1.00
+Round 3: max=1.331, min=1.00
+```
+
+---
+
+### MWUA Feature Output
+```
+x_avg:
+[0, 0, 0, 0, 1, 0.7049, 0, 0.0446, 0, 0]
+
+weight_min:
+all zeros
+
+weight_max:
+sparse + peaked distribution
+
+weight_avg:
+low-moderate spread across active vertices
+```
+
+---
+
+### Final MWUA Weight Spectrum
+```
+unique weights: 11 levels
+max weight: 865.59
+argmax edge: 12
+```
+
+---
+
+## 4. Key Validation Result
+
+- MWUA weights evolve correctly (non-trivial exponential growth)
+- Final distribution is highly non-uniform
+- `x_avg` provides meaningful fractional signal
+- Feature pipeline is consistent with CPAIOR-style formulation
