@@ -2,6 +2,7 @@
 
 ### Link to Daily Logs [Last UPDATED: 9-6-26]: [Log File](Logs/log.md)
 ### Link to Important Insights [Last UPDATED: 9-6-26]: [Insights File](Logs/insights.md)
+### Link to Slides [Last UPDATED: 5-6-26]: [Lit Slide](https://drive.google.com/file/d/1DgJ4IAIUGzFvxvTdkqPa81aNraGRN12I/view?usp=sharing)
 
 
 ## Research Question [UPDATED: 8-6-26]
