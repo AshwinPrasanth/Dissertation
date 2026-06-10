@@ -1,9 +1,25 @@
 from dataclasses import dataclass
 
 import numpy as np
-
 from problem import MILPProblem
 
+'''
+The Greedy MWUA 
+
+    for t:
+
+    compute scores
+
+    greedy oracle
+
+    update x_avg
+
+    save weight history
+
+    update weights
+
+    if t % 10 == 0 and max_violation(x_avg) <= delta:
+        break'''
 
 @dataclass
 class MWUAResult:
@@ -25,9 +41,11 @@ class MWUAFeatureExtractor:
         self,
         rounds: int = 100,
         eps: float = 0.1,
+        delta: float = 1e-3,
     ):
         self.rounds = rounds
         self.eps = eps
+        self.delta = delta
 
     def greedy_fractional_solution(
         self,
@@ -70,6 +88,50 @@ class MWUAFeatureExtractor:
             need = 1.0 - cumulative
 
         return x
+    
+    def max_violation(self, x: np.ndarray,problem: MILPProblem,) -> float:
+        """
+        Ryan-style convergence check.
+        """
+
+        max_v = 0.0
+
+        for row in problem.A_ub:
+
+            vars_in_constraint = np.where(
+                np.abs(row) > 0
+            )[0]
+
+            lhs = np.sum(
+                x[vars_in_constraint]
+            )
+
+            if problem.problem_type == "mvc":
+
+                violation = max(
+                    0.0,
+                    1.0 - lhs,
+                )
+
+            elif problem.problem_type == "mis":
+
+                violation = max(
+                    0.0,
+                    lhs - 1.0,
+                )
+
+            else:
+
+                raise ValueError(
+                    "Unknown problem type"
+                )
+
+            max_v = max(
+                max_v,
+                violation,
+            )
+
+        return max_v
 
     def compute(
         self,
@@ -149,12 +211,49 @@ class MWUAFeatureExtractor:
                 
                 else:
                     raise ValueError("Unknown problem type")
+                
+                if (
+                    t == 1
+                    and edge_idx < 10
+                ):
+                    print(
+                        "edge:",
+                        edge_idx,
+                    )
+                    print(
+                        "vars:",
+                        vars_in_edge,
+                    )
+                    print(
+                        "x_t:",
+                        x_t[
+                            vars_in_edge
+                        ],
+                    )
+                    print(
+                        "cover:",
+                        cover,
+                    )
+                    print(
+                        "violation:",
+                        violation,
+                    )
+                    print("-" * 30)
 
                 weights[edge_idx] *= (
                     1.0
                     + self.eps
                     * violation
                 )
+            if t <= 3:
+                print(
+                    f"Round {t}: "
+                    f"max weight = {weights.max():.6f}, "
+                    f"min weight = {weights.min():.6f}"
+                )
+                
+            if ( t % 10 == 0 and self.max_violation(x_avg, problem,) <= self.delta):
+                break
 
         weight_history = np.array(
             weight_history
@@ -163,6 +262,7 @@ class MWUAFeatureExtractor:
         certainty = np.abs(
             x_avg - 0.5
         )
+        
 
         return MWUAResult(
             x_avg=x_avg,
