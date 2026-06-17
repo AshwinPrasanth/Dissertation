@@ -1,184 +1,385 @@
-# Week Plan — Graph Dataset Strategy for ML4CO (MIS / MVC)
+# Week 5 Plan — Dataset Design and SCIP Exploration for MWUA LTB
 
 ## Objective
 
-Establish a robust dataset pipeline for training and evaluating an ML-guided branching policy for Maximum Independent Set (MIS) / Vertex Cover (MVC).
+Establish a rigorous dataset generation and benchmarking pipeline for studying whether a **static global MWUA snapshot**, combined with inexpensive local information, can guide branching decisions in Branch-and-Bound for:
 
-The focus this week is identifying **hard graph distributions** where Branch-and-Bound (B&B) produces meaningful branching behavior for supervised learning.
+* Maximum Independent Set (MIS)
+* Minimum Vertex Cover (MVC)
 
----
-
-## Why Not Use SNAP for Training?
-
-Large real-world graph repositories such as:
-
-- :contentReference[oaicite:0]{index=0} (SNAP)
-- :contentReference[oaicite:1]{index=1}
-
-are not suitable for primary training because:
-
-- Graphs are often too large for Full Strong Branching label generation.
-- Many instances are solved during pre-solving with minimal branching.
-- Limited useful branching supervision for learning.
-
-These will instead be used later for **generalization testing**.
+The primary goal this week is **not model training**. Instead, the focus is identifying graph distributions where branching decisions are non-trivial and where learning-based branching may provide value.
 
 ---
 
-## Dataset Strategy
+# Motivation
 
-### Tier 1 — Synthetic Training Graphs (Primary Focus)
+A learning-to-branch policy requires supervision from meaningful branch-and-bound search trees.
 
-Generate training graphs using NetworkX.
+Many graph instances are unsuitable because:
 
-Families:
+* They are solved during preprocessing.
+* They produce very shallow search trees.
+* They contain little useful branching information.
 
-- Erdős-Rényi (G(n,p))
-- Barabási-Albert
-- Random Regular Graphs
-- Random Geometric Graphs
+Before constructing a learning dataset, immediate next plan is to determine:
 
-Scale:
+1. Which graph families generate meaningful branching behavior.
+2. Which parameter regimes are genuinely difficult.
+3. Whether SCIP exposes sufficient information for future teacher-label generation.
 
-- 50 – 300 nodes
+---
+
+# Dataset Strategy
+
+The graph collection will be organized into three tiers.
+
+---
+
+## Tier 1 — Synthetic Training Graphs
+
+### Purpose
+
+Primary source of training instances.
+
+Advantages:
+
+* Controlled structure.
+* Easy parameter sweeps.
+* Allows systematic hardness analysis.
+
+### Graph Families
+
+#### Erdős-Rényi
+
+G(n,p)
+
+Parameters:
+
+* n = 50–300
+* p varied across difficulty regimes
 
 Purpose:
 
-- Generate supervised branching labels
-- Train Random Forest branching policy
+* Baseline random graph family.
+* Used to identify phase transition regions.
 
 ---
 
-### Tier 2 — Hard Benchmark Evaluation
+#### Barabási-Albert
 
-Benchmark on established optimization datasets.
+Parameters:
 
-Sources:
+* n = 50–300
+* m = 2–5
 
-- DIMACS benchmark suite  
-- BHOSLIB benchmark suite
+Purpose:
+
+* Scale-free topology.
+* Hub-dominated structure.
+
+---
+
+#### Random Regular Graphs
+
+Parameters:
+
+* n = 50–300
+* d = 3–6
+
+Purpose:
+
+* Degree information becomes nearly constant.
+* Tests whether MWUA and global structural features remain informative when local degree heuristics fail.
+
+---
+
+#### Random Geometric Graphs
+
+Parameters:
+
+* n = 50–300
+* radius varied
+
+Purpose:
+
+* Strong local clustering.
+* Spatial graph structure.
+
+---
+
+#### Watts-Strogatz Small-World Graphs
+
+Parameters:
+
+* n = 50–300
+* rewiring probability varied
+
+Purpose:
+
+* Intermediate regime between regular and random graphs.
+* Useful for studying interactions between local and global structure.
+
+---
+
+# Tier 2 — Hard Benchmark Evaluation
+
+### Purpose
+
+Evaluate trained policies on established combinatorial optimization benchmarks.
+
+These graphs are not primarily used for training.
+
+### Sources
+
+#### DIMACS Benchmark Suite
 
 Examples:
 
-- p_hat graphs  
-- brock graphs  
-- frb instances  
+* brock
+* p_hat
+* keller
 
 Purpose:
 
-- Evaluate solver performance on known hard combinatorial instances
+* Standard MIS benchmarking.
+* Widely used in exact optimization research.
 
 ---
 
-### Tier 3 — Real-World Generalization
-
-Use sampled subgraphs only.
-
-Sources:
-
-- :contentReference[oaicite:2]{index=2}
-- :contentReference[oaicite:3]{index=3}
+#### BHOSLIB
 
 Examples:
 
-- ca-GrQc  
-- wiki-Vote  
+* frb instances
 
 Purpose:
 
-- Test out-of-distribution generalization
+* Specifically designed to generate difficult branch-and-bound behavior.
+* Useful for evaluating learned branching policies.
 
 ---
 
-## SCIP Baseline Experiments
+# Tier 3 — Real-World Generalization
 
-### 1. Phase Transition Search
+### Purpose
 
-Find graph parameters where SCIP tree size spikes.
+Evaluate out-of-distribution generalization.
 
-Test:
+These graphs will not be used for primary training.
 
-**Erdős-Rényi**
+### Sources
 
-- n = 100, 150
-- p = 0.05 → 0.40
+Examples:
 
-Target:
+* ca-GrQc
+* ca-HepTh
+* wiki-Vote
 
-- Identify hardness region
+### Methodology
 
-Expected:
-
-- p ≈ 0.12 – 0.22
-
----
-
-### 2. Random Regular Graphs
-
-Test:
-
-- n = 100
-- d = 3, 4, 5
-
-Reason:
-
-- Degree heuristics become ineffective
-- Forces branching decisions on structural features
-
----
-
-## SCIP Configurations
-
-### Baseline A — Default SCIP
+Rather than using full graphs, induced subgraphs or ego-networks will be extracted.
 
 Purpose:
 
-- Standard solver baseline
+* Assess transfer from synthetic training distributions to real-world networks.
 
 ---
 
-### Baseline B — Full Strong Branching
+# SCIP Exploration
 
-Setting:
+Before generating labels, we must understand where branching occurs.
 
-- branching/fullstrong/priority = 999999
+The focus this week is identifying graph regimes that produce meaningful search trees.
+
+---
+
+## Baseline A — Default SCIP
 
 Purpose:
 
-- Oracle / teacher labels
+* Reference solver configuration.
+* Measure tree size and runtime under standard settings.
+
+Metrics:
+
+* Runtime
+* Nodes explored
+* Objective value
 
 ---
 
-### Baseline C — No Presolving
-
-Settings:
-
-- presolving/maxrounds = 0
-- propagating/maxrounds = 0
+## Baseline B — Reduced SCIP
 
 Purpose:
 
-- Preserve raw graph structure
+* Investigate search behavior with less aggressive preprocessing.
+
+Candidate settings:
+
+* Reduced presolving
+* Reduced propagation
+* Reduced primal heuristics
+
+Goal:
+
+* Expose branch-and-bound structure when default SCIP solves instances at the root node.
 
 ---
 
-## Weekly Tasks
+## Baseline C — Teacher Investigation
 
-- [ ] Generate synthetic graph families with NetworkX  
-- [ ] Build SCIP experiment pipeline  
-- [ ] Run Erdős-Rényi parameter sweep  
-- [ ] Identify phase transition hardness region  
-- [ ] Test Random Regular Graph baselines  
-- [ ] Download DIMACS benchmark instances  
-- [ ] Download BHOSLIB benchmark instances  
-- [ ] Create separate SNAP test suite for later evaluation  
+Purpose:
+
+* Determine which supervision source is feasible.
+
+Questions:
+
+* Can SCIP expose branching candidates?
+* Can SCIP expose branching decisions?
+* Can Full Strong Branching be accessed through PySCIPOpt?
+* Are candidate scores available?
+
+This baseline is exploratory only.
+
+No assumptions are made yet regarding the final teacher mechanism.
 
 ---
 
-## Success Criterion
+# Hardness Mapping Experiments
 
-A useful training graph should produce:
+The first objective is identifying graph regimes that generate substantial branching activity.
 
-- >100 branch-and-bound nodes under default SCIP
-- Significant difference between Default SCIP and Full Strong Branching
-- Non-trivial branching decisions for supervised learning
+---
+
+## Erdős-Rényi Sweep
+
+Parameters:
+
+* n = 100
+* n = 150
+
+Density sweep:
+
+p ∈ {0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40}
+
+Record:
+
+* Runtime
+* Nodes explored
+* Objective value
+
+Goal:
+
+* Identify phase transition region.
+
+---
+
+## Random Regular Sweep
+
+Parameters:
+
+* n = 100
+* d ∈ {3,4,5,6}
+
+Record:
+
+* Runtime
+* Nodes explored
+
+Goal:
+
+* Determine whether regular structure produces deeper search trees.
+
+---
+
+## Additional Family Sweeps
+
+Repeat similar experiments for:
+
+* Barabási-Albert
+* Random Geometric
+* Watts-Strogatz
+
+---
+
+# Graph Statistics Logging
+
+For every generated graph, store:
+
+* Graph family
+* Number of vertices
+* Number of edges
+* Density
+* Average degree
+* Maximum degree
+* Clustering coefficient
+* Generation parameters
+
+These statistics will later support analysis of branching difficulty.
+
+---
+
+# Weekly Tasks
+
+## Graph Generation
+
+* [ ] Implement Erdős-Rényi generator
+* [ ] Implement Barabási-Albert generator
+* [ ] Implement Random Regular generator
+* [ ] Implement Random Geometric generator
+* [ ] Implement Watts-Strogatz generator
+
+---
+
+## SCIP Benchmarking
+
+* [ ] Build PySCIPOpt benchmarking pipeline
+* [ ] Run Erdős-Rényi parameter sweep
+* [ ] Run Random Regular sweep
+* [ ] Run Barabási-Albert sweep
+* [ ] Run Random Geometric sweep
+* [ ] Run Watts-Strogatz sweep
+
+---
+
+## Benchmark Preparation
+
+* [ ] Download DIMACS instances
+* [ ] Download BHOSLIB instances
+* [ ] Build graph loaders
+* [ ] Build SNAP subgraph sampling utility
+
+---
+
+## Teacher Investigation
+
+* [ ] Investigate SCIP branching callbacks
+* [ ] Investigate candidate-variable access
+* [ ] Investigate Full Strong Branching availability
+* [ ] Determine feasible teacher-label mechanism
+
+---
+
+# Success Criteria
+
+This week is considered successful if:
+
+1. At least one graph family exhibits substantial variation in search-tree size as parameters change.
+2. Non-trivial branch-and-bound trees are observed.
+3. Fractional LP states are observed during search.
+4. Multiple branching candidates exist at search nodes.
+5. Candidate hard graph regimes are identified for future dataset generation.
+6. A feasible teacher-label extraction pathway within SCIP is identified.
+
+---
+
+# Deliverables
+
+By the end of the week:
+
+* Graph generation framework
+* SCIP benchmarking framework
+* Hardness maps for multiple graph families
+* Benchmark graph loaders
+* Preliminary understanding of SCIP teacher extraction
+* Candidate graph distributions for future learning-to-branch dataset generation
