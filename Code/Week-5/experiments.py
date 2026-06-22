@@ -1,5 +1,6 @@
 import networkx as nx
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from problem import (build_vertex_cover_problem, build_mis_problem)
 from solver import BranchAndBoundSolver
@@ -8,6 +9,8 @@ from lp import solve_lp_relaxation
 from branching import (MostFractionalBranching,MWUABranching,DegreeBranching)
 from features import DegreeFeatureExtractor, CentralityFeatureExtractor, MWUAVertexFeatureExtractor, LPFeatureExtractor, LubyFeatureExtractor
 from dataset import DatasetBuilder
+from graph_generation import generate_er_graph, generate_regular_graph, generate_ba_graph, generate_geometric_graph, generate_small_world_graph
+from scip_benchmark import run_scip_benchmark
 
 
 ########## phase 1 early experiments ##########
@@ -562,6 +565,292 @@ def test_dataset_builder():
         dataset.X[0]
     )
     
+    
+#####SCIP BASED EXPERIMENTS (from scip_benchmark.py) #####
+
+
+def benchmark_er():
+
+    ps = [
+        0.05,
+        0.10,
+        0.15,
+        0.20,
+        0.25,
+        0.30,
+        0.35,
+        0.40,
+    ]
+    results = []
+    for p in ps:
+
+        G = generate_er_graph(
+            n=150,
+            p=p,
+            seed=0,
+        )
+        result = run_scip_benchmark(
+            G
+        )
+        results.append(
+            {
+                "family": "regular",
+                "n": 150,
+                "p": p,
+                "edges": G.number_of_edges(),
+                "nodes": result.nodes,
+                "runtime": result.runtime,
+                "objective": result.objective,
+            }
+        )
+
+        print(
+            f"\np = {p:.2f}"
+        )
+
+        print(
+            "Vertices:",
+            G.number_of_nodes()
+        )
+
+        print(
+            "Edges:",
+            G.number_of_edges()
+        )
+
+        print(
+            "Objective:",
+            result.objective
+        )
+
+        print(
+            "Nodes:",
+            result.nodes
+        )
+
+        print(
+            "Runtime:",
+            result.runtime
+        )
+
+        print(
+            "-" * 50
+        )
+        
+    df = pd.DataFrame(results)
+    df.to_csv("ASHWIN/Scips/results/er_n150_results.csv",index=False,)
+    return results
+        
+
+def benchmark_regular():
+
+    ds = [
+        3,
+        4,
+        5,
+        6,
+    ]
+
+    results = []
+
+    for d in ds:
+
+        G = generate_regular_graph(
+            n=150,
+            d=d,
+            seed=0,
+        )
+
+        result = run_scip_benchmark(
+            G
+        )
+
+        results.append(
+            {
+                "family": "regular",
+                "n": 150,
+                "d": d,
+                "edges": G.number_of_edges(),
+                "nodes": result.nodes,
+                "runtime": result.runtime,
+                "objective": result.objective,
+            }
+        )
+
+        print(
+            f"d = {d}"
+        )
+
+        print(
+            "Vertices:",
+            G.number_of_nodes()
+        )
+
+        print(
+            "Edges:",
+            G.number_of_edges()
+        )
+
+        print(
+            "Objective:",
+            result.objective
+        )
+
+        print(
+            "Nodes:",
+            result.nodes
+        )
+
+        print(
+            "Runtime:",
+            result.runtime
+        )
+
+        print("-" * 40)
+    df = pd.DataFrame(results)
+    df.to_csv("ASHWIN/Scips/results/regular_n150_results.csv",index=False,)
+    return results
+
+def benchmark_ba():
+
+    ms = [
+        2,
+        3,
+        4,
+        5,
+    ]
+
+    results = []
+
+    for m in ms:
+
+        G = generate_ba_graph(
+            n=150,
+            m=m,
+            seed=0,
+        )
+
+        result = run_scip_benchmark(
+            G
+        )
+
+        results.append(
+            {
+                "family": "ba",
+                "n": 150,
+                "m": m,
+                "edges": G.number_of_edges(),
+                "nodes": result.nodes,
+                "runtime": result.runtime,
+                "objective": result.objective,
+            }
+        )
+
+        print(
+            f"m = {m}"
+        )
+
+        print(
+            "Vertices:",
+            G.number_of_nodes()
+        )
+
+        print(
+            "Edges:",
+            G.number_of_edges()
+        )
+
+        print(
+            "Objective:",
+            result.objective
+        )
+
+        print(
+            "Nodes:",
+            result.nodes
+        )
+
+        print(
+            "Runtime:",
+            result.runtime
+        )
+
+        print("-" * 40)
+    df = pd.DataFrame(results)
+    df.to_csv("ASHWIN/Scips/results/ba_n150_results.csv",index=False,)
+    return results
+
+def benchmark_geometric():
+
+    radii = [
+        0.10,
+        0.15,
+        0.20,
+        0.25,
+    ]
+
+    results = []
+
+    for radius in radii:
+
+        G = generate_geometric_graph(
+            n=150,
+            radius=radius,
+            seed=0,
+        )
+
+        result = run_scip_benchmark(
+            G
+        )
+
+        results.append(
+            {
+                "family": "geometric",
+                "n": 150,
+                "radius": radius,
+                "edges": G.number_of_edges(),
+                "nodes": result.nodes,
+                "runtime": result.runtime,
+                "objective": result.objective,
+            }
+        )
+
+        print(
+            f"radius = {radius:.2f}"
+        )
+
+        print(
+            "Vertices:",
+            G.number_of_nodes()
+        )
+
+        print(
+            "Edges:",
+            G.number_of_edges()
+        )
+
+        print(
+            "Objective:",
+            result.objective
+        )
+
+        print(
+            "Nodes:",
+            result.nodes
+        )
+
+        print(
+            "Runtime:",
+            result.runtime
+        )
+
+        print("-" * 40)
+    df = pd.DataFrame(results)
+    df.to_csv("ASHWIN/Scips/results/geometric_n150_results.csv",index=False,)
+    return results
+
+
+
 if __name__ == "__main__":
     #run_demo()
     #run_demo2()
@@ -574,7 +863,11 @@ if __name__ == "__main__":
     #test_mwua_features()
     #test_lp_features()
     #test_luby()
-    test_dataset_builder()
+    #test_dataset_builder()
+    #benchmark_er()
+    #benchmark_regular()
+    #benchmark_ba()
+    benchmark_geometric()
     '''G = nx.watts_strogatz_graph(
         n=50,
         k=6,
