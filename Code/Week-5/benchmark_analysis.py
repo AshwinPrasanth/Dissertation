@@ -13,7 +13,7 @@ from features import (
     LubyFeatureExtractor,
 )
 
-
+# benchmark analysis of features for different graph types
 def feature_stats(
     name,
     values,
@@ -37,6 +37,7 @@ def analyze_graph(
     G,
     name,
 ):
+    #analysis of features for a given graph 
 
     print()
     print("=" * 70)
