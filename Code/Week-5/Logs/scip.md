@@ -1,3 +1,91 @@
+# brock200_4: MWUA-Guided Branching Analysis
+
+## Instance
+
+| Property |      Value |
+| -------- | ---------: |
+| Graph    | brock200_4 |
+| Vertices |        200 |
+| Edges    |     13,089 |
+| MIS Size |          8 |
+
+Solver configuration:
+
+```text
+Presolve     OFF
+Heuristics   OFF
+Separating   OFF
+```
+
+The objective is to isolate the effect of the branching rule on branch-and-bound search.
+
+---
+
+## Results
+
+| Method       |  Nodes | Runtime (s) | MIS | Node Reduction |
+| ------------ | -----: | ----------: | --: | -------------: |
+| Default SCIP | 16,859 |       19.87 |   8 |           0.0% |
+| MWUA D=0     | 17,009 |       22.02 |   8 |          -0.9% |
+| MWUA D=1     | 16,405 |       21.74 |   8 |           2.7% |
+| MWUA D=2     | 17,614 |       22.60 |   8 |          -4.5% |
+
+All methods reached the optimal MIS value of 8.
+
+---
+
+## Key Observation
+
+The MWUA-guided branching policy has a smaller effect on brock200_4 than on brock200_2.
+
+The best configuration (D=1) reduces the search tree from:
+
+```text
+16,859 → 16,405
+```
+
+corresponding to approximately:
+
+```text
+2.7%
+```
+
+fewer branch-and-bound nodes.
+
+Unlike brock200_2, the improvement is modest and the search appears relatively insensitive to the MWUA signal.
+
+---
+
+## Figure 1: Search Tree Size
+
+
+
+---
+
+## Figure 2: Relative Improvement
+
+
+
+---
+
+## Figure 3: Runtime Comparison
+
+
+
+---
+
+## Figure 4: Node Reduction Profile
+
+
+---
+
+## Conclusion
+
+For brock200_4, MWUA-derived branching produces only a modest improvement. The best configuration (D=1) reduces the search tree by approximately 2.7%, while stronger MWUA influence (D=2) increases the number of explored nodes. Compared with brock200_2, this suggests that the effectiveness of root-level MWUA information depends on graph structure and problem instance characteristics.
+
+Overall, the result is positive but considerably weaker than the improvements observed on brock200_2 and the larger sparse network instances.
+
+
 # brock200_2: MWUA-Guided Branching Analysis
 
 ## Instance
