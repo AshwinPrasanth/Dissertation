@@ -407,3 +407,172 @@ Two different branching behaviors emerge:
 2. **Distance-from-0.5 scoring** aggressively shrinks the search tree, reducing explored nodes by up to 34%, but provides limited improvement in solution quality.
 
 These results suggest that MWUA-derived root-level structural information remains informative deep into the branch-and-bound process and can significantly alter search behavior on large sparse real-world graphs.
+
+
+# CA-HepTh: MWUA-Guided Branching Analysis
+
+## Instance
+
+| Property   |    Value |
+| ---------- | -------: |
+| Graph      | CA-HepTh |
+| Vertices   |    9,877 |
+| Edges      |   25,973 |
+| Time Limit |    300 s |
+
+Solver configuration:
+
+```text
+Presolve     OFF
+Heuristics   OFF
+Separating   OFF
+```
+
+Unlike the DIMACS benchmarks, CA-HepTh is not solved within the allotted time limit. Therefore, evaluation focuses on search quality metrics rather than proving optimality.
+
+---
+
+## Results
+
+| Method        |  Nodes | Primal |   Dual | Gap (%) |
+| ------------- | -----: | -----: | -----: | ------: |
+| Default SCIP  | 14,131 |   4741 | 5192.5 |    9.52 |
+| D=0 Weighted  | 12,413 |   4745 | 5193.5 |    9.45 |
+| D=1 Weighted  | 15,995 |   4760 | 5189.5 |    9.02 |
+| D=2 Dist(0.5) | 11,652 |   4736 | 5196.0 |    9.71 |
+| D=2 Improved  | 12,875 |   4741 | 5190.5 |    9.48 |
+
+---
+
+## Key Observation
+
+Unlike CA-GrQc, the best-performing method depends on the metric being considered.
+
+### Smallest Search Tree
+
+The certainty-based score:
+
+```text
+score = |xavg - 0.5|
+```
+
+produces the smallest search tree.
+
+```text
+14,131 → 11,652
+```
+
+corresponding to:
+
+```text
+17.5% fewer nodes
+```
+
+However:
+
+```text
+Primal decreases
+4741 → 4736
+
+Gap increases
+9.52% → 9.71%
+```
+
+indicating that the smaller tree does not translate into improved search quality.
+
+---
+
+### Best Search Progress
+
+The weighted MWUA score:
+
+```text
+score = α·xavg + β·weight
+```
+
+with:
+
+```text
+D = 1
+```
+
+achieves the strongest search progress.
+
+```text
+Primal : 4741 → 4760
+Gap    : 9.52% → 9.02%
+```
+
+These are the best values observed among all tested variants.
+
+Interestingly, this improvement is achieved despite exploring more branch-and-bound nodes.
+
+---
+
+## Figure 1: Search Tree Size (Zoomed)
+
+---
+
+## Figure 2: Node Reduction Relative to Default
+
+
+---
+
+## Figure 3: Optimality Gap (Highly Zoomed)
+
+
+
+---
+
+## Figure 4: Best Independent Set Found
+
+
+---
+
+## Figure 5: Search Quality vs Tree Size
+
+---
+
+## Interpretation
+
+CA-HepTh reveals two fundamentally different branching behaviors:
+
+### Certainty-Based Branching
+
+```text
+score = |xavg − 0.5|
+```
+
+* Produces the smallest tree.
+* Reduces node count by up to 17.5%.
+* Does not improve solution quality.
+
+### Weighted MWUA Branching
+
+```text
+score = α·xavg + β·weight
+```
+
+* Produces the best primal bound.
+* Produces the best optimality gap.
+* Explores more nodes.
+
+This suggests that MWUA is not merely reducing tree size. Instead, it appears to guide SCIP toward more promising regions of the search space.
+
+---
+
+## Conclusion
+
+CA-HepTh provides strong evidence that root-level MWUA structural information remains useful throughout branch-and-bound search.
+
+The weighted MWUA strategy achieves the best solution quality observed in the experiment:
+
+```text
+Best Primal = 4760
+Best Gap    = 9.02%
+```
+
+while the certainty-based strategy produces the smallest search tree.
+
+Together, these results suggest that MWUA-derived branching signals influence not only the size of the search tree but also the quality of the explored search regions.
+
