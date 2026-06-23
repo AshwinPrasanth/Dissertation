@@ -42,13 +42,17 @@ All experiments were conducted with SCIP's auxiliary components disabled to isol
 ### 1. MWUA Is Most Effective Near the Root
 
 <p align="center">
-  <img src="b_200_2.png" alt="runtime- b_200_2" width="600">
+  <img src="b_200_2.png" alt="node reduction- b_200_2" width="600">
+  <br>
+  <sup> node reduction- b_200_2</sup>
 </p>
 
 Across most benchmarks, the strongest improvements were obtained when MWUA guidance was restricted to the upper levels of the search tree (`D=0–2`).
 
 <p align="center">
-  <img src="b_200_2_3.png" alt="node reduction- b_200_2" width="600">
+  <img src="b_200_2_3.png" alt="runtime- b_200_2" width="600">
+  <br>
+  <sup> runtime- b_200_2</sup>
 </p>
 
 Increasing the depth of MWUA influence beyond the early branching decisions generally provided little additional benefit and occasionally increased search effort.
