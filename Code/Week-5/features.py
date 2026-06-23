@@ -208,10 +208,7 @@ class MWUAVertexFeatures:
 
 class MWUAVertexFeatureExtractor:
 
-    def compute(
-        self,
-        problem,
-    ) -> MWUAVertexFeatures:
+    def compute(self,problem,) -> MWUAVertexFeatures:
 
         mwua = MWUAFeatureExtractor()
 
@@ -240,37 +237,66 @@ class MWUAVertexFeatureExtractor:
         else:
             final_weights = (result.final_weights - w_min) / (w_max - w_min) # normalize final weights to [0,1]
         
-        for v in G.nodes():
+        weight_sum = np.zeros(n)
 
-            incident_weights = []
-            for edge_idx in range(len(problem.A_ub)): # for each edge, check if it's incident to vertex v and if so, add its final weight to the list of incident weights
+        weight_count = np.zeros(n)
 
-                row = problem.A_ub[edge_idx]
-                vars_in_edge = np.where(np.abs(row) > 0)[0]
-                if v in vars_in_edge:
-                    incident_weights.append(final_weights[edge_idx])
+        weight_min = np.full(
+            n,
+            np.inf,
+        )
 
-            if len(
-                incident_weights
-            ) == 0:
+        weight_max = np.zeros(n)
 
-                continue
+        for edge_idx, (u, v) in enumerate(
+            G.edges()
+        ):
 
-            incident_weights = np.array(
-                incident_weights
+            w = final_weights[edge_idx]
+
+            # avg
+
+            weight_sum[u] += w
+            weight_sum[v] += w
+
+            weight_count[u] += 1
+            weight_count[v] += 1
+
+            # min
+
+            weight_min[u] = min(
+                weight_min[u],
+                w,
             )
 
-            weight_min[v] = np.min(
-                incident_weights
+            weight_min[v] = min(
+                weight_min[v],
+                w,
             )
 
-            weight_max[v] = np.max(
-                incident_weights
+            # max
+
+            weight_max[u] = max(
+                weight_max[u],
+                w,
             )
 
-            weight_avg[v] = np.mean(
-                incident_weights
+            weight_max[v] = max(
+                weight_max[v],
+                w,
             )
+
+        weight_avg = np.divide(
+            weight_sum,
+            np.maximum(
+                weight_count,
+                1,
+            ),
+        )
+
+        weight_min[
+            weight_count == 0
+        ] = 0.0
 
         return MWUAVertexFeatures(
             x_avg=result.x_avg,
@@ -279,6 +305,19 @@ class MWUAVertexFeatureExtractor:
             weight_avg=weight_avg,
         )
     
+    def compute_mwua_score(dataset):
+
+        names = dataset.feature_names
+
+        xavg_idx = names.index("mwua_xavg")
+
+        weight_idx = names.index("mwua_weight_avg")
+        xavg = dataset.X[:, xavg_idx]
+        weight = dataset.X[:, weight_idx]
+        score = 0.5*xavg + 0.5*weight
+        #score = np.abs(xavg - 0.5)# simple linear combination of x_avg and weight_avg to get a single score for each vertex, can be tuned further
+
+        return score
     
 ####### Constraint programming / LP relaxation-based features: LP value for each vertex, certainty (distance from 0.5) #######     
 ''' The LP relaxation-based features are intended to capture information from 
