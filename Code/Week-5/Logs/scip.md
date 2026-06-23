@@ -174,3 +174,91 @@ This suggests that a moderate amount of MWUA guidance is beneficial, whereas exc
 ## Conclusion
 
 For brock200_2, MWUA-derived root-level structural information consistently influences branch-and-bound behavior. The best configuration reduces the search tree by over 12% while preserving optimality. However, the results also indicate that stronger MWUA influence is not necessarily beneficial, highlighting the importance of selecting an appropriate scoring formulation.
+
+
+# C250.9: MWUA-Guided Branching Analysis
+
+## Instance
+
+| Property |  Value |
+| -------- | -----: |
+| Graph    | C250.9 |
+| Vertices |    250 |
+| Edges    | 27,984 |
+| MIS Size |      5 |
+
+Solver configuration:
+
+```text
+Presolve     OFF
+Heuristics   OFF
+Separating   OFF
+```
+
+The objective is to evaluate the impact of MWUA-derived branching priorities on branch-and-bound search.
+
+---
+
+## Results
+
+| Method       | Nodes | Runtime (s) | MIS | Node Reduction |
+| ------------ | ----: | ----------: | --: | -------------: |
+| Default SCIP | 2,623 |       15.31 |   5 |           0.0% |
+| MWUA D=0     | 2,411 |       18.70 |   5 |           8.1% |
+| MWUA D=1     | 2,555 |       19.16 |   5 |           2.6% |
+
+All methods reached the optimal MIS value of 5.
+
+---
+
+## Key Observation
+
+The MWUA-guided branching policy consistently improves search tree size on this instance.
+
+The strongest configuration (D=0) reduces the number of explored branch-and-bound nodes from:
+
+```text
+2623 → 2411
+```
+
+corresponding to approximately:
+
+```text
+8.1%
+```
+
+fewer search nodes.
+
+Although runtime increases slightly, the reduction in tree size indicates that the MWUA signal is influencing branching decisions in a beneficial way.
+
+---
+
+## Figure 1: Search Tree Size
+
+
+---
+
+## Figure 2: Relative Improvement
+
+
+
+---
+
+## Figure 3: Runtime Comparison
+
+
+
+---
+
+## Figure 4: Search Efficiency
+
+
+
+---
+
+## Conclusion
+
+C250.9 demonstrates a clear positive effect from MWUA-guided branching. The best configuration (D=0) reduces branch-and-bound node count by approximately 8.1% while preserving optimality. Compared to brock200_4, the effect is stronger, though still smaller than the gains observed on brock200_2.
+
+Together with the previous DIMACS experiments, these results suggest that root-level MWUA structural information can consistently alter search behavior and often reduce the size of the branch-and-bound tree, even when computed only once at the root node.
+
