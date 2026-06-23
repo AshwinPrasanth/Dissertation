@@ -54,31 +54,6 @@ fewer branch-and-bound nodes.
 
 Unlike brock200_2, the improvement is modest and the search appears relatively insensitive to the MWUA signal.
 
----
-
-## Figure 1: Search Tree Size
-
-
-
----
-
-## Figure 2: Relative Improvement
-
-
-
----
-
-## Figure 3: Runtime Comparison
-
-
-
----
-
-## Figure 4: Node Reduction Profile
-
-
----
-
 ## Conclusion
 
 For brock200_4, MWUA-derived branching produces only a modest improvement. The best configuration (D=1) reduces the search tree by approximately 2.7%, while stronger MWUA influence (D=2) increases the number of explored nodes. Compared with brock200_2, this suggests that the effectiveness of root-level MWUA information depends on graph structure and problem instance characteristics.
@@ -152,25 +127,6 @@ D=10 → worse than default
 
 This suggests that a moderate amount of MWUA guidance is beneficial, whereas excessive influence may distort branching decisions.
 
----
-
-## Figure 1: Branch-and-Bound Nodes
-
-
-
----
-
-## Figure 2: Relative Improvement
-
-
----
-
-## Figure 3: Runtime Comparison
-
-
-
----
-
 ## Conclusion
 
 For brock200_2, MWUA-derived root-level structural information consistently influences branch-and-bound behavior. The best configuration reduces the search tree by over 12% while preserving optimality. However, the results also indicate that stronger MWUA influence is not necessarily beneficial, highlighting the importance of selecting an appropriate scoring formulation.
@@ -230,29 +186,6 @@ corresponding to approximately:
 fewer search nodes.
 
 Although runtime increases slightly, the reduction in tree size indicates that the MWUA signal is influencing branching decisions in a beneficial way.
-
----
-
-## Figure 1: Search Tree Size
-
-
----
-
-## Figure 2: Relative Improvement
-
-
-
----
-
-## Figure 3: Runtime Comparison
-
-
-
----
-
-## Figure 4: Search Efficiency
-
-
 
 ---
 
@@ -369,34 +302,6 @@ However, this reduction does not translate into improved primal bounds or gap qu
 
 ---
 
-## Figure 1: Search Tree Size (Zoomed)
-
-
----
-
-## Figure 2: Node Reduction Relative to Default
-
-
----
-
-## Figure 3: Optimality Gap (Zoomed)
-
-
-
----
-
-## Figure 4: Best Independent Set Found
-
-
-
-
----
-
-## Figure 5: Trade-off Between Tree Size and Gap
-
-
----
-
 ## Conclusion
 
 CA-GrQc demonstrates the strongest MWUA effect observed so far.
@@ -506,32 +411,6 @@ Gap    : 9.52% → 9.02%
 These are the best values observed among all tested variants.
 
 Interestingly, this improvement is achieved despite exploring more branch-and-bound nodes.
-
----
-
-## Figure 1: Search Tree Size (Zoomed)
-
----
-
-## Figure 2: Node Reduction Relative to Default
-
-
----
-
-## Figure 3: Optimality Gap (Highly Zoomed)
-
-
-
----
-
-## Figure 4: Best Independent Set Found
-
-
----
-
-## Figure 5: Search Quality vs Tree Size
-
----
 
 ## Interpretation
 
