@@ -28,6 +28,7 @@ class MILPProblem:
     variable_names: Optional[List[str]] = None
     # add graph structure for vertex cover problems (greedy oracle)
     graph: Optional[nx.Graph] = None
+    edges: Optional[List[Tuple[int, int]]] = None
     
     problem_type: str = ""
 
@@ -74,16 +75,17 @@ def build_vertex_cover_problem(G: nx.Graph) -> MILPProblem:
 
     A_ub = []
     b_ub = []
-
+    edges = []
     for u, v in G.edges():
 
         row = np.zeros(n)
 
         row[vertex_to_idx[u]] = -1.0
         row[vertex_to_idx[v]] = -1.0
-
+     
         A_ub.append(row)
         b_ub.append(-1.0)
+        edges.append((vertex_to_idx[u],vertex_to_idx[v]))
 
     A_ub = np.array(A_ub, dtype=float)
     b_ub = np.array(b_ub, dtype=float)
@@ -92,6 +94,7 @@ def build_vertex_cover_problem(G: nx.Graph) -> MILPProblem:
         c=c,
         A_ub=A_ub,
         b_ub=b_ub,
+        edges=edges,
         variable_names=[str(v) for v in vertices],
         graph=G,
         problem_type="mvc"
@@ -104,7 +107,7 @@ G = nx.cycle_graph(4)
 
 problem = build_vertex_cover_problem(G)
 
-def build_mis_problem(
+'''def build_mis_problem(
     G,
 ):
     """
@@ -172,8 +175,49 @@ def build_mis_problem(
             for v in vertices
         ],
         graph=G, problem_type="mis"
-    )
+    )'''
 
+'''def build_mis_problem(G):
+
+    vertices = list(G.nodes())
+
+    node_to_idx = {
+        v: i
+        for i, v in enumerate(vertices)
+    }
+
+    n = len(vertices)
+
+    c = -np.ones(n)
+
+    edges = []
+
+    for u, v in G.edges():
+
+        edges.append(
+            (
+                node_to_idx[u],
+                node_to_idx[v]
+            )
+        )
+
+    return MILPProblem(
+        c=c,
+
+        A_ub=None,
+        b_ub=None,
+
+        edges=edges,
+
+        variable_names=[
+            str(v)
+            for v in vertices
+        ],
+
+        graph=G,
+
+        problem_type="mis",
+    )
 print(problem.num_variables)
 print(problem.num_constraints)
-
+'''
