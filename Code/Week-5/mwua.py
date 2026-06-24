@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-
 import numpy as np
 from problem import MILPProblem
 
@@ -88,7 +87,7 @@ class MWUAFeatureExtractor:
             need = 1.0 - cumulative
 
         return x
-    
+
     def max_violation(self, x: np.ndarray,problem: MILPProblem,) -> float:
         """
         Ryan-style convergence check.
@@ -96,7 +95,7 @@ class MWUAFeatureExtractor:
 
         max_v = 0.0
 
-        for row in problem.A_ub:
+        '''for row in problem.A_ub:
 
             vars_in_constraint = np.where(
                 np.abs(row) > 0
@@ -129,16 +128,54 @@ class MWUAFeatureExtractor:
             max_v = max(
                 max_v,
                 violation,
-            )
+            )'''
+        
+        for u, v in problem.edges:
+
+            lhs = x[u] + x[v]
+
+            violation = max(0.0,1.0 - lhs,)
+
+            max_v = max(max_v,violation)
 
         return max_v
+    
+    def min_feasibility_ratio(
+        self,
+        x,
+        problem,
+    ):
+        EPS = 1e-15
+
+
+        alpha = 0.0
+
+        for u, v in problem.edges:
+
+            cover = x[u] + x[v]
+
+            if cover <= EPS:
+
+                x[u] += 0.5
+                x[v] += 0.5
+
+                cover = 1.0
+
+            ratio = 1.0 / cover
+
+            alpha = max(alpha, ratio)
+
+        return alpha
+
+
 
     def compute(
         self,
         problem: MILPProblem,
     ) -> MWUAResult:
 
-        m = len(problem.A_ub)
+        # m = len(problem.A_ub)
+        m = len(problem.edges)
         n = problem.num_variables
 
         weights = np.ones(m)
@@ -158,10 +195,21 @@ class MWUAFeatureExtractor:
                 / weights.sum()
             )
 
-            scores = (
-            np.abs(problem.A_ub).T
-             @ normalized_weights
-        )
+            # scores = (np.abs(problem.A_ub).T@ normalized_weights)
+            scores = np.zeros(n)
+
+            for edge_idx, (u, v) in enumerate(problem.edges):
+
+                w = normalized_weights[edge_idx]
+
+                scores[u] += w
+                scores[v] += w
+            if t in [1, 10, 50, 100]:
+                print(
+                    f"Round {t}: "
+                    f"score min={scores.min():.6f}, "
+                    f"score max={scores.max():.6f}"
+                    )
 
             # ---------------------------------
             # Greedy fractional oracle
@@ -170,6 +218,17 @@ class MWUAFeatureExtractor:
             x_t = self.greedy_fractional_solution(
                 scores
             )
+            
+            if t in [1, 10, 50, 100]:
+                print(
+                    f"Round {t}: "
+                    f"x_t nonzero={np.count_nonzero(x_t)}"
+                )
+
+                print(
+                    f"Round {t}: "
+                    f"x_t max={x_t.max():.6f}"
+                )
 
             # ---------------------------------
             # Running average
@@ -191,7 +250,7 @@ class MWUAFeatureExtractor:
 
             for edge_idx in range(m):
 
-                row = problem.A_ub[edge_idx]
+                '''row = problem.A_ub[edge_idx]
 
                 vars_in_edge = np.where(
                 np.abs(row) > 0
@@ -199,46 +258,25 @@ class MWUAFeatureExtractor:
 
                 cover = np.sum(
                     x_t[vars_in_edge]
-                )
-
-                if problem.problem_type == "mvc":
-
-                    violation = max(0.0,1.0 - cover)
-
-                elif problem.problem_type == "mis":
-
-                    violation = max(0.0,cover - 1.0)
+                )'''
                 
-                else:
-                    raise ValueError("Unknown problem type")
+                u, v = problem.edges[edge_idx]
+
+                cover = (x_t[u] + x_t[v])
+
+                violation = max(0.0,1.0 - cover)
+
                 
                 if (
                     t == 1
                     and edge_idx < 10
                 ):
-                    print(
-                        "edge:",
-                        edge_idx,
-                    )
-                    print(
-                        "vars:",
-                        vars_in_edge,
-                    )
-                    print(
-                        "x_t:",
-                        x_t[
-                            vars_in_edge
-                        ],
-                    )
-                    print(
-                        "cover:",
-                        cover,
-                    )
-                    print(
-                        "violation:",
-                        violation,
-                    )
-                    print("-" * 30)
+                    '''print("edge:",edge_idx,)
+                    print("vars:",vars_in_edge,)
+                    print("x_t:",x_t[vars_in_edge],)
+                    print("cover:",cover,)
+                    print("violation:",violation,)
+                    print("-" * 30)'''
 
                 weights[edge_idx] *= (
                     1.0
@@ -251,14 +289,57 @@ class MWUAFeatureExtractor:
                     f"max weight = {weights.max():.6f}, "
                     f"min weight = {weights.min():.6f}"
                 )
-                
+            if t % 10 == 0:
+
+                violation = self.max_violation(
+                    x_avg,
+                    problem,
+                )
+
+                print(
+                    "Round",
+                    t,
+                    "violation =",
+                    violation,
+                )
+
+                if violation <= self.delta:
+                    break
+            '''if t % 10 == 0:
+                print(
+                    "Round",
+                    t,
+                    "violation =",
+                    self.max_violation(
+                        x_avg,
+                        problem
+                    )
+                )
             if ( t % 10 == 0 and self.max_violation(x_avg, problem,) <= self.delta):
-                break
+                break'''
 
         weight_history = np.array(
             weight_history
         )
+        print( "Final violation:",self.max_violation(x_avg,problem,))
+        # ---------------------------------
+        # Ryan feasibility scaling
+        # ---------------------------------
 
+        scale_factor = (
+            self.min_feasibility_ratio(
+                x_avg,
+                problem,
+            )
+        )
+        
+        print("Scale factor:",scale_factor)
+
+        if scale_factor < 1.0:
+
+            print("[INFO] Scaling solution by",scale_factor,)
+
+            x_avg *= scale_factor
         certainty = np.abs(
             x_avg - 0.5
         )
