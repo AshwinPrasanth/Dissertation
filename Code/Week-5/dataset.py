@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 import numpy as np
-
+import time
 from features import (
     DegreeFeatureExtractor,
     CentralityFeatureExtractor,
@@ -54,27 +54,36 @@ class DatasetBuilder:
         # Compute all feature groups
         # ---------------------------------
 
+        t=time.time()
         degree = self.degree.compute(
             problem.graph
         )
+        print("degree:", time.time()-t)
 
+        t=time.time()
         centrality = (
             self.centrality.compute(
                 problem.graph
             )
         )
-
-        mwua = self.mwua.compute(
-            problem
-        )
-
+        print("centrality:", time.time()-t)
+        
+        t=time.time()
         lp = self.lp.compute(
             problem
         )
+        print("lp:", time.time()-t)
+        
+        t=time.time()
+        luby = self.luby.compute(problem.graph)
+        print("luby:", time.time()-t)
 
-        luby = self.luby.compute(
-            problem.graph
+        t=time.time()
+        mwua = self.mwua.compute(
+            problem
         )
+        print("mwua:", time.time()-t)
+        
 
         # ---------------------------------
         # Stack into feature matrix
