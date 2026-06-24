@@ -297,9 +297,12 @@ class MWUAVertexFeatureExtractor:
         weight_min[
             weight_count == 0
         ] = 0.0
+        
+        cover_xavg = result.x_avg
+        mis_xavg = 1.0 - cover_xavg
 
         return MWUAVertexFeatures(
-            x_avg=result.x_avg,
+            x_avg=mis_xavg,
             weight_min=weight_min,
             weight_max=weight_max,
             weight_avg=weight_avg,
@@ -312,9 +315,9 @@ class MWUAVertexFeatureExtractor:
         xavg_idx = names.index("mwua_xavg")
 
         weight_idx = names.index("mwua_weight_avg")
-        xavg = dataset.X[:, xavg_idx]
+        mis_xavg = dataset.X[:, xavg_idx]
         weight = dataset.X[:, weight_idx]
-        score = 0.5*xavg + 0.5*weight
+        score = 0.5*mis_xavg + 0.5*weight
         #score = np.abs(xavg - 0.5)# simple linear combination of x_avg and weight_avg to get a single score for each vertex, can be tuned further
 
         return score
