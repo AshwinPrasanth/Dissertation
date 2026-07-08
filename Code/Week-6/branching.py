@@ -82,8 +82,9 @@ class DegreeBranching(BranchingStrategy):
 
 class SCIPMWUABranchRule(Branchrule):
 
-    def __init__(self, mwua_scores):
+    def __init__(self,dataset, mwua_scores):
         self.mwua_scores = mwua_scores
+        self.dataset = dataset
         self.call_count = 0
 
         self.logfile = open(
@@ -116,6 +117,10 @@ class SCIPMWUABranchRule(Branchrule):
 
         best_var = None
         best_score = -1e20
+        candidate_ids = []
+        candidate_features = []
+        candidate_mwua = []
+        candidate_lp = []
 
         for var in cands:
 
@@ -126,9 +131,19 @@ class SCIPMWUABranchRule(Branchrule):
 
             if name.startswith("t_x_"):
                 idx = int(name.replace("t_x_", ""))
+                candidate_ids.append(idx)
+                candidate_features.append(self.dataset.X[idx])
+
+                candidate_mwua.append(self.mwua_scores[idx])
+                candidate_lp.append(self.dataset.X[idx][-2])
 
             elif name.startswith("x_"):
                 idx = int(name.replace("x_", ""))
+                candidate_ids.append(idx)
+                candidate_features.append(self.dataset.X[idx])
+
+                candidate_mwua.append(self.mwua_scores[idx])
+                candidate_lp.append(self.dataset.X[idx][-2])
 
             else:
                 continue
@@ -143,7 +158,7 @@ class SCIPMWUABranchRule(Branchrule):
 
         #print(f"Branching on {best_var.name} "f"(MWUA={best_score:.4f})")
         depth = self.model.getDepth()
-        DEPTH_LIMIT = 7
+        DEPTH_LIMIT = 0
 
         if depth > DEPTH_LIMIT:
             return {
@@ -159,6 +174,16 @@ class SCIPMWUABranchRule(Branchrule):
 )
 
         self.logfile.flush()
+        print("\n===== BRANCH SAMPLE =====")
+
+        print("Depth:", depth)
+
+        print("Candidates:", candidate_ids)
+
+        print("Feature matrix shape:",np.array(candidate_features).shape)
+
+        print("MWUA:", candidate_mwua)
+        
         self.model.branchVar(best_var)
 
         return {
