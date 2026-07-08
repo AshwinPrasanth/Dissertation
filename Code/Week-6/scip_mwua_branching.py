@@ -136,17 +136,47 @@ from dimacs import load_dimacs_clq
 # Graph
 # ---------------------------------
 
-G = load_dimacs_clq(
-    "graphs/bhoslib/frb40-19-2.clq"
-)
+G = load_dimacs_clq("graphs/bhoslib/frb30-15-1.clq")
 
 #G = nx.complement(G)
 
-G = nx.convert_node_labels_to_integers(
-    G,
-    first_label=0
+G = nx.convert_node_labels_to_integers(G,first_label=0)
+
+'''def load_snap_graph(path):
+
+    G = nx.Graph()
+
+    with open(path, "r") as f:
+
+        for line in f:
+
+            if line.startswith("#"):
+                continue
+
+            parts = line.strip().split()
+
+            if len(parts) != 2:
+                continue
+
+            u = int(parts[0])
+            v = int(parts[1])
+
+            G.add_edge(u, v)
+
+    return G
+
+
+G = load_snap_graph(
+    "graphs/ca_family/ca-GrQc.txt"
 )
 
+G.remove_edges_from(
+    nx.selfloop_edges(G)
+)
+
+G = nx.convert_node_labels_to_integers(
+    G,
+    first_label=0)'''
 
 
 print(
@@ -253,9 +283,7 @@ model.setObjective(
 # MWUA branchrule
 # ---------------------------------
 
-branchrule = SCIPMWUABranchRule(
-    scores
-)
+branchrule = SCIPMWUABranchRule(dataset, scores)
 
 model.includeBranchrule(
 
