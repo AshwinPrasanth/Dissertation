@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from pyscipopt import ( Branchrule,SCIP_RESULT,) # importing the base class for branching rules and the result enum
 import numpy as np
+from research.branch_sample import BranchSample
+from research.dataset_writer import DatasetWriter
 
 
 class BranchingStrategy(ABC):
@@ -85,6 +87,7 @@ class SCIPMWUABranchRule(Branchrule):
     def __init__(self,dataset, mwua_scores):
         self.mwua_scores = mwua_scores
         self.dataset = dataset
+        self.writer = DatasetWriter("dataset/frb30-15-1")
         self.call_count = 0
 
         self.logfile = open(
@@ -120,7 +123,7 @@ class SCIPMWUABranchRule(Branchrule):
         candidate_ids = []
         candidate_features = []
         candidate_mwua = []
-        candidate_lp = []
+    
 
         for var in cands:
 
@@ -131,19 +134,19 @@ class SCIPMWUABranchRule(Branchrule):
 
             if name.startswith("t_x_"):
                 idx = int(name.replace("t_x_", ""))
+
                 candidate_ids.append(idx)
                 candidate_features.append(self.dataset.X[idx])
 
                 candidate_mwua.append(self.mwua_scores[idx])
-                candidate_lp.append(self.dataset.X[idx][-2])
 
             elif name.startswith("x_"):
                 idx = int(name.replace("x_", ""))
+     
                 candidate_ids.append(idx)
                 candidate_features.append(self.dataset.X[idx])
 
                 candidate_mwua.append(self.mwua_scores[idx])
-                candidate_lp.append(self.dataset.X[idx][-2])
 
             else:
                 continue
@@ -152,9 +155,11 @@ class SCIPMWUABranchRule(Branchrule):
             if idx < 5:
                 print( f"idx={idx}, " f"score={score}")
 
+
             if score > best_score:
                 best_score = score
                 best_var = var
+        
 
         #print(f"Branching on {best_var.name} "f"(MWUA={best_score:.4f})")
         depth = self.model.getDepth()
@@ -174,15 +179,10 @@ class SCIPMWUABranchRule(Branchrule):
 )
 
         self.logfile.flush()
-        print("\n===== BRANCH SAMPLE =====")
+        sample = BranchSample( graph_name="frb30-15-1", depth=depth, candidate_ids=np.array(candidate_ids), candidate_features=np.array(candidate_features), 
+                              mwua_scores=np.array(candidate_mwua),chosen_variable=int(best_var.name.replace("t_x_", "").replace("x_", "")),)
 
-        print("Depth:", depth)
-
-        print("Candidates:", candidate_ids)
-
-        print("Feature matrix shape:",np.array(candidate_features).shape)
-
-        print("MWUA:", candidate_mwua)
+        self.writer.save(sample)
         
         self.model.branchVar(best_var)
 
@@ -190,35 +190,3 @@ class SCIPMWUABranchRule(Branchrule):
             "result": SCIP_RESULT.BRANCHED
         }
         
-'''class SCIPMWUABranchRule(Branchrule):
-
-    def __init__(self, mwua_scores):
-        self.mwua_scores = mwua_scores
-
-    def branchexeclp(self, allowaddcons):
-
-        print("\n===== MWUA CALLBACK HIT =====")
-
-        result = self.model.getLPBranchCands()
-
-        print("Type:", type(result))
-
-        try:
-            print("Length:", len(result))
-        except:
-            print("No length")
-
-        print("Result:")
-        print(result)
-
-        return {
-            "result": SCIP_RESULT.DIDNOTRUN
-        }
-
-'''
-      
-'''import numpy as np
-from branching import MostFractionalBranching
-x = np.array([1.0,0.3,0.52,0.9,0.48,])
-brancher = MostFractionalBranching()
-print(brancher.select(x))'''

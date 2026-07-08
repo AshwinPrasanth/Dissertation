@@ -35,30 +35,29 @@ class DegreeFeatures:
 
 class DegreeFeatureExtractor:
 
-    def compute(
-        self,
-        G,
-    ) -> DegreeFeatures:
+    def compute(self, G,) -> DegreeFeatures:
         # Compute degree-based features for each vertex in the graph G.
 
         n = len(G)
 
+        nodes = list(G.nodes())
+
+        node_to_idx = {
+            node: idx
+            for idx, node in enumerate(nodes)
+        }
+
         degrees = np.array([
             G.degree(v)
-            for v in G.nodes()
+            for v in nodes
         ])
 
-        unique_deg = np.unique(
-            degrees
-        )
+        unique_deg = np.unique(degrees)
 
         rank_map = {}
 
         if len(unique_deg) == 1:
-
-            rank_map[
-                unique_deg[0]
-            ] = 1.0
+            rank_map[ unique_deg[0]] = 1.0
 
         else:
 
@@ -84,33 +83,31 @@ class DegreeFeatureExtractor:
         nbr_max_rank = np.zeros(n)
         nbr_avg_rank = np.zeros(n)
 
-        for v in G.nodes(): # for each vertex, compute min/max/avg degree rank of its neighbors
-
-            nbrs = list(
-                G.neighbors(v)
-            )
+        for v in nodes: # for each vertex, compute min/max/avg degree rank of its neighbors
+            
+            idx=node_to_idx[v]
+            nbrs = list(G.neighbors(v))
 
             if len(nbrs) == 0:
 
-                nbr_min_rank[v] = 0
-                nbr_max_rank[v] = 0
-                nbr_avg_rank[v] = 0
+                nbr_min_rank[idx] = 0
+                nbr_max_rank[idx] = 0
+                nbr_avg_rank[idx] = 0
 
                 continue
+            nbr_indices = [ node_to_idx[u] for u in nbrs]
 
-            nbr_ranks = degree_rank[
-                nbrs
-            ]
+            nbr_ranks = degree_rank[nbr_indices]
 
-            nbr_min_rank[v] = np.min(
+            nbr_min_rank[idx] = np.min(
                 nbr_ranks
             )
 
-            nbr_max_rank[v] = np.max(
+            nbr_max_rank[idx] = np.max(
                 nbr_ranks
             )
 
-            nbr_avg_rank[v] = np.mean(
+            nbr_avg_rank[idx] = np.mean(
                 nbr_ranks
             )
 
