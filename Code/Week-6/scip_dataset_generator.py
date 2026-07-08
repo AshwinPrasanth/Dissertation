@@ -5,7 +5,7 @@ from pyscipopt import Model
 from dataset import DatasetBuilder
 from problem import build_vertex_cover_problem
 from features import MWUAVertexFeatureExtractor
-from branching import SCIPMWUABranchRule
+from dataset_branchrule import SCIPDatasetCollector
 from pyscipopt import SCIP_PARAMSETTING, quicksum
 
 
@@ -19,52 +19,17 @@ from pyscipopt import (
 
 from dimacs import load_dimacs_clq
 
-
+graph_name = "frb30-15-1"
 # ---------------------------------
 # Graph
 # ---------------------------------
 
-G = load_dimacs_clq("graphs/bhoslib/frb30-15-1.clq")
+G = load_dimacs_clq(f"graphs/bhoslib/{graph_name}.clq")
 
 #G = nx.complement(G)
 
 G = nx.convert_node_labels_to_integers(G,first_label=0)
 
-'''def load_snap_graph(path):
-
-    G = nx.Graph()
-
-    with open(path, "r") as f:
-
-        for line in f:
-
-            if line.startswith("#"):
-                continue
-
-            parts = line.strip().split()
-
-            if len(parts) != 2:
-                continue
-
-            u = int(parts[0])
-            v = int(parts[1])
-
-            G.add_edge(u, v)
-
-    return G
-
-
-G = load_snap_graph(
-    "graphs/ca_family/ca-GrQc.txt"
-)
-
-G.remove_edges_from(
-    nx.selfloop_edges(G)
-)
-
-G = nx.convert_node_labels_to_integers(
-    G,
-    first_label=0)'''
 
 
 print(
@@ -90,37 +55,7 @@ scores = (
     MWUAVertexFeatureExtractor
     .compute_mwua_score(dataset)
 )
-np.savetxt(
-    "mwua_scores.csv",
-    scores,
-    delimiter=","
-)
-print("\n===== MWUA SCORE STATS =====")
 
-print("Min:", scores.min())
-print("Max:", scores.max())
-print("Mean:", scores.mean())
-
-print("\nTop 10 vertices:")
-
-top = sorted(
-    range(len(scores)),
-    key=lambda v: scores[v],
-    reverse=True,
-)[:10]
-
-for v in top:
-    print(
-        f"Vertex {v}: "
-        f"{scores[v]}"
-    )
-print(
-    sorted(
-        range(len(scores)),
-        key=lambda v: scores[v],
-        reverse=True,
-    )[:20]
-)
 
 # ---------------------------------
 # SCIP model
@@ -168,18 +103,22 @@ model.setObjective(
     "maximize",
 )
 # ---------------------------------
-# MWUA branchrule
+# Dataset Collection
 # ---------------------------------
 
-branchrule = SCIPMWUABranchRule(dataset, scores)
+collector = SCIPDatasetCollector(
+    dataset,
+    scores,
+    graph_name
+)
 
 model.includeBranchrule(
 
-    branchrule,
+    collector,
 
-    "MWUA",
+    "COLLECT",
 
-    "MWUA branching",
+    "Dataset Collector",
 
     priority=1000000,
 
@@ -204,6 +143,7 @@ print(
 
 start = time.time()
 
+print("\nCollecting branch-node dataset...")
 model.optimize()
 
 end = time.time()
