@@ -1,0 +1,1624 @@
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 450 variables (450 bin, 0 int, 0 cont) and 17827 constraints
+  17827 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.01
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.1s|     1 |     0 |   450 |     - |    38M |   0 | 450 |  17k|  17k|   0 |  0 |   0 |   0 | 2.250000e+02 |      --      |    Inf | unknown
+ 10.0s|     1 |     2 |   450 |     - |    38M |   0 | 450 |  17k|  17k|   0 |  1 |   0 | 450 | 2.250000e+02 |      --      |    Inf | unknown
+*30.3s|    13 |    11 |  1332 |  73.5 |    LP  |  12 | 450 |  17k|  17k|   0 |  1 |   0 |2082 | 2.250000e+02 | 1.700000e+01 |1223.53%| unknown
+*30.3s|    15 |    10 |  1338 |  63.4 |    LP  |  12 | 450 |  17k|  17k|   0 |  1 |   0 |2094 | 2.250000e+02 | 1.800000e+01 |1150.00%| unknown
+*30.7s|    20 |    10 |  1374 |  48.6 |    LP  |  13 | 450 |  17k|  17k|   0 |  1 |   0 |2155 | 2.250000e+02 | 1.900000e+01 |1084.21%| unknown
+*60.5s|    35 |    20 |  2311 |  54.7 |    LP  |  14 | 450 |  17k|  17k|   0 |  1 |   0 |4285 | 2.245000e+02 | 2.000000e+01 |1022.50%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 64.15
+Solving Nodes      : 77
+Primal Bound       : +2.00000000000000e+01 (4 solutions)
+Dual Bound         : +2.24500000000000e+02
+Gap                : 1022.50 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 450 variables (450 bin, 0 int, 0 cont) and 17874 constraints
+  17874 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.01
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.1s|     1 |     0 |   452 |     - |    38M |   0 | 450 |  17k|  17k|   0 |  0 |   0 |   0 | 2.250000e+02 |      --      |    Inf | unknown
+  9.7s|     1 |     2 |   452 |     - |    38M |   0 | 450 |  17k|  17k|   0 |  1 |   0 | 450 | 2.250000e+02 |      --      |    Inf | unknown
+*32.0s|    13 |    11 |  1313 |  71.8 |    LP  |  12 | 450 |  17k|  17k|   0 |  1 |   0 |2158 | 2.250000e+02 | 1.900000e+01 |1084.21%| unknown
+*32.2s|    17 |    11 |  1325 |  54.6 |    LP  |  13 | 450 |  17k|  17k|   0 |  1 |   0 |2200 | 2.250000e+02 | 2.000000e+01 |1025.00%| unknown
+Processing: frb30-15-1
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 2809
+[MWUA] Final violation: 0.25425931082230746
+[SB DATA] graph=frb30-15-1 node=1 depth=0 residual_n=450 candidates=450 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb30-15-1 node=3 depth=1 residual_n=369 candidates=369 best=111 best_score=11.75 sb_nodes=2/50
+[SB DATA] graph=frb30-15-1 node=5 depth=2 residual_n=320 candidates=320 best=404 best_score=12.25 sb_nodes=3/50
+[SB DATA] graph=frb30-15-1 node=7 depth=3 residual_n=269 candidates=269 best=224 best_score=11.5 sb_nodes=4/50
+[SB DATA] graph=frb30-15-1 node=9 depth=4 residual_n=221 candidates=221 best=447 best_score=12.25 sb_nodes=5/50
+[SB DATA] graph=frb30-15-1 node=11 depth=5 residual_n=170 candidates=170 best=380 best_score=13 sb_nodes=6/50
+[SB DATA] graph=frb30-15-1 node=13 depth=6 residual_n=116 candidates=116 best=88 best_score=10.25 sb_nodes=7/50
+[SB DATA] graph=frb30-15-1 node=15 depth=7 residual_n=73 candidates=73 best=428 best_score=6 sb_nodes=8/50
+[SB DATA] graph=frb30-15-1 node=17 depth=8 residual_n=47 candidates=47 best=51 best_score=4 sb_nodes=9/50
+[SB DATA] graph=frb30-15-1 node=19 depth=9 residual_n=29 candidates=29 best=196 best_score=2.5 sb_nodes=10/50
+[SB DATA] graph=frb30-15-1 node=21 depth=10 residual_n=17 candidates=13 best=227 best_score=0.5 sb_nodes=11/50
+[SB DATA] graph=frb30-15-1 node=23 depth=11 residual_n=12 candidates=5 best=90 best_score=0.25 sb_nodes=12/50
+[SB DATA] graph=frb30-15-1 node=22 depth=11 residual_n=16 candidates=12 best=90 best_score=1e-12 sb_nodes=13/50
+[SB DATA] graph=frb30-15-1 node=20 depth=10 residual_n=28 candidates=28 best=354 best_score=2 sb_nodes=14/50
+[SB DATA] graph=frb30-15-1 node=28 depth=11 residual_n=27 candidates=25 best=207 best_score=1.5 sb_nodes=15/50
+[SB DATA] graph=frb30-15-1 node=31 depth=12 residual_n=17 candidates=7 best=90 best_score=0.25 sb_nodes=16/50
+[SB DATA] graph=frb30-15-1 node=2 depth=1 residual_n=449 candidates=449 best=1 best_score=5e-07 sb_nodes=17/50
+[SB DATA] graph=frb30-15-1 node=35 depth=2 residual_n=369 candidates=369 best=400 best_score=12.25 sb_nodes=18/50
+[SB DATA] graph=frb30-15-1 node=37 depth=3 residual_n=318 candidates=318 best=202 best_score=12 sb_nodes=19/50
+[SB DATA] graph=frb30-15-1 node=39 depth=4 residual_n=268 candidates=268 best=19 best_score=12.5 sb_nodes=20/50
+[SB DATA] graph=frb30-15-1 node=41 depth=5 residual_n=216 candidates=216 best=427 best_score=12.25 sb_nodes=21/50
+[SB DATA] graph=frb30-15-1 node=43 depth=6 residual_n=165 candidates=165 best=229 best_score=11 sb_nodes=22/50
+[SB DATA] graph=frb30-15-1 node=45 depth=7 residual_n=119 candidates=119 best=381 best_score=8.5 sb_nodes=23/50
+[SB DATA] graph=frb30-15-1 node=47 depth=8 residual_n=83 candidates=83 best=223 best_score=7 sb_nodes=24/50
+[SB DATA] graph=frb30-15-1 node=49 depth=9 residual_n=53 candidates=53 best=72 best_score=3.5 sb_nodes=25/50
+[SB DATA] graph=frb30-15-1 node=51 depth=10 residual_n=37 candidates=37 best=283 best_score=2.75 sb_nodes=26/50
+[SB DATA] graph=frb30-15-1 node=53 depth=11 residual_n=24 candidates=24 best=116 best_score=1 sb_nodes=27/50
+[SB DATA] graph=frb30-15-1 node=30 depth=12 residual_n=26 candidates=20 best=100 best_score=1 sb_nodes=28/50
+[SB DATA] graph=frb30-15-1 node=57 depth=13 residual_n=19 candidates=8 best=227 best_score=1e-12 sb_nodes=29/50
+[SB DATA] graph=frb30-15-1 node=56 depth=13 residual_n=25 candidates=19 best=126 best_score=0.25 sb_nodes=30/50
+[SB DATA] graph=frb30-15-1 node=54 depth=12 residual_n=23 candidates=23 best=38 best_score=0.25 sb_nodes=31/50
+[SB DATA] graph=frb30-15-1 node=52 depth=11 residual_n=36 candidates=36 best=444 best_score=2.5 sb_nodes=32/50
+[SB DATA] graph=frb30-15-1 node=65 depth=12 residual_n=24 candidates=24 best=38 best_score=0.5 sb_nodes=33/50
+[SB DATA] graph=frb30-15-1 node=66 depth=13 residual_n=23 candidates=23 best=51 best_score=0.25 sb_nodes=34/50
+[SB DATA] graph=frb30-15-1 node=64 depth=12 residual_n=35 candidates=35 best=124 best_score=2.25 sb_nodes=35/50
+[SB DATA] graph=frb30-15-1 node=71 depth=13 residual_n=24 candidates=22 best=38 best_score=0.5 sb_nodes=36/50
+[SB DATA] graph=frb30-15-1 node=72 depth=14 residual_n=23 candidates=21 best=165 best_score=0.25 sb_nodes=37/50
+[SB DATA] graph=frb30-15-1 node=70 depth=13 residual_n=34 candidates=34 best=54 best_score=1.75 sb_nodes=38/50
+[SB DATA] graph=frb30-15-1 node=77 depth=14 residual_n=25 candidates=25 best=106 best_score=0.75 sb_nodes=39/50
+[SB DATA] graph=frb30-15-1 node=78 depth=15 residual_n=24 candidates=24 best=32 best_score=0.5 sb_nodes=40/50
+[SB DATA] graph=frb30-15-1 node=80 depth=16 residual_n=23 candidates=23 best=156 best_score=0.25 sb_nodes=41/50
+[SB DATA] graph=frb30-15-1 node=76 depth=14 residual_n=33 candidates=33 best=449 best_score=1.75 sb_nodes=42/50
+[SB DATA] graph=frb30-15-1 node=85 depth=15 residual_n=24 candidates=24 best=90 best_score=0.5 sb_nodes=43/50
+[SB DATA] graph=frb30-15-1 node=86 depth=16 residual_n=23 candidates=15 best=106 best_score=5e-07 sb_nodes=44/50
+[SB DATA] graph=frb30-15-1 node=84 depth=15 residual_n=32 candidates=32 best=307 best_score=1.5 sb_nodes=45/50
+[SB DATA] graph=frb30-15-1 node=91 depth=16 residual_n=23 candidates=22 best=38 best_score=0.5 sb_nodes=46/50
+[SB DATA] graph=frb30-15-1 node=92 depth=17 residual_n=22 candidates=21 best=51 best_score=0.25 sb_nodes=47/50
+[SB DATA] graph=frb30-15-1 node=90 depth=16 residual_n=31 candidates=31 best=121 best_score=1.25 sb_nodes=48/50
+[SB DATA] graph=frb30-15-1 node=97 depth=17 residual_n=24 candidates=24 best=32 best_score=0.5 sb_nodes=49/50
+[SB DATA] graph=frb30-15-1 node=98 depth=18 residual_n=23 candidates=23 best=295 best_score=0.25 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb30-15-1 sb_nodes=50
+Processing: frb30-15-2
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 2787
+[MWUA] Final violation: 0.25764994188962875
+[SB DATA] graph=frb30-15-2 node=1 depth=0 residual_n=450 candidates=450 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb30-15-2 node=3 depth=1 residual_n=372 candidates=372 best=386 best_score=11.25 sb_nodes=2/50
+[SB DATA] graph=frb30-15-2 node=5 depth=2 residual_n=325 candidates=325 best=28 best_score=11.5 sb_nodes=3/50
+[SB DATA] graph=frb30-15-2 node=7 depth=3 residual_n=277 candidates=277 best=240 best_score=11.75 sb_nodes=4/50
+[SB DATA] graph=frb30-15-2 node=9 depth=4 residual_n=228 candidates=228 best=424 best_score=12.75 sb_nodes=5/50
+[SB DATA] graph=frb30-15-2 node=11 depth=5 residual_n=175 candidates=175 best=121 best_score=12.25 sb_nodes=6/50
+[SB DATA] graph=frb30-15-2 node=13 depth=6 residual_n=124 candidates=124 best=42 best_score=10 sb_nodes=7/50
+[SB DATA] graph=frb30-15-2 node=15 depth=7 residual_n=82 candidates=82 best=91 best_score=6.5 sb_nodes=8/50
+[SB DATA] graph=frb30-15-2 node=17 depth=8 residual_n=54 candidates=54 best=373 best_score=3.75 sb_nodes=9/50
+[SB DATA] graph=frb30-15-2 node=19 depth=9 residual_n=37 candidates=37 best=216 best_score=2.5 sb_nodes=10/50
+[SB DATA] graph=frb30-15-2 node=21 depth=10 residual_n=25 candidates=25 best=329 best_score=1.5 sb_nodes=11/50
+[SB DATA] graph=frb30-15-2 node=23 depth=11 residual_n=15 candidates=9 best=49 best_score=0.25 sb_nodes=12/50
+[SB DATA] graph=frb30-15-2 node=22 depth=11 residual_n=24 candidates=24 best=108 best_score=1 sb_nodes=13/50
+[SB DATA] graph=frb30-15-2 node=27 depth=12 residual_n=18 candidates=18 best=54 best_score=1e-12 sb_nodes=14/50
+[SB DATA] graph=frb30-15-2 node=26 depth=12 residual_n=23 candidates=23 best=278 best_score=0.25 sb_nodes=15/50
+[SB DATA] graph=frb30-15-2 node=2 depth=1 residual_n=449 candidates=449 best=1 best_score=5e-07 sb_nodes=16/50
+[SB DATA] graph=frb30-15-2 node=33 depth=2 residual_n=372 candidates=372 best=386 best_score=11 sb_nodes=17/50
+[SB DATA] graph=frb30-15-2 node=35 depth=3 residual_n=326 candidates=326 best=28 best_score=11.5 sb_nodes=18/50
+[SB DATA] graph=frb30-15-2 node=37 depth=4 residual_n=278 candidates=278 best=67 best_score=11.75 sb_nodes=19/50
+[SB DATA] graph=frb30-15-2 node=39 depth=5 residual_n=229 candidates=229 best=108 best_score=12.5 sb_nodes=20/50
+[SB DATA] graph=frb30-15-2 node=41 depth=6 residual_n=177 candidates=177 best=120 best_score=12 
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 115.63
+Solving Nodes      : 61
+Primal Bound       : +2.00000000000000e+01 (2 solutions)
+Dual Bound         : +2.24000000000000e+02
+Gap                : 1020.00 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 450 variables (450 bin, 0 int, 0 cont) and 17809 constraints
+  17809 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.01
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.1s|     1 |     0 |   450 |     - |    37M |   0 | 450 |  17k|  17k|   0 |  0 |   0 |   0 | 2.250000e+02 |      --      |    Inf | unknown
+  9.8s|     1 |     2 |   450 |     - |    37M |   0 | 450 |  17k|  17k|   0 |  1 |   0 | 450 | 2.250000e+02 |      --      |    Inf | unknown
+*31.3s|    12 |    11 |  1321 |  79.2 |    LP  |  11 | 450 |  17k|  17k|   0 |  1 |   0 |2156 | 2.250000e+02 | 1.800000e+01 |1150.00%| unknown
+*31.5s|    16 |    11 |  1337 |  59.1 |    LP  |  13 | 450 |  17k|  17k|   0 |  1 |   0 |2195 | 2.250000e+02 | 1.900000e+01 |1084.21%| unknown
+*31.7s|    18 |    11 |  1343 |  52.5 |    LP  |  13 | 450 |  17k|  17k|   0 |  1 |   0 |2215 | 2.250000e+02 | 2.000000e+01 |1025.00%| unknown
+*35.0s|    56 |    10 |  1514 |  19.3 |    LP  |  19 | 450 |  17k|  17k|   0 |  1 |   0 |2719 | 2.250000e+02 | 2.100000e+01 | 971.43%| unknown
+sb_nodes=21/50
+[SB DATA] graph=frb30-15-2 node=43 depth=7 residual_n=127 candidates=127 best=158 best_score=11.25 sb_nodes=22/50
+[SB DATA] graph=frb30-15-2 node=45 depth=8 residual_n=80 candidates=80 best=31 best_score=6.75 sb_nodes=23/50
+[SB DATA] graph=frb30-15-2 node=47 depth=9 residual_n=51 candidates=51 best=361 best_score=4.5 sb_nodes=24/50
+[SB DATA] graph=frb30-15-2 node=49 depth=10 residual_n=31 candidates=31 best=76 best_score=1.75 sb_nodes=25/50
+[SB DATA] graph=frb30-15-2 node=50 depth=11 residual_n=30 candidates=30 best=231 best_score=1.5 sb_nodes=26/50
+[SB DATA] graph=frb30-15-2 node=52 depth=12 residual_n=29 candidates=29 best=179 best_score=1.25 sb_nodes=27/50
+[SB DATA] graph=frb30-15-2 node=54 depth=13 residual_n=28 candidates=28 best=236 best_score=1 sb_nodes=28/50
+[SB DATA] graph=frb30-15-2 node=32 depth=2 residual_n=448 candidates=448 best=2 best_score=5e-07 sb_nodes=29/50
+[SB DATA] graph=frb30-15-2 node=59 depth=3 residual_n=376 candidates=376 best=29 best_score=10 sb_nodes=30/50
+[SB DATA] graph=frb30-15-2 node=61 depth=4 residual_n=334 candidates=334 best=389 best_score=12 sb_nodes=31/50
+[SB DATA] graph=frb30-15-2 node=63 depth=5 residual_n=284 candidates=284 best=137 best_score=12.5 sb_nodes=32/50
+[SB DATA] graph=frb30-15-2 node=65 depth=6 residual_n=232 candidates=232 best=347 best_score=13.25 sb_nodes=33/50
+[SB DATA] graph=frb30-15-2 node=67 depth=7 residual_n=177 candidates=177 best=242 best_score=12.5 sb_nodes=34/50
+[SB DATA] graph=frb30-15-2 node=69 depth=8 residual_n=125 candidates=125 best=120 best_score=11 sb_nodes=35/50
+[SB DATA] graph=frb30-15-2 node=71 depth=9 residual_n=79 candidates=79 best=190 best_score=6.5 sb_nodes=36/50
+[SB DATA] graph=frb30-15-2 node=73 depth=10 residual_n=51 candidates=51 best=91 best_score=4 sb_nodes=37/50
+[SB DATA] graph=frb30-15-2 node=75 depth=11 residual_n=33 candidates=31 best=170 best_score=2 sb_nodes=38/50
+[SB DATA] graph=frb30-15-2 node=77 depth=12 residual_n=22 candidates=21 best=41 best_score=0.25 sb_nodes=39/50
+[SB DATA] graph=frb30-15-2 node=34 depth=3 residual_n=371 candidates=371 best=29 best_score=9.5 sb_nodes=40/50
+[SB DATA] graph=frb30-15-2 node=81 depth=4 residual_n=331 candidates=331 best=283 best_score=12.75 sb_nodes=41/50
+[SB DATA] graph=frb30-15-2 node=83 depth=5 residual_n=278 candidates=278 best=322 best_score=12 sb_nodes=42/50
+[SB DATA] graph=frb30-15-2 node=85 depth=6 residual_n=228 candidates=228 best=157 best_score=11.75 sb_nodes=43/50
+[SB DATA] graph=frb30-15-2 node=87 depth=7 residual_n=179 candidates=179 best=129 best_score=12.75 sb_nodes=44/50
+[SB DATA] graph=frb30-15-2 node=89 depth=8 residual_n=126 candidates=126 best=70 best_score=10 sb_nodes=45/50
+[SB DATA] graph=frb30-15-2 node=91 depth=9 residual_n=84 candidates=84 best=365 best_score=7.5 sb_nodes=46/50
+[SB DATA] graph=frb30-15-2 node=93 depth=10 residual_n=52 candidates=52 best=223 best_score=3.5 sb_nodes=47/50
+[SB DATA] graph=frb30-15-2 node=95 depth=11 residual_n=36 candidates=34 best=140 best_score=2.25 sb_nodes=48/50
+[SB DATA] graph=frb30-15-2 node=97 depth=12 residual_n=25 candidates=23 best=119 best_score=0.75 sb_nodes=49/50
+[SB DATA] graph=frb30-15-2 node=98 depth=13 residual_n=24 candidates=22 best=411 best_score=0.5 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb30-15-2 sb_nodes=50
+Processing: frb30-15-3
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 2757
+[MWUA] Final violation: 0.3145785231199034
+[SB DATA] graph=frb30-15-3 node=1 depth=0 residual_n=450 candidates=450 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb30-15-3 node=3 depth=1 residual_n=377 candidates=377 best=81 best_score=10.75 sb_nodes=2/50
+[SB DATA] graph=frb30-15-3 node=5 depth=2 residual_n=332 candidates=332 best=300 best_score=14.25 sb_nodes=3/50
+[SB DATA] graph=frb30-15-3 node=7 depth=3 residual_n=273 candidates=273 best=288 best_score=11 sb_nodes=4/50
+[SB DATA] graph=frb30-15-3 node=9 depth=4 residual_n=227 candidates=227 best=227 best_score=13 sb_nodes=5/50
+[SB DATA] graph=frb30-15-3 node=11 depth=5 residual_n=173 candidates=173 best=242 best_score=12.5 sb_nodes=6/50
+[SB DATA] graph=frb30-15-3 node=13 depth=6 residual_n=121 candidates=121 best=258 best_score=8.5 sb_nodes=7/50
+[SB DATA] graph=frb30-15-3 node=15 depth=7 residual_n=85 candidates=85 best=37 best_score=6.5 sb_nodes=8/50
+[SB DATA] graph=frb30-15-3 node=17 depth=8 residual_n=57 candidates=57 best=174 best_score=4.5 sb_nodes=9/50
+[SB DATA] graph=frb30-15-3 node=19 depth=9 residual_n=37 candidates=37 best=135 best_score=2.75 sb_nodes=10/50
+[SB DATA] graph=frb30-15-3 node=21 depth=10 residual_n=24 candidates=24 best=347 best_score=2 sb_nodes=11/50
+[SB DATA] graph=frb30-15-3 node=22 depth=11 residual_n=23 candidates=23 best=51 best_score=1.25 sb_nodes=12/50
+[SB DATA] graph=frb30-15-3 node=25 depth=12 residual_n=16 candidates=16 best=105 best_score=1e-12 sb_nodes=13/50
+[SB DATA] graph=frb30-15-3 node=24 depth=12 residual_n=22 candidates=20 best=106 best_score=0.5 sb_nodes=14/50
+[SB DATA] graph=frb30-15-3 node=20 depth=10 residual_n=36 candidates=36 best=347 best_score=2.5 sb_nodes=15/50
+[SB DATA] graph=frb30-15-3 node=31 depth=11 residual_n=23 candidates=22 best=96 best_score=0.5 sb_nodes=16/50
+[SB DATA] graph=frb30-15-3 node=32 depth=12 residual_n=22 candidates=21 best=50 best_score=0.25 sb_nodes=17/50
+[SB DATA] graph=frb30-15-3 node=30 depth=11 residual_n=35 candidates=35 best=445 best_score=2.5 sb_nodes=18/50
+[SB DATA] graph=frb30-15-3 node=37 depth=12 residual_n=23 candidates=21 best=106 best_score=0.25 sb_nodes=19/50
+[SB DATA] graph=frb30-15-3 node=36 depth=12 residual_n=34 candidates=34 best=141 best_score=2.25 sb_nodes=20/50
+[SB DATA] graph=frb30-15-3 node=41 depth=13 residual_n=23 candidates=21 best=274 best_score=0.25 sb_nodes=21/50
+[SB DATA] graph=frb30-15-3 node=40 depth=13 residual_n=33 candidates=31 best=335 best_score=1.75 sb_nodes=22/50
+[SB DATA] graph=frb30-15-3 node=45 depth=14 residual_n=23 candidates=22 best=50 best_score=0.5 sb_nodes=23/50
+[SB DATA] graph=frb30-15-3 node=46 depth=15 residual_n=22 candidates=21 best=57 best_score=0.25 sb_nodes=24/50
+[SB DATA] graph=frb30-15-3 node=44 depth=14 residual_n=32 candidates=30 best=375 best_score=1.75 sb_nodes=25/50
+[SB DATA] graph=frb30-15-3 node=51 depth=15 residual_n=22 candidates=21 best=50 best_score=0.25 sb_nodes=26/50
+[SB DATA] graph=frb30-15-3 node=50 depth=15 residual_n=31 candidates=29 best=369 best_score=1.5 sb_nodes=27/50
+[SB DATA] graph=frb30-15-3 node=55 depth=16 residual_n=23 candidates=17 best=57 best_score=5e-07 sb_nodes=28/50
+[SB DATA] graph=frb30-15-3 node=57 depth=17 residual_n=21 candidates=15 best=106 best_score=5e-07 sb_nodes=29/50
+[SB DATA] graph=frb30-15-3 node=54 depth=16 residual_n=30 candidates=28 best=119 best_score=1.25 sb_nodes=30/50
+[SB DATA] graph=frb30-15-3 node=61 depth=17 residual_n=23 candidates=21 best=50 best_score=0.25 sb_nodes=31/50
+[SB DATA] graph=frb30-15-3 node=60 depth=17 residual_n=29 candidates=27 best=410 best_score=1.25 sb_nodes=32/50
+[SB DATA] graph=frb30-15-3 node=65 depth=18 residual_n=22 candidates=20 best=50 best_score=1e-12 sb_nodes=33/50
+[SB DATA] graph=frb30-15-3 node=64 depth=18 residual_n=28 candidates=26 best=57 best_score=0.5 sb_nodes=34/50
+[SB DATA] graph=frb30-15-3 node=68 depth=19 residual_n=27 candidates=25 best=50 best_score=5e-07 sb_nodes=35/50
+[SB DATA] graph=frb30-15-3 node=71 depth=20 residual_n=25 candidates=23 best=105 best_score=5e-07 sb_nodes=36/50
+[SB DATA] graph=frb30-15-3 node=18 depth=9 residual_n=56 candidates=56 best=165 best_score=3.75 sb_nodes=37/50
+[SB DATA] graph=frb30-15-3 node=75 depth=10 residual_n=39 candidates=39 best=135 best_score=2.5 sb_nodes=38/50
+[SB DATA] graph=frb30-15-3 node=77 depth=11 residual_n=27 candidates=27 best=106 best_score=0.75 sb_nodes=39/50
+[SB DATA] graph=frb30-15-3 node=78 depth=12 residual_n=26 candidates=26 best=52 best_score=0.5 sb_nodes=40/50
+[SB DATA] graph=frb30-15-3 node=80 depth=13 residual_n=25 candidates=25 best=21 best_score=0.25 sb_nodes=41/50
+[SB DATA] graph=frb30-15-3 node=76 depth=11 residual_n=38 candidates=38 best=347 best_score=2.5 sb_nodes=42/50
+[SB DATA] graph=frb30-15-3 node=85 depth=12 residual_n=26 candidates=22 best=90 
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 38.50
+Solving Nodes      : 88
+Primal Bound       : +2.10000000000000e+01 (4 solutions)
+Dual Bound         : +2.25000000000000e+02
+Gap                : 971.43 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 450 variables (450 bin, 0 int, 0 cont) and 17831 constraints
+  17831 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.01
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.1s|     1 |     0 |   450 |     - |    37M |   0 | 450 |  17k|  17k|   0 |  0 |   0 |   0 | 2.250000e+02 |      --      |    Inf | unknown
+  9.4s|     1 |     2 |   450 |     - |    37M |   0 | 450 |  17k|  17k|   0 |  1 |   0 | 450 | 2.250000e+02 |      --      |    Inf | unknown
+*26.3s|    12 |    11 |  1291 |  76.5 |    LP  |  11 | 450 |  17k|  17k|   0 |  1 |   0 |1919 | 2.250000e+02 | 1.800000e+01 |1150.00%| unknown
+*26.4s|    16 |    11 |  1302 |  56.8 |    LP  |  12 | 450 |  17k|  17k|   0 |  1 |   0 |1935 | 2.250000e+02 | 1.900000e+01 |1084.21%| unknown
+*27.8s|    39 |     9 |  1396 |  24.9 |    LP  |  18 | 450 |  17k|  17k|   0 |  1 |   0 |2162 | 2.250000e+02 | 2.000000e+01 |1025.00%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 32.07
+Solving Nodes      : 87
+Primal Bound       : +2.00000000000000e+01 (3 solutions)
+Dual Bound         : +2.25000000000000e+02
+Gap                : 1025.00 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 450 variables (450 bin, 0 int, 0 cont) and 17794 constraints
+  17794 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.01
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.1s|     1 |     0 |   450 |     - |    37M |   0 | 450 |  17k|  17k|   0 |  0 |   0 |   0 | 2.250000e+02 |      --      |    Inf | unknown
+  9.4s|     1 |     2 |   450 |     - |    37M |   0 | 450 |  17k|  17k|   0 |  1 |   0 | 450 | 2.250000e+02 |      --      |    Inf | unknown
+*29.7s|    13 |    11 |  1309 |  71.6 |    LP  |  12 | 450 |  17k|  17k|   0 |  1 |   0 |2102 | 2.250000e+02 | 1.800000e+01 |1150.00%| unknown
+best_score=0.5 sb_nodes=43/50
+[SB DATA] graph=frb30-15-3 node=86 depth=13 residual_n=25 candidates=21 best=57 best_score=0.25 sb_nodes=44/50
+[SB DATA] graph=frb30-15-3 node=84 depth=12 residual_n=37 candidates=37 best=141 best_score=2.25 sb_nodes=45/50
+[SB DATA] graph=frb30-15-3 node=91 depth=13 residual_n=26 candidates=26 best=29 best_score=0.5 sb_nodes=46/50
+[SB DATA] graph=frb30-15-3 node=92 depth=14 residual_n=25 candidates=25 best=90 best_score=0.25 sb_nodes=47/50
+[SB DATA] graph=frb30-15-3 node=90 depth=13 residual_n=36 candidates=36 best=375 best_score=2 sb_nodes=48/50
+[SB DATA] graph=frb30-15-3 node=97 depth=14 residual_n=26 candidates=26 best=29 best_score=0.5 sb_nodes=49/50
+[SB DATA] graph=frb30-15-3 node=98 depth=15 residual_n=25 candidates=25 best=133 best_score=0.25 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb30-15-3 sb_nodes=50
+Processing: frb30-15-4
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 2790
+[MWUA] Final violation: 0.23553549920499872
+[SB DATA] graph=frb30-15-4 node=1 depth=0 residual_n=450 candidates=450 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb30-15-4 node=3 depth=1 residual_n=358 candidates=358 best=438 best_score=14.25 sb_nodes=2/50
+[SB DATA] graph=frb30-15-4 node=5 depth=2 residual_n=299 candidates=299 best=242 best_score=13.25 sb_nodes=3/50
+[SB DATA] graph=frb30-15-4 node=7 depth=3 residual_n=244 candidates=244 best=130 best_score=12 sb_nodes=4/50
+[SB DATA] graph=frb30-15-4 node=9 depth=4 residual_n=194 candidates=194 best=330 best_score=11.5 sb_nodes=5/50
+[SB DATA] graph=frb30-15-4 node=11 depth=5 residual_n=146 candidates=146 best=50 best_score=10.75 sb_nodes=6/50
+[SB DATA] graph=frb30-15-4 node=13 depth=6 residual_n=101 candidates=101 best=286 best_score=7.75 sb_nodes=7/50
+[SB DATA] graph=frb30-15-4 node=15 depth=7 residual_n=68 candidates=68 best=63 best_score=5.5 sb_nodes=8/50
+[SB DATA] graph=frb30-15-4 node=17 depth=8 residual_n=44 candidates=42 best=423 best_score=3.75 sb_nodes=9/50
+[SB DATA] graph=frb30-15-4 node=19 depth=9 residual_n=25 candidates=13 best=101 best_score=1.75 sb_nodes=10/50
+[SB DATA] graph=frb30-15-4 node=21 depth=10 residual_n=16 candidates=4 best=364 best_score=0.5 sb_nodes=11/50
+[SB DATA] graph=frb30-15-4 node=20 depth=10 residual_n=24 candidates=12 best=98 best_score=1 sb_nodes=12/50
+[SB DATA] graph=frb30-15-4 node=25 depth=11 residual_n=18 candidates=4 best=364 best_score=0.5 sb_nodes=13/50
+[SB DATA] graph=frb30-15-4 node=24 depth=11 residual_n=23 candidates=11 best=102 best_score=0.75 sb_nodes=14/50
+[SB DATA] graph=frb30-15-4 node=28 depth=12 residual_n=22 candidates=10 best=364 best_score=0.5 sb_nodes=15/50
+[SB DATA] graph=frb30-15-4 node=30 depth=13 residual_n=21 candidates=9 best=95 best_score=0.25 sb_nodes=16/50
+[SB DATA] graph=frb30-15-4 node=18 depth=9 residual_n=43 candidates=41 best=428 best_score=3.25 sb_nodes=17/50
+[SB DATA] graph=frb30-15-4 node=35 depth=10 residual_n=28 candidates=24 best=95 best_score=1.5 sb_nodes=18/50
+[SB DATA] graph=frb30-15-4 node=36 depth=11 residual_n=27 candidates=21 best=17 best_score=1.25 sb_nodes=19/50
+[SB DATA] graph=frb30-15-4 node=38 depth=12 residual_n=26 candidates=20 best=97 best_score=1 sb_nodes=20/50
+[SB DATA] graph=frb30-15-4 node=40 depth=13 residual_n=25 candidates=19 best=75 best_score=0.75 sb_nodes=21/50
+[SB DATA] graph=frb30-15-4 node=42 depth=14 residual_n=24 candidates=18 best=36 best_score=0.5 sb_nodes=22/50
+[SB DATA] graph=frb30-15-4 node=44 depth=15 residual_n=23 candidates=17 best=364 best_score=0.25 sb_nodes=23/50
+[SB DATA] graph=frb30-15-4 node=47 depth=16 residual_n=20 candidates=14 best=23 best_score=1e-12 sb_nodes=24/50
+[SB DATA] graph=frb30-15-4 node=49 depth=17 residual_n=17 candidates=10 best=76 best_score=1e-12 sb_nodes=25/50
+[SB DATA] graph=frb30-15-4 node=34 depth=10 residual_n=42 candidates=40 best=434 best_score=2.5 sb_nodes=26/50
+[SB DATA] graph=frb30-15-4 node=53 depth=11 residual_n=30 candidates=26 best=17 best_score=1.25 sb_nodes=27/50
+[SB DATA] graph=frb30-15-4 node=55 depth=12 residual_n=23 candidates=17 best=280 best_score=0.25 sb_nodes=28/50
+[SB DATA] graph=frb30-15-4 node=54 depth=12 residual_n=29 candidates=25 best=97 best_score=1.25 sb_nodes=29/50
+[SB DATA] graph=frb30-15-4 node=58 depth=13 residual_n=28 candidates=24 best=101 best_score=1 sb_nodes=30/50
+[SB DATA] graph=frb30-15-4 node=60 depth=14 residual_n=27 candidates=23 best=23 best_score=0.75 sb_nodes=31/50
+[SB DATA] graph=frb30-15-4 node=62 depth=15 residual_n=26 candidates=22 best=75 best_score=0.5 sb_nodes=32/50
+[SB DATA] graph=frb30-15-4 node=64 depth=16 residual_n=25 candidates=21 best=36 best_score=0.25 sb_nodes=33/50
+[SB DATA] graph=frb30-15-4 node=52 depth=11 residual_n=41 candidates=39 best=101 best_score=2 sb_nodes=34/50
+[SB DATA] graph=frb30-15-4 node=69 depth=12 residual_n=31 candidates=29 best=307 best_score=1.75 sb_nodes=35/50
+[SB DATA] graph=frb30-15-4 node=70 depth=13 residual_n=30 candidates=26 best=371 best_score=1.5 sb_nodes=36/50
+[SB DATA] graph=frb30-15-4 node=72 depth=14 residual_n=29 candidates=25 best=17 best_score=1.25 sb_nodes=37/50
+[SB DATA] graph=frb30-15-4 node=74 depth=15 residual_n=28 candidates=24 best=426 best_score=1 sb_nodes=38/50
+[SB DATA] graph=frb30-15-4 node=76 depth=16 residual_n=27 candidates=23 best=23 best_score=0.75 sb_nodes=39/50
+[SB DATA] graph=frb30-15-4 node=78 depth=17 residual_n=26 candidates=22 best=75 best_score=0.5 sb_nodes=40/50
+[SB DATA] graph=frb30-15-4 node=80 depth=18 residual_n=25 candidates=17 best=36 best_score=0.25 sb_nodes=41/50
+[SB DATA] graph=frb30-15-4 node=68 depth=12 residual_n=40 candidates=38 best=307 best_score=2 sb_nodes=42/50
+[SB DATA] graph=frb30-15-4 node=85 depth=13 residual_n=30 candidates=26 best=95 best_score=1.5 sb_nodes=43/50
+[SB DATA] graph=frb30-15-4 node=86 depth=14 residual_n=29 candidates=25 best=17 best_score=1.25 sb_nodes=44/50
+[SB DATA] graph=frb30-15-4 node=88 depth=15 residual_n=28 candidates=24 best=280 best_score=1 sb_nodes=45/50
+[SB DATA] graph=frb30-15-4 node=90 depth=16 residual_n=27 candidates=23 best=23 best_score=0.75 sb_nodes=46/50
+[SB DATA] graph=frb30-15-4 node=92 depth=17 residual_n=26 candidates=22 best=97 best_score=0.5 sb_nodes=47/50
+[SB DATA] graph=frb30-15-4 node=94 depth=18 residual_n=25 candidates=21 best=98 best_score=0.25 sb_nodes=48/50
+[SB DATA] graph=frb30-15-4 node=84 depth=13 residual_n=39 candidates=35 best=429 best_score=2 sb_nodes=49/50
+[SB DATA] graph=frb30-15-4 node=99 depth=14 residual_n=29 candidates=25 best=17 best_score=1.25 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb30-15-4 sb_nodes=50
+Processing: frb30-15-5
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 2676
+[MWUA] Final violation: 0.2971263885313795
+[SB DATA] graph=frb30-15-5 node=1 depth=0 residual_n=450 candidates=450 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb30-15-5 node=3 depth=1 residual_n=368 candidates=368 best=231 best_score=12.5 sb_nodes=2/50
+[SB DATA] graph=frb30-15-5 node=5 depth=2 residual_n=316 candidates=316 best=150 best_score=11.25 sb_nodes=3/50
+[SB DATA] graph=frb30-15-5 node=7 depth=3 residual_n=269 candidates=269 best=84 best_score=11.75 sb_nodes=4/50
+[SB DATA] graph=frb30-15-5 node=9 depth=4 residual_n=220 candidates=220 best=245 best_score=12.75 sb_nodes=5/50
+[SB DATA] graph=frb30-15-5 node=11 depth=5 residual_n=167 candidates=167 best=143 best_score=11.75 sb_nodes=6/50
+[SB DATA] graph=frb30-15-5 node=13 depth=6 residual_n=118 candidates=118 best=345 best_score=8.5 sb_nodes=7/50
+[SB DATA] graph=frb30-15-5 node=15 depth=7 residual_n=82 candidates=82 best=180 best_score=6.5 sb_nodes=8/50
+[SB DATA] graph=frb30-15-5 node=17 depth=8 residual_n=54 candidates=54 best=116 best_score=4.75 sb_nodes=9/50
+[SB DATA] graph=frb30-15-5 node=19 depth=9 residual_n=33 candidates=33 best=168 best_score=2.75 sb_nodes=10/50
+[SB DATA] graph=frb30-15-5 node=21 depth=10 residual_n=20 candidates=16 best=15 best_score=0.75 sb_nodes=11/50
+[SB DATA] graph=frb30-15-5 node=23 depth=11 residual_n=14 candidates=9 best=216 best_score=0.25 sb_nodes=12/50
+[SB DATA] graph=frb30-15-5 node=22 depth=11 residual_n=19 candidates=15 best=45 best_score=0.25 sb_nodes=13/50
+[SB DATA] graph=frb30-15-5 node=20 *30.2s|    22 |    11 |  1341 |  42.4 |    LP  |  14 | 450 |  17k|  17k|   0 |  1 |   0 |2188 | 2.250000e+02 | 1.900000e+01 |1084.21%| unknown
+*32.3s|    50 |    10 |  1446 |  20.3 |    LP  |  19 | 450 |  17k|  17k|   0 |  1 |   0 |2520 | 2.250000e+02 | 2.000000e+01 |1025.00%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 88.11
+Solving Nodes      : 72
+Primal Bound       : +2.00000000000000e+01 (3 solutions)
+Dual Bound         : +2.24000000000000e+02
+Gap                : 1020.00 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 595 variables (595 bin, 0 int, 0 cont) and 27856 constraints
+  27856 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.2s|     1 |     0 |   598 |     - |    56M |   0 | 595 |  27k|  27k|   0 |  0 |   0 |   0 | 2.975000e+02 |      --      |    Inf | unknown
+ 19.3s|     1 |     2 |   598 |     - |    56M |   0 | 595 |  27k|  27k|   0 |  1 |   0 | 595 | 2.975000e+02 |      --      |    Inf | unknown
+*79.9s|    16 |    14 |  1817 |  81.3 |    LP  |  15 | 595 |  27k|  27k|   0 |  1 |   0 |3582 | 2.975000e+02 | 2.500000e+01 |1090.00%| unknown
+*80.6s|    27 |    13 |  1847 |  48.0 |    LP  |  18 | 595 |  27k|  27k|   0 |  1 |   0 |3666 | 2.975000e+02 | 2.600000e+01 |1044.23%| unknown
+depth=10 residual_n=32 candidates=32 best=173 best_score=2.25 sb_nodes=14/50
+[SB DATA] graph=frb30-15-5 node=29 depth=11 residual_n=21 candidates=19 best=203 best_score=0.75 sb_nodes=15/50
+[SB DATA] graph=frb30-15-5 node=31 depth=12 residual_n=16 candidates=14 best=24 best_score=1e-12 sb_nodes=16/50
+[SB DATA] graph=frb30-15-5 node=33 depth=13 residual_n=13 candidates=4 best=212 best_score=1e-12 sb_nodes=17/50
+[SB DATA] graph=frb30-15-5 node=28 depth=11 residual_n=31 candidates=31 best=213 best_score=2 sb_nodes=18/50
+[SB DATA] graph=frb30-15-5 node=37 depth=12 residual_n=21 candidates=21 best=45 best_score=0.25 sb_nodes=19/50
+[SB DATA] graph=frb30-15-5 node=36 depth=12 residual_n=30 candidates=30 best=45 best_score=1.5 sb_nodes=20/50
+[SB DATA] graph=frb30-15-5 node=41 depth=13 residual_n=22 candidates=18 best=62 best_score=0.5 sb_nodes=21/50
+[SB DATA] graph=frb30-15-5 node=42 depth=14 residual_n=21 candidates=17 best=175 best_score=0.25 sb_nodes=22/50
+[SB DATA] graph=frb30-15-5 node=40 depth=13 residual_n=29 candidates=29 best=24 best_score=1.25 sb_nodes=23/50
+[SB DATA] graph=frb30-15-5 node=47 depth=14 residual_n=22 candidates=22 best=58 best_score=0.5 sb_nodes=24/50
+[SB DATA] graph=frb30-15-5 node=48 depth=15 residual_n=21 candidates=21 best=94 best_score=0.25 sb_nodes=25/50
+[SB DATA] graph=frb30-15-5 node=46 depth=14 residual_n=28 candidates=28 best=53 best_score=1.25 sb_nodes=26/50
+[SB DATA] graph=frb30-15-5 node=53 depth=15 residual_n=21 candidates=21 best=95 best_score=0.25 sb_nodes=27/50
+[SB DATA] graph=frb30-15-5 node=52 depth=15 residual_n=27 candidates=27 best=133 best_score=1.25 sb_nodes=28/50
+[SB DATA] graph=frb30-15-5 node=56 depth=16 residual_n=26 candidates=24 best=15 best_score=0.75 sb_nodes=29/50
+[SB DATA] graph=frb30-15-5 node=59 depth=17 residual_n=20 candidates=17 best=62 best_score=0.25 sb_nodes=30/50
+[SB DATA] graph=frb30-15-5 node=61 depth=18 residual_n=17 candidates=12 best=94 best_score=1e-12 sb_nodes=31/50
+[SB DATA] graph=frb30-15-5 node=2 depth=1 residual_n=449 candidates=449 best=1 best_score=5e-07 sb_nodes=32/50
+[SB DATA] graph=frb30-15-5 node=65 depth=2 residual_n=372 candidates=372 best=229 best_score=12.75 sb_nodes=33/50
+[SB DATA] graph=frb30-15-5 node=67 depth=3 residual_n=319 candidates=319 best=357 best_score=12.75 sb_nodes=34/50
+[SB DATA] graph=frb30-15-5 node=69 depth=4 residual_n=266 candidates=266 best=176 best_score=13 sb_nodes=35/50
+[SB DATA] graph=frb30-15-5 node=71 depth=5 residual_n=212 candidates=212 best=48 best_score=12.5 sb_nodes=36/50
+[SB DATA] graph=frb30-15-5 node=73 depth=6 residual_n=160 candidates=160 best=429 best_score=10.5 sb_nodes=37/50
+[SB DATA] graph=frb30-15-5 node=75 depth=7 residual_n=116 candidates=116 best=76 best_score=7.5 sb_nodes=38/50
+[SB DATA] graph=frb30-15-5 node=77 depth=8 residual_n=84 candidates=84 best=142 best_score=5.5 sb_nodes=39/50
+[SB DATA] graph=frb30-15-5 node=79 depth=9 residual_n=60 candidates=60 best=240 best_score=4.25 sb_nodes=40/50
+[SB DATA] graph=frb30-15-5 node=81 depth=10 residual_n=41 candidates=41 best=379 best_score=2.75 sb_nodes=41/50
+[SB DATA] graph=frb30-15-5 node=83 depth=11 residual_n=28 candidates=28 best=35 best_score=1.5 sb_nodes=42/50
+[SB DATA] graph=frb30-15-5 node=84 depth=12 residual_n=27 candidates=27 best=100 best_score=1.25 sb_nodes=43/50
+[SB DATA] graph=frb30-15-5 node=86 depth=13 residual_n=26 candidates=26 best=189 best_score=1 sb_nodes=44/50
+[SB DATA] graph=frb30-15-5 node=64 depth=2 residual_n=448 candidates=448 best=2 best_score=5e-07 sb_nodes=45/50
+[SB DATA] graph=frb30-15-5 node=91 depth=3 residual_n=369 candidates=369 best=231 best_score=12.5 sb_nodes=46/50
+[SB DATA] graph=frb30-15-5 node=93 depth=4 residual_n=317 candidates=317 best=340 best_score=11.75 sb_nodes=47/50
+[SB DATA] graph=frb30-15-5 node=95 depth=5 residual_n=268 candidates=268 best=167 best_score=11.25 sb_nodes=48/50
+[SB DATA] graph=frb30-15-5 node=97 depth=6 residual_n=221 candidates=221 best=301 best_score=12.25 sb_nodes=49/50
+[SB DATA] graph=frb30-15-5 node=99 depth=7 residual_n=170 candidates=170 best=371 best_score=12.25 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb30-15-5 sb_nodes=50
+Processing: frb35-17-1
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 1779
+[MWUA] Final violation: 0.35571513372113395
+[SB DATA] graph=frb35-17-1 node=1 depth=0 residual_n=595 candidates=595 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb35-17-1 node=3 depth=1 residual_n=520 candidates=520 best=17 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb35-17-1 node=5 depth=2 residual_n=466 candidates=466 best=36 best_score=5e-07 sb_nodes=3/50
+[SB DATA] graph=frb35-17-1 node=7 depth=3 residual_n=422 candidates=422 best=51 best_score=5e-07 sb_nodes=4/50
+[SB DATA] graph=frb35-17-1 node=9 depth=4 residual_n=363 candidates=363 best=344 best_score=11 sb_nodes=5/50
+[SB DATA] graph=frb35-17-1 node=11 depth=5 residual_n=317 candidates=317 best=186 best_score=12.25 sb_nodes=6/50
+[SB DATA] graph=frb35-17-1 node=13 depth=6 residual_n=266 candidates=266 best=429 best_score=12.5 sb_nodes=7/50
+[SB DATA] graph=frb35-17-1 node=15 depth=7 residual_n=214 candidates=214 best=359 best_score=13.25 sb_nodes=8/50
+[SB DATA] graph=frb35-17-1 node=17 depth=8 residual_n=159 candidates=159 best=524 best_score=12 sb_nodes=9/50
+[SB DATA] graph=frb35-17-1 node=19 depth=9 residual_n=109 candidates=109 best=528 best_score=9.75 sb_nodes=10/50
+[SB DATA] graph=frb35-17-1 node=21 depth=10 residual_n=68 candidates=68 best=119 best_score=4.75 sb_nodes=11/50
+[SB DATA] graph=frb35-17-1 node=23 depth=11 residual_n=47 candidates=47 best=329 best_score=3 sb_nodes=12/50
+[SB DATA] graph=frb35-17-1 node=25 depth=12 residual_n=32 candidates=23 best=262 best_score=1.25 sb_nodes=13/50
+[SB DATA] graph=frb35-17-1 node=27 depth=13 residual_n=24 candidates=10 best=210 best_score=0.25 sb_nodes=14/50
+[SB DATA] graph=frb35-17-1 node=28 depth=14 residual_n=23 candidates=3 best=494 best_score=0.25 sb_nodes=15/50
+[SB DATA] graph=frb35-17-1 node=26 depth=13 residual_n=31 candidates=22 best=268 best_score=1 sb_nodes=16/50
+[SB DATA] graph=frb35-17-1 node=32 depth=14 residual_n=30 candidates=21 best=159 best_score=0.5 sb_nodes=17/50
+[SB DATA] graph=frb35-17-1 node=35 depth=15 residual_n=25 candidates=11 best=322 best_score=0.25 sb_nodes=18/50
+[SB DATA] graph=frb35-17-1 node=34 depth=15 residual_n=29 candidates=12 best=210 best_score=0.25 sb_nodes=19/50
+[SB DATA] graph=frb35-17-1 node=39 depth=16 residual_n=26 candidates=9 best=494 best_score=0.25 sb_nodes=20/50
+[SB DATA] graph=frb35-17-1 node=41 depth=17 residual_n=23 candidates=6 best=317 best_score=1e-12 sb_nodes=21/50
+[SB DATA] graph=frb35-17-1 node=24 depth=12 residual_n=46 candidates=44 best=317 best_score=2.75 sb_nodes=22/50
+[SB DATA] graph=frb35-17-1 node=45 depth=13 residual_n=33 candidates=21 best=488 best_score=0.75 sb_nodes=23/50
+[SB DATA] graph=frb35-17-1 node=46 depth=14 residual_n=32 candidates=16 best=86 best_score=0.25 sb_nodes=24/50
+[SB DATA] graph=frb35-17-1 node=49 depth=15 residual_n=28 candidates=9 best=494 best_score=0.25 sb_nodes=25/50
+[SB DATA] graph=frb35-17-1 node=48 depth=15 residual_n=31 candidates=15 best=494 best_score=0.25 sb_nodes=26/50
+[SB DATA] graph=frb35-17-1 node=44 depth=13 residual_n=45 candidates=43 best=80 best_score=2.5 sb_nodes=27/50
+[SB DATA] graph=frb35-17-1 node=55 depth=14 residual_n=32 candidates=27 best=265 best_score=0.75 sb_nodes=28/50
+[SB DATA] graph=frb35-17-1 node=56 depth=15 residual_n=31 candidates=26 best=483 best_score=0.5 sb_nodes=29/50
+[SB DATA] graph=frb35-17-1 node=58 depth=16 residual_n=30 candidates=25 best=86 best_score=0.25 sb_nodes=30/50
+[SB DATA] graph=frb35-17-1 node=54 depth=14 residual_n=44 candidates=42 best=550 best_score=2.5 sb_nodes=31/50
+[SB DATA] graph=frb35-17-1 node=63 depth=15 residual_n=31 candidates=26 best=322 best_score=0.5 sb_nodes=32/50
+[SB DATA] graph=frb35-17-1 node=64 depth=16 residual_n=30 candidates=25 best=86 best_score=0.25 sb_nodes=33/50
+[SB DATA] graph=frb35-17-1 node=62 depth=15 residual_n=43 candidates=41 best=393 best_score=2 sb_nodes=34/50
+[SB DATA] graph=frb35-17-1 node=69 depth=16 residual_n=33 candidates=23 best=265 best_score=0.75 sb_nodes=35/50
+[SB DATA] 
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 168.36
+Solving Nodes      : 73
+Primal Bound       : +2.60000000000000e+01 (2 solutions)
+Dual Bound         : +2.97000000000000e+02
+Gap                : 1042.31 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 595 variables (595 bin, 0 int, 0 cont) and 27847 constraints
+  27847 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.2s|     1 |     0 |   598 |     - |    56M |   0 | 595 |  27k|  27k|   0 |  0 |   0 |   0 | 2.975000e+02 |      --      |    Inf | unknown
+ 19.0s|     1 |     2 |   598 |     - |    56M |   0 | 595 |  27k|  27k|   0 |  1 |   0 | 595 | 2.975000e+02 |      --      |    Inf | unknown
+*62.3s|    15 |    13 |  1789 |  85.1 |    LP  |  14 | 595 |  27k|  27k|   0 |  1 |   0 |2973 | 2.975000e+02 | 2.300000e+01 |1193.48%| unknown
+*62.6s|    21 |    12 |  1798 |  60.0 |    LP  |  16 | 595 |  27k|  27k|   0 |  1 |   0 |2995 | 2.975000e+02 | 2.400000e+01 |1139.58%| unknown
+*63.5s|    28 |    12 |  1829 |  45.6 |    LP  |  16 | 595 |  27k|  27k|   0 |  1 |   0 |3097 | 2.975000e+02 | 2.500000e+01 |1090.00%| unknown
+*64.4s|    35 |    11 |  1843 |  36.6 |    LP  |  19 | 595 |  27k|  27k|   0 |  1 |   0 |3166 | 2.975000e+02 | 2.600000e+01 |1044.23%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 73.40
+Solving Nodes      : 82
+Primal Bound       : +2.60000000000000e+01 (4 solutions)
+Dual Bound         : +2.97500000000000e+02
+Gap                : 1044.23 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 595 variables (595 bin, 0 int, 0 cont) and 27931 constraints
+  27931 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.2s|     1 |     0 |   598 |     - |    56M |   0 | 595 |  27k|  27k|   0 |  0 |   0 |   0 | 2.975000e+02 |      --      |    Inf | unknown
+ 18.4s|     1 |     2 |   598 |     - |    56M |   0 | 595 |  27k|  27k|   0 |  1 |   0 | 595 | 2.975000e+02 |      --      |    Inf | unknown
+graph=frb35-17-1 node=70 depth=17 residual_n=32 candidates=22 best=483 best_score=0.5 sb_nodes=36/50
+[SB DATA] graph=frb35-17-1 node=72 depth=18 residual_n=31 candidates=21 best=169 best_score=0.25 sb_nodes=37/50
+[SB DATA] graph=frb35-17-1 node=2 depth=1 residual_n=594 candidates=594 best=1 best_score=5e-07 sb_nodes=38/50
+[SB DATA] graph=frb35-17-1 node=77 depth=2 residual_n=521 candidates=521 best=17 best_score=5e-07 sb_nodes=39/50
+[SB DATA] graph=frb35-17-1 node=79 depth=3 residual_n=466 candidates=466 best=501 best_score=11.25 sb_nodes=40/50
+[SB DATA] graph=frb35-17-1 node=81 depth=4 residual_n=419 candidates=419 best=34 best_score=5e-07 sb_nodes=41/50
+[SB DATA] graph=frb35-17-1 node=83 depth=5 residual_n=371 candidates=371 best=242 best_score=9.5 sb_nodes=42/50
+[SB DATA] graph=frb35-17-1 node=85 depth=6 residual_n=331 candidates=331 best=88 best_score=11.5 sb_nodes=43/50
+[SB DATA] graph=frb35-17-1 node=87 depth=7 residual_n=283 candidates=283 best=345 best_score=12 sb_nodes=44/50
+[SB DATA] graph=frb35-17-1 node=89 depth=8 residual_n=233 candidates=233 best=481 best_score=12 sb_nodes=45/50
+[SB DATA] graph=frb35-17-1 node=91 depth=9 residual_n=183 candidates=183 best=389 best_score=12 sb_nodes=46/50
+[SB DATA] graph=frb35-17-1 node=93 depth=10 residual_n=133 candidates=133 best=322 best_score=9.25 sb_nodes=47/50
+[SB DATA] graph=frb35-17-1 node=95 depth=11 residual_n=94 candidates=94 best=79 best_score=7 sb_nodes=48/50
+[SB DATA] graph=frb35-17-1 node=97 depth=12 residual_n=64 candidates=64 best=286 best_score=4.5 sb_nodes=49/50
+[SB DATA] graph=frb35-17-1 node=68 depth=16 residual_n=42 candidates=40 best=262 best_score=1.75 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb35-17-1 sb_nodes=50
+Processing: frb35-17-2
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 1794
+[MWUA] Final violation: 0.357629066709921
+[SB DATA] graph=frb35-17-2 node=1 depth=0 residual_n=595 candidates=595 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb35-17-2 node=3 depth=1 residual_n=485 candidates=485 best=17 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb35-17-2 node=5 depth=2 residual_n=397 candidates=397 best=442 best_score=11.75 sb_nodes=3/50
+[SB DATA] graph=frb35-17-2 node=7 depth=3 residual_n=348 candidates=348 best=110 best_score=12 sb_nodes=4/50
+[SB DATA] graph=frb35-17-2 node=9 depth=4 residual_n=298 candidates=298 best=119 best_score=13 sb_nodes=5/50
+[SB DATA] graph=frb35-17-2 node=11 depth=5 residual_n=244 candidates=244 best=324 best_score=13 sb_nodes=6/50
+[SB DATA] graph=frb35-17-2 node=13 depth=6 residual_n=190 candidates=190 best=311 best_score=12 sb_nodes=7/50
+[SB DATA] graph=frb35-17-2 node=15 depth=7 residual_n=140 candidates=140 best=48 best_score=8.75 sb_nodes=8/50
+[SB DATA] graph=frb35-17-2 node=17 depth=8 residual_n=103 candidates=103 best=559 best_score=7.5 sb_nodes=9/50
+[SB DATA] graph=frb35-17-2 node=19 depth=9 residual_n=71 candidates=71 best=571 best_score=5 sb_nodes=10/50
+[SB DATA] graph=frb35-17-2 node=21 depth=10 residual_n=49 candidates=49 best=267 best_score=3.25 sb_nodes=11/50
+[SB DATA] graph=frb35-17-2 node=23 depth=11 residual_n=34 candidates=34 best=237 best_score=1.75 sb_nodes=12/50
+[SB DATA] graph=frb35-17-2 node=25 depth=12 residual_n=24 candidates=15 best=199 best_score=0.75 sb_nodes=13/50
+[SB DATA] graph=frb35-17-2 node=27 depth=13 residual_n=18 candidates=4 best=515 best_score=1e-06 sb_nodes=14/50
+[SB DATA] graph=frb35-17-2 node=26 depth=13 residual_n=23 candidates=12 best=85 best_score=1e-12 sb_nodes=15/50
+[SB DATA] graph=frb35-17-2 node=30 depth=14 residual_n=22 candidates=6 best=188 best_score=1e-12 sb_nodes=16/50
+[SB DATA] graph=frb35-17-2 node=32 depth=15 residual_n=21 candidates=4 best=499 best_score=1e-12 sb_nodes=17/50
+[SB DATA] graph=frb35-17-2 node=24 depth=12 residual_n=33 candidates=33 best=167 best_score=1.25 sb_nodes=18/50
+[SB DATA] graph=frb35-17-2 node=36 depth=13 residual_n=32 candidates=32 best=518 best_score=1 sb_nodes=19/50
+[SB DATA] graph=frb35-17-2 node=39 depth=14 residual_n=26 candidates=26 best=52 best_score=1e-12 sb_nodes=20/50
+[SB DATA] graph=frb35-17-2 node=41 depth=15 residual_n=23 candidates=8 best=85 best_score=1e-12 sb_nodes=21/50
+[SB DATA] graph=frb35-17-2 node=38 depth=14 residual_n=31 candidates=29 best=52 best_score=0.25 sb_nodes=22/50
+[SB DATA] graph=frb35-17-2 node=45 depth=15 residual_n=28 candidates=16 best=85 best_score=1e-12 sb_nodes=23/50
+[SB DATA] graph=frb35-17-2 node=46 depth=16 residual_n=27 candidates=12 best=95 best_score=1e-12 sb_nodes=24/50
+[SB DATA] graph=frb35-17-2 node=49 depth=17 residual_n=24 candidates=8 best=173 best_score=1e-12 sb_nodes=25/50
+[SB DATA] graph=frb35-17-2 node=51 depth=18 residual_n=22 candidates=4 best=499 best_score=1e-12 sb_nodes=26/50
+[SB DATA] graph=frb35-17-2 node=22 depth=11 residual_n=48 candidates=48 best=225 best_score=2.75 sb_nodes=27/50
+[SB DATA] graph=frb35-17-2 node=55 depth=12 residual_n=35 candidates=35 best=85 best_score=0.75 sb_nodes=28/50
+[SB DATA] graph=frb35-17-2 node=56 depth=13 residual_n=34 candidates=34 best=96 best_score=0.5 sb_nodes=29/50
+[SB DATA] graph=frb35-17-2 node=58 depth=14 residual_n=33 candidates=33 best=140 best_score=0.25 sb_nodes=30/50
+[SB DATA] graph=frb35-17-2 node=54 depth=12 residual_n=47 candidates=47 best=154 best_score=2.5 sb_nodes=31/50
+[SB DATA] graph=frb35-17-2 node=63 depth=13 residual_n=35 candidates=31 best=85 best_score=0.75 sb_nodes=32/50
+[SB DATA] graph=frb35-17-2 node=64 depth=14 residual_n=34 candidates=28 best=52 best_score=0.5 sb_nodes=33/50
+[SB DATA] graph=frb35-17-2 node=66 depth=15 residual_n=33 candidates=27 best=216 best_score=0.25 sb_nodes=34/50
+[SB DATA] graph=frb35-17-2 node=62 depth=13 residual_n=46 candidates=46 best=167 best_score=2.25 sb_nodes=35/50
+[SB DATA] graph=frb35-17-2 node=71 depth=14 residual_n=35 candidates=31 best=79 best_score=0.75 sb_nodes=36/50
+[SB DATA] graph=frb35-17-2 node=72 depth=15 residual_n=34 candidates=30 best=52 best_score=0.5 sb_nodes=37/50
+[SB DATA] graph=frb35-17-2 node=74 depth=16 residual_n=33 candidates=29 best=95 best_score=0.25 sb_nodes=38/50
+[SB DATA] graph=frb35-17-2 node=70 depth=14 residual_n=45 candidates=45 best=255 best_score=2.25 sb_nodes=39/50
+[SB DATA] graph=frb35-17-2 node=79 depth=15 residual_n=34 candidates=32 best=52 best_score=0.5 sb_nodes=40/50
+[SB DATA] graph=frb35-17-2 node=80 depth=16 residual_n=33 candidates=31 best=95 best_score=0.25 sb_nodes=41/50
+[SB DATA] graph=frb35-17-2 node=78 depth=15 residual_n=44 candidates=44 best=592 best_score=2.25 sb_nodes=42/50
+[SB DATA] graph=frb35-17-2 node=85 depth=16 residual_n=33 candidates=33 best=79 best_score=0.25 sb_nodes=43/50
+[SB DATA] graph=frb35-17-2 node=84 depth=16 residual_n=43 candidates=43 best=237 best_score=2 sb_nodes=44/50
+[SB DATA] graph=frb35-17-2 node=89 depth=17 residual_n=33 candidates=29 best=84 best_score=0.25 sb_nodes=45/50
+[SB DATA] graph=frb35-17-2 node=88 depth=17 residual_n=42 candidates=42 best=499 best_score=1.75 sb_nodes=46/50
+[SB DATA] graph=frb35-17-2 node=93 depth=18 residual_n=32 candidates=29 best=136 best_score=0.25 sb_nodes=47/50
+[SB DATA] graph=frb35-17-2 node=92 depth=18 residual_n=41 candidates=41 best=156 best_score=1.5 sb_nodes=48/50
+[SB DATA] graph=frb35-17-2 node=97 depth=19 residual_n=32 candidates=27 best=52 best_score=0.25 sb_nodes=49/50
+[SB DATA] graph=frb35-17-2 node=96 depth=19 residual_n=40 candidates=40 best=199 best_score=1.5 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb35-17-2 sb_nodes=50
+Processing: frb35-17-3
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 1740
+[MWUA] Final violation: 0.34624222864097853
+[SB DATA] graph=frb35-17-3 node=1 depth=0 residual_n=595 candidates=595 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb35-17-3 node=3 depth=1 residual_n=496 candidates=496 best=116 best_score=7.75 sb_nodes=2/50
+[SB DATA] graph=frb35-17-3 node=5 depth=2 residual_n=463 candidates=463 best=528 best_score=12 sb_nodes=3/50
+[SB DATA] graph=frb35-17-3 node=7 depth=3 residual_n=413 candidates=413 best=119 best_score=13.25 sb_nodes=4/50
+[SB DATA] graph=frb35-17-3 node=9 depth=4 residual_n=358 candidates=358 best=501 best_score=10.75 sb_nodes=5/50
+[SB DATA] graph=frb35-17-3 node=11 *76.7s|    17 |    15 |  1834 |  77.2 |    LP  |  16 | 595 |  27k|  27k|   0 |  1 |   0 |3600 | 2.975000e+02 | 2.200000e+01 |1252.27%| unknown
+*77.2s|    24 |    14 |  1842 |  54.1 |    LP  |  20 | 595 |  27k|  27k|   0 |  1 |   0 |3647 | 2.975000e+02 | 2.300000e+01 |1193.48%| unknown
+*82.9s|    64 |    15 |  2141 |  24.5 |    LP  |  21 | 595 |  27k|  27k|   0 |  1 |   0 |4269 | 2.975000e+02 | 2.400000e+01 |1139.58%| unknown
+*83.3s|    69 |    14 |  2156 |  22.9 |    LP  |  21 | 595 |  27k|  27k|   0 |  1 |   0 |4312 | 2.975000e+02 | 2.500000e+01 |1090.00%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 85.06
+Solving Nodes      : 79
+Primal Bound       : +2.50000000000000e+01 (4 solutions)
+Dual Bound         : +2.97500000000000e+02
+Gap                : 1090.00 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 595 variables (595 bin, 0 int, 0 cont) and 27842 constraints
+  27842 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.2s|     1 |     0 |   598 |     - |    55M |   0 | 595 |  27k|  27k|   0 |  0 |   0 |   0 | 2.975000e+02 |      --      |    Inf | unknown
+ 18.7s|     1 |     2 |   598 |     - |    55M |   0 | 595 |  27k|  27k|   0 |  1 |   0 | 595 | 2.975000e+02 |      --      |    Inf | unknown
+*84.3s|    17 |    15 |  1871 |  79.6 |    LP  |  16 | 595 |  27k|  27k|   0 |  1 |   0 |3728 | 2.975000e+02 | 2.100000e+01 |1316.67%| unknown
+*84.5s|    19 |    15 |  1879 |  71.2 |    LP  |  16 | 595 |  27k|  27k|   0 |  1 |   0 |3749 | 2.975000e+02 | 2.200000e+01 |1252.27%| unknown
+depth=5 residual_n=313 candidates=313 best=61 best_score=12.5 sb_nodes=6/50
+[SB DATA] graph=frb35-17-3 node=13 depth=6 residual_n=261 candidates=261 best=425 best_score=11.75 sb_nodes=7/50
+[SB DATA] graph=frb35-17-3 node=15 depth=7 residual_n=212 candidates=212 best=486 best_score=11.25 sb_nodes=8/50
+[SB DATA] graph=frb35-17-3 node=17 depth=8 residual_n=165 candidates=165 best=156 best_score=11.5 sb_nodes=9/50
+[SB DATA] graph=frb35-17-3 node=19 depth=9 residual_n=117 candidates=117 best=300 best_score=9.25 sb_nodes=10/50
+[SB DATA] graph=frb35-17-3 node=21 depth=10 residual_n=78 candidates=78 best=411 best_score=5.5 sb_nodes=11/50
+[SB DATA] graph=frb35-17-3 node=23 depth=11 residual_n=54 candidates=54 best=253 best_score=4.75 sb_nodes=12/50
+[SB DATA] graph=frb35-17-3 node=25 depth=12 residual_n=33 candidates=33 best=136 best_score=2 sb_nodes=13/50
+[SB DATA] graph=frb35-17-3 node=27 depth=13 residual_n=23 candidates=19 best=218 best_score=1.5 sb_nodes=14/50
+[SB DATA] graph=frb35-17-3 node=28 depth=14 residual_n=22 candidates=18 best=372 best_score=0.75 sb_nodes=15/50
+[SB DATA] graph=frb35-17-3 node=31 depth=15 residual_n=15 candidates=5 best=208 best_score=0.25 sb_nodes=16/50
+[SB DATA] graph=frb35-17-3 node=30 depth=15 residual_n=21 candidates=17 best=208 best_score=0.25 sb_nodes=17/50
+[SB DATA] graph=frb35-17-3 node=35 depth=16 residual_n=17 candidates=12 best=17 best_score=1e-12 sb_nodes=18/50
+[SB DATA] graph=frb35-17-3 node=36 depth=17 residual_n=16 candidates=8 best=184 best_score=1e-12 sb_nodes=19/50
+[SB DATA] graph=frb35-17-3 node=39 depth=18 residual_n=14 candidates=6 best=189 best_score=1e-12 sb_nodes=20/50
+[SB DATA] graph=frb35-17-3 node=41 depth=19 residual_n=11 candidates=4 best=365 best_score=1e-12 sb_nodes=21/50
+[SB DATA] graph=frb35-17-3 node=26 depth=13 residual_n=32 candidates=32 best=264 best_score=2 sb_nodes=22/50
+[SB DATA] graph=frb35-17-3 node=44 depth=14 residual_n=31 candidates=31 best=373 best_score=1.75 sb_nodes=23/50
+[SB DATA] graph=frb35-17-3 node=46 depth=15 residual_n=30 candidates=30 best=218 best_score=1.5 sb_nodes=24/50
+[SB DATA] graph=frb35-17-3 node=48 depth=16 residual_n=29 candidates=29 best=197 best_score=1.25 sb_nodes=25/50
+[SB DATA] graph=frb35-17-3 node=50 depth=17 residual_n=28 candidates=28 best=143 best_score=1 sb_nodes=26/50
+[SB DATA] graph=frb35-17-3 node=52 depth=18 residual_n=27 candidates=27 best=76 best_score=0.75 sb_nodes=27/50
+[SB DATA] graph=frb35-17-3 node=54 depth=19 residual_n=26 candidates=24 best=139 best_score=0.5 sb_nodes=28/50
+[SB DATA] graph=frb35-17-3 node=56 depth=20 residual_n=25 candidates=19 best=184 best_score=0.25 sb_nodes=29/50
+[SB DATA] graph=frb35-17-3 node=24 depth=12 residual_n=53 candidates=53 best=136 best_score=4.25 sb_nodes=30/50
+[SB DATA] graph=frb35-17-3 node=61 depth=13 residual_n=34 candidates=34 best=247 best_score=2.25 sb_nodes=31/50
+[SB DATA] graph=frb35-17-3 node=63 depth=14 residual_n=23 candidates=23 best=18 best_score=0.25 sb_nodes=32/50
+[SB DATA] graph=frb35-17-3 node=62 depth=14 residual_n=33 candidates=33 best=365 best_score=2.25 sb_nodes=33/50
+[SB DATA] graph=frb35-17-3 node=66 depth=15 residual_n=32 candidates=32 best=218 best_score=1.75 sb_nodes=34/50
+[SB DATA] graph=frb35-17-3 node=69 depth=16 residual_n=23 candidates=23 best=17 best_score=0.25 sb_nodes=35/50
+[SB DATA] graph=frb35-17-3 node=60 depth=13 residual_n=52 candidates=52 best=148 best_score=4 sb_nodes=36/50
+[SB DATA] graph=frb35-17-3 node=73 depth=14 residual_n=34 candidates=30 best=247 best_score=2.25 sb_nodes=37/50
+[SB DATA] graph=frb35-17-3 node=75 depth=15 residual_n=21 candidates=15 best=372 best_score=0.25 sb_nodes=38/50
+[SB DATA] graph=frb35-17-3 node=74 depth=15 residual_n=33 candidates=29 best=378 best_score=2 sb_nodes=39/50
+[SB DATA] graph=frb35-17-3 node=79 depth=16 residual_n=22 candidates=11 best=197 best_score=0.25 sb_nodes=40/50
+[SB DATA] graph=frb35-17-3 node=78 depth=16 residual_n=32 candidates=26 best=373 best_score=1.5 sb_nodes=41/50
+[SB DATA] graph=frb35-17-3 node=83 depth=17 residual_n=22 candidates=12 best=79 best_score=0.5 sb_nodes=42/50
+[SB DATA] graph=frb35-17-3 node=82 depth=17 residual_n=31 candidates=25 best=79 best_score=1.25 sb_nodes=43/50
+[SB DATA] graph=frb35-17-3 node=87 depth=18 residual_n=23 candidates=10 best=18 best_score=1e-12 sb_nodes=44/50
+[SB DATA] graph=frb35-17-3 node=89 depth=19 residual_n=21 candidates=8 best=177 best_score=1e-12 sb_nodes=45/50
+[SB DATA] graph=frb35-17-3 node=86 depth=18 residual_n=30 candidates=24 best=189 best_score=0.5 sb_nodes=46/50
+[SB DATA] graph=frb35-17-3 node=92 depth=19 residual_n=29 candidates=23 best=177 best_score=0.25 sb_nodes=47/50
+[SB DATA] graph=frb35-17-3 node=68 depth=16 residual_n=31 candidates=31 best=18 best_score=0.75 sb_nodes=48/50
+[SB DATA] graph=frb35-17-3 node=96 depth=17 residual_n=30 candidates=30 best=212 best_score=0.5 sb_nodes=49/50
+[SB DATA] graph=frb35-17-3 node=98 depth=18 residual_n=29 candidates=29 best=17 best_score=0.25 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb35-17-3 sb_nodes=50
+Processing: frb35-17-4
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 1702
+[MWUA] Final violation: 0.3606559233040467
+[SB DATA] graph=frb35-17-4 node=1 depth=0 residual_n=595 candidates=595 best=16 best_score=10.25 sb_nodes=1/50
+[SB DATA] graph=frb35-17-4 node=3 depth=1 residual_n=552 candidates=552 best=146 best_score=12.75 sb_nodes=2/50
+[SB DATA] graph=frb35-17-4 node=5 depth=2 residual_n=499 candidates=499 best=17 best_score=5e-07 sb_nodes=3/50
+[SB DATA] graph=frb35-17-4 node=7 depth=3 residual_n=429 candidates=429 best=35 best_score=5e-07 sb_nodes=4/50
+[SB DATA] graph=frb35-17-4 node=9 depth=4 residual_n=353 candidates=353 best=107 best_score=11 sb_nodes=5/50
+[SB DATA] graph=frb35-17-4 node=11 depth=5 residual_n=307 candidates=307 best=238 best_score=11 sb_nodes=6/50
+[SB DATA] graph=frb35-17-4 node=13 depth=6 residual_n=261 candidates=261 best=501 best_score=10.75 sb_nodes=7/50
+[SB DATA] graph=frb35-17-4 node=15 depth=7 residual_n=216 candidates=216 best=157 best_score=11.25 sb_nodes=8/50
+[SB DATA] graph=frb35-17-4 node=17 depth=8 residual_n=169 candidates=169 best=454 best_score=11 sb_nodes=9/50
+[SB DATA] graph=frb35-17-4 node=19 depth=9 residual_n=123 candidates=123 best=351 best_score=9.5 sb_nodes=10/50
+[SB DATA] graph=frb35-17-4 node=21 depth=10 residual_n=83 candidates=83 best=63 best_score=7.25 sb_nodes=11/50
+[SB DATA] graph=frb35-17-4 node=23 depth=11 residual_n=52 candidates=52 best=556 best_score=3.75 sb_nodes=12/50
+[SB DATA] graph=frb35-17-4 node=25 depth=12 residual_n=35 candidates=35 best=259 best_score=2.5 sb_nodes=13/50
+[SB DATA] graph=frb35-17-4 node=27 depth=13 residual_n=23 candidates=23 best=218 best_score=1.75 sb_nodes=14/50
+[SB DATA] graph=frb35-17-4 node=28 depth=14 residual_n=22 candidates=22 best=77 best_score=1.25 sb_nodes=15/50
+[SB DATA] graph=frb35-17-4 node=31 depth=15 residual_n=14 candidates=9 best=512 best_score=0.25 sb_nodes=16/50
+[SB DATA] graph=frb35-17-4 node=30 depth=15 residual_n=21 candidates=21 best=76 best_score=0.75 sb_nodes=17/50
+[SB DATA] graph=frb35-17-4 node=2 depth=1 residual_n=594 candidates=594 best=0 best_score=5e-07 sb_nodes=18/50
+[SB DATA] graph=frb35-17-4 node=37 depth=2 residual_n=537 candidates=537 best=139 best_score=10.75 sb_nodes=19/50
+[SB DATA] graph=frb35-17-4 node=39 depth=3 residual_n=492 candidates=492 best=17 best_score=5e-07 sb_nodes=20/50
+[SB DATA] graph=frb35-17-4 node=41 depth=4 residual_n=420 candidates=420 best=35 best_score=5e-07 sb_nodes=21/50
+[SB DATA] graph=frb35-17-4 node=43 depth=5 residual_n=346 candidates=346 best=238 best_score=11.75 sb_nodes=22/50
+[SB DATA] graph=frb35-17-4 node=45 depth=6 residual_n=297 candidates=297 best=494 best_score=11.5 sb_nodes=23/50
+[SB DATA] graph=frb35-17-4 node=47 depth=7 residual_n=249 candidates=249 best=458 best_score=11.75 sb_nodes=24/50
+[SB DATA] graph=frb35-17-4 node=49 depth=8 residual_n=200 candidates=200 best=220 best_score=12 sb_nodes=25/50
+[SB DATA] graph=frb35-17-4 node=51 depth=9 residual_n=150 candidates=150 best=52 best_score=11.25 sb_nodes=26/50
+[SB DATA] graph=frb35-17-4 node=53 depth=10 residual_n=103 candidates=103 best=351 best_score=8.75 sb_nodes=27/50
+* 163s|    37 |    27 |  3221 |  72.9 |    LP  |  16 | 595 |  27k|  27k|   0 |  1 |   0 |7325 | 2.970000e+02 | 2.300000e+01 |1191.30%| unknown
+* 164s|    50 |    25 |  3284 |  54.8 |    LP  |  19 | 595 |  27k|  27k|   0 |  1 |   0 |7478 | 2.970000e+02 | 2.400000e+01 |1137.50%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 249.75
+Solving Nodes      : 61
+Primal Bound       : +2.40000000000000e+01 (4 solutions)
+Dual Bound         : +2.96500000000000e+02
+Gap                : 1135.42 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.0s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 595 variables (595 bin, 0 int, 0 cont) and 28143 constraints
+  28143 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.2s|     1 |     0 |   596 |     - |    55M |   0 | 595 |  28k|  28k|   0 |  0 |   0 |   0 | 2.975000e+02 |      --      |    Inf | unknown
+ 19.5s|     1 |     2 |   596 |     - |    55M |   0 | 595 |  28k|  28k|   0 |  1 |   0 | 595 | 2.975000e+02 |      --      |    Inf | unknown
+*70.7s|    18 |    17 |  1772 |  69.2 |    LP  |  17 | 595 |  28k|  28k|   0 |  1 |   0 |3381 | 2.975000e+02 | 2.000000e+01 |1387.50%| unknown
+*70.7s|    19 |    15 |  1773 |  65.4 |    LP  |  17 | 595 |  28k|  28k|   0 |  1 |   0 |3381 | 2.975000e+02 | 2.100000e+01 |1316.67%| unknown
+*71.0s|    23 |    15 |  1782 |  53.9 |    LP  |  18 | 595 |  28k|  28k|   0 |  1 |   0 |3405 | 2.975000e+02 | 2.200000e+01 |1252.27%| unknown
+*71.0s|    24 |    14 |  1784 |  51.7 |    LP  |  18 | 595 |  28k|  28k|   0 |  1 |   0 |3405 | 2.975000e+02 | 2.300000e+01 |1193.48%| unknown
+*75.4s|    54 |    13 |  1995 |  26.4 |    LP  |  21 | 595 |  28k|  28k|   0 |  1 |   0 |3880 | 2.975000e+02 | 2.400000e+01 |1139.58%| unknown
+*76.2s|    58 |    14 |  2036 |  25.3 |    LP  |  21 | 595 |  28k|  28k|   0 |  1 |   0 |3972 | 2.975000e+02 | 2.500000e+01 |1090.00%| unknown
+[SB DATA] graph=frb35-17-4 node=55 depth=11 residual_n=66 candidates=66 best=550 best_score=6.5 sb_nodes=28/50
+[SB DATA] graph=frb35-17-4 node=57 depth=12 residual_n=38 candidates=38 best=263 best_score=2.5 sb_nodes=29/50
+[SB DATA] graph=frb35-17-4 node=26 depth=13 residual_n=34 candidates=34 best=77 best_score=2 sb_nodes=30/50
+[SB DATA] graph=frb35-17-4 node=61 depth=14 residual_n=24 candidates=24 best=92 best_score=1 sb_nodes=31/50
+[SB DATA] graph=frb35-17-4 node=62 depth=15 residual_n=23 candidates=23 best=199 best_score=0.75 sb_nodes=32/50
+[SB DATA] graph=frb35-17-4 node=60 depth=14 residual_n=33 candidates=33 best=173 best_score=1.75 sb_nodes=33/50
+[SB DATA] graph=frb35-17-4 node=67 depth=15 residual_n=24 candidates=22 best=199 best_score=0.5 sb_nodes=34/50
+[SB DATA] graph=frb35-17-4 node=68 depth=16 residual_n=23 candidates=21 best=130 best_score=0.25 sb_nodes=35/50
+[SB DATA] graph=frb35-17-4 node=66 depth=15 residual_n=32 candidates=32 best=365 best_score=1.75 sb_nodes=36/50
+[SB DATA] graph=frb35-17-4 node=73 depth=16 residual_n=23 candidates=17 best=76 best_score=0.25 sb_nodes=37/50
+[SB DATA] graph=frb35-17-4 node=75 depth=17 residual_n=20 candidates=14 best=92 best_score=1e-12 sb_nodes=38/50
+[SB DATA] graph=frb35-17-4 node=76 depth=18 residual_n=19 candidates=8 best=130 best_score=1e-12 sb_nodes=39/50
+[SB DATA] graph=frb35-17-4 node=36 depth=2 residual_n=593 candidates=593 best=1 best_score=5e-07 sb_nodes=40/50
+[SB DATA] graph=frb35-17-4 node=81 depth=3 residual_n=557 candidates=557 best=144 best_score=10.75 sb_nodes=41/50
+[SB DATA] graph=frb35-17-4 node=83 depth=4 residual_n=512 candidates=512 best=17 best_score=5e-07 sb_nodes=42/50
+[SB DATA] graph=frb35-17-4 node=85 depth=5 residual_n=444 candidates=444 best=35 best_score=5e-07 sb_nodes=43/50
+[SB DATA] graph=frb35-17-4 node=87 depth=6 residual_n=371 candidates=371 best=523 best_score=8.75 sb_nodes=44/50
+[SB DATA] graph=frb35-17-4 node=89 depth=7 residual_n=334 candidates=334 best=316 best_score=10 sb_nodes=45/50
+[SB DATA] graph=frb35-17-4 node=91 depth=8 residual_n=292 candidates=292 best=304 best_score=11 sb_nodes=46/50
+[SB DATA] graph=frb35-17-4 node=93 depth=9 residual_n=246 candidates=246 best=119 best_score=11.75 sb_nodes=47/50
+[SB DATA] graph=frb35-17-4 node=95 depth=10 residual_n=197 candidates=197 best=474 best_score=11.5 sb_nodes=48/50
+[SB DATA] graph=frb35-17-4 node=97 depth=11 residual_n=149 candidates=149 best=200 best_score=10.75 sb_nodes=49/50
+[SB DATA] graph=frb35-17-4 node=99 depth=12 residual_n=104 candidates=104 best=528 best_score=7 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb35-17-4 sb_nodes=50
+Processing: frb35-17-5
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 1713
+[MWUA] Final violation: 0.3746839629546843
+[SB DATA] graph=frb35-17-5 node=1 depth=0 residual_n=595 candidates=595 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb35-17-5 node=3 depth=1 residual_n=479 candidates=479 best=337 best_score=11.25 sb_nodes=2/50
+[SB DATA] graph=frb35-17-5 node=5 depth=2 residual_n=432 candidates=432 best=487 best_score=11.75 sb_nodes=3/50
+[SB DATA] graph=frb35-17-5 node=7 depth=3 residual_n=383 candidates=383 best=266 best_score=10.75 sb_nodes=4/50
+[SB DATA] graph=frb35-17-5 node=9 depth=4 residual_n=338 candidates=338 best=311 best_score=13 sb_nodes=5/50
+[SB DATA] graph=frb35-17-5 node=11 depth=5 residual_n=284 candidates=284 best=84 best_score=11 sb_nodes=6/50
+[SB DATA] graph=frb35-17-5 node=13 depth=6 residual_n=238 candidates=238 best=63 best_score=11.25 sb_nodes=7/50
+[SB DATA] graph=frb35-17-5 node=15 depth=7 residual_n=191 candidates=191 best=123 best_score=12.75 sb_nodes=8/50
+[SB DATA] graph=frb35-17-5 node=17 depth=8 residual_n=138 candidates=138 best=412 best_score=8.5 sb_nodes=9/50
+[SB DATA] graph=frb35-17-5 node=19 depth=9 residual_n=102 candidates=102 best=341 best_score=6.75 sb_nodes=10/50
+[SB DATA] graph=frb35-17-5 node=21 depth=10 residual_n=73 candidates=73 best=435 best_score=5.5 sb_nodes=11/50
+[SB DATA] graph=frb35-17-5 node=23 depth=11 residual_n=49 candidates=49 best=364 best_score=3.5 sb_nodes=12/50
+[SB DATA] graph=frb35-17-5 node=25 depth=12 residual_n=33 candidates=33 best=159 best_score=2.25 sb_nodes=13/50
+[SB DATA] graph=frb35-17-5 node=27 depth=13 residual_n=21 candidates=18 best=204 best_score=1 sb_nodes=14/50
+[SB DATA] graph=frb35-17-5 node=28 depth=14 residual_n=20 candidates=17 best=250 best_score=1 sb_nodes=15/50
+[SB DATA] graph=frb35-17-5 node=31 depth=15 residual_n=14 candidates=7 best=205 best_score=0.25 sb_nodes=16/50
+[SB DATA] graph=frb35-17-5 node=33 depth=16 residual_n=11 candidates=4 best=593 best_score=1e-06 sb_nodes=17/50
+[SB DATA] graph=frb35-17-5 node=30 depth=15 residual_n=19 candidates=12 best=593 best_score=1e-06 sb_nodes=18/50
+[SB DATA] graph=frb35-17-5 node=37 depth=16 residual_n=15 candidates=8 best=45 best_score=1e-12 sb_nodes=19/50
+[SB DATA] graph=frb35-17-5 node=39 depth=17 residual_n=11 candidates=4 best=461 best_score=1e-12 sb_nodes=20/50
+[SB DATA] graph=frb35-17-5 node=26 depth=13 residual_n=32 candidates=32 best=45 best_score=1.75 sb_nodes=21/50
+[SB DATA] graph=frb35-17-5 node=43 depth=14 residual_n=22 candidates=19 best=92 best_score=0.25 sb_nodes=22/50
+[SB DATA] graph=frb35-17-5 node=42 depth=14 residual_n=31 candidates=31 best=502 best_score=1.75 sb_nodes=23/50
+[SB DATA] graph=frb35-17-5 node=46 depth=15 residual_n=30 candidates=30 best=216 best_score=1.5 sb_nodes=24/50
+[SB DATA] graph=frb35-17-5 node=48 depth=16 residual_n=29 candidates=29 best=153 best_score=1.25 sb_nodes=25/50
+[SB DATA] graph=frb35-17-5 node=50 depth=17 residual_n=28 candidates=28 best=204 best_score=1 sb_nodes=26/50
+[SB DATA] graph=frb35-17-5 node=52 depth=18 residual_n=27 candidates=27 best=190 best_score=0.75 sb_nodes=27/50
+[SB DATA] graph=frb35-17-5 node=54 depth=19 residual_n=26 candidates=26 best=42 best_score=0.5 sb_nodes=28/50
+[SB DATA] graph=frb35-17-5 node=56 depth=20 residual_n=25 candidates=25 best=244 best_score=0.25 sb_nodes=29/50
+[SB DATA] graph=frb35-17-5 node=24 depth=12 residual_n=48 candidates=48 best=579 best_score=3.25 sb_nodes=30/50
+[SB DATA] graph=frb35-17-5 node=61 depth=13 residual_n=33 candidates=33 best=502 best_score=2.25 sb_nodes=31/50
+[SB DATA] graph=frb35-17-5 node=62 depth=14 residual_n=32 candidates=32 best=45 best_score=2 sb_nodes=32/50
+[SB DATA] graph=frb35-17-5 node=64 depth=15 residual_n=31 candidates=31 best=216 best_score=1.75 sb_nodes=33/50
+[SB DATA] graph=frb35-17-5 node=66 depth=16 residual_n=30 candidates=30 best=153 best_score=1.25 sb_nodes=34/50
+[SB DATA] graph=frb35-17-5 node=69 depth=17 residual_n=22 candidates=17 best=145 best_score=0.25 sb_nodes=35/50
+[SB DATA] graph=frb35-17-5 node=71 depth=18 residual_n=16 candidates=8 best=42 best_score=1e-12 sb_nodes=36/50
+[SB DATA] graph=frb35-17-5 node=60 depth=13 residual_n=47 candidates=47 best=145 best_score=3 sb_nodes=37/50
+[SB DATA] graph=frb35-17-5 node=75 depth=14 residual_n=33 candidates=33 best=365 best_score=1.75 sb_nodes=38/50
+[SB DATA] graph=frb35-17-5 node=77 depth=15 residual_n=23 candidates=12 best=42 best_score=1e-12 sb_nodes=39/50
+[SB DATA] graph=frb35-17-5 node=76 depth=15 residual_n=32 candidates=32 best=159 best_score=1 sb_nodes=40/50
+[SB DATA] graph=frb35-17-5 node=80 depth=16 residual_n=31 candidates=31 best=26 best_score=0.75 sb_nodes=41/50
+[SB DATA] graph=frb35-17-5 node=82 depth=17 residual_n=30 candidates=30 best=27 best_score=0.5 sb_nodes=42/50
+[SB DATA] graph=frb35-17-5 node=84 depth=18 residual_n=29 candidates=29 best=42 best_score=0.25 sb_nodes=43/50
+[SB DATA] graph=frb35-17-5 node=74 depth=14 residual_n=46 candidates=46 best=368 best_score=2.75 sb_nodes=44/50
+[SB DATA] graph=frb35-17-5 node=89 depth=15 residual_n=33 candidates=31 best=204 best_score=1.25 sb_nodes=45/50
+[SB DATA] graph=frb35-17-5 node=90 depth=16 residual_n=32 candidates=30 best=197 best_score=1 sb_nodes=46/50
+[SB DATA] graph=frb35-17-5 node=92 depth=17 residual_n=31 candidates=29 best=27 best_score=0.75 sb_nodes=47/50
+[SB DATA] graph=frb35-17-5 node=94 depth=18 residual_n=30 candidates=28 best=190 best_score=0.5 sb_nodes=48/50
+[SB DATA] graph=frb35-17-5 node=96 depth=19 residual_n=29 candidates=27 best=244 best_score=0.25
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 80.15
+Solving Nodes      : 80
+Primal Bound       : +2.50000000000000e+01 (6 solutions)
+Dual Bound         : +2.97500000000000e+02
+Gap                : 1090.00 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 760 variables (760 bin, 0 int, 0 cont) and 41314 constraints
+  41314 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.3s|     1 |     0 |   760 |     - |    85M |   0 | 760 |  41k|  41k|   0 |  0 |   0 |   0 | 3.800000e+02 |      --      |    Inf | unknown
+ 34.7s|     1 |     2 |   760 |     - |    85M |   0 | 760 |  41k|  41k|   0 |  1 |   0 | 760 | 3.800000e+02 |      --      |    Inf | unknown
+* 158s|    22 |    21 |  2363 |  76.3 |    LP  |  21 | 760 |  41k|  41k|   0 |  1 |   0 |5449 | 3.800000e+02 | 2.200000e+01 |1627.27%| unknown
+* 158s|    23 |    19 |  2364 |  72.9 |    LP  |  21 | 760 |  41k|  41k|   0 |  1 |   0 |5449 | 3.800000e+02 | 2.300000e+01 |1552.17%| unknown
+* 159s|    33 |    18 |  2382 |  50.7 |    LP  |  23 | 760 |  41k|  41k|   0 |  1 |   0 |5525 | 3.800000e+02 | 2.400000e+01 |1483.33%| unknown
+* 163s|    58 |    17 |  2470 |  30.0 |    LP  |  25 | 760 |  41k|  41k|   0 |  1 |   0 |5817 | 3.800000e+02 | 2.500000e+01 |1420.00%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 166.46
+Solving Nodes      : 77
+Primal Bound       : +2.50000000000000e+01 (4 solutions)
+Dual Bound         : +3.80000000000000e+02
+Gap                : 1420.00 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.00)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 760 variables (760 bin, 0 int, 0 cont) and 41263 constraints
+  41263 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.3s|     1 |     0 |   762 |     - |    85M |   0 | 760 |  41k|  41k|   0 |  0 |   0 |   0 | 3.800000e+02 |      --      |    Inf | unknown
+ 33.0s|     1 |     2 |   762 |     - |    85M |   0 | 760 |  41k|  41k|   0 |  1 |   0 | 760 | 3.800000e+02 |      --      |    Inf | unknown
+* 135s|    19 |    17 |  2411 |  91.6 |    LP  |  18 | 760 |  41k|  41k|   0 |  1 |   0 |4783 | 3.800000e+02 | 2.600000e+01 |1361.54%| unknown
+ sb_nodes=49/50
+[SB DATA] graph=frb35-17-5 node=68 depth=17 residual_n=29 candidates=29 best=26 best_score=0.25 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb35-17-5 sb_nodes=50
+Processing: frb40-19-1
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 1166
+[MWUA] Final violation: 0.3157621654496181
+[SB DATA] graph=frb40-19-1 node=1 depth=0 residual_n=760 candidates=760 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb40-19-1 node=3 depth=1 residual_n=673 candidates=673 best=19 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb40-19-1 node=5 depth=2 residual_n=578 candidates=578 best=106 best_score=11 sb_nodes=3/50
+[SB DATA] graph=frb40-19-1 node=7 depth=3 residual_n=532 candidates=532 best=125 best_score=10 sb_nodes=4/50
+[SB DATA] graph=frb40-19-1 node=9 depth=4 residual_n=490 candidates=490 best=219 best_score=11.5 sb_nodes=5/50
+[SB DATA] graph=frb40-19-1 node=11 depth=5 residual_n=442 candidates=442 best=536 best_score=11.75 sb_nodes=6/50
+[SB DATA] graph=frb40-19-1 node=13 depth=6 residual_n=393 candidates=393 best=276 best_score=11 sb_nodes=7/50
+[SB DATA] graph=frb40-19-1 node=15 depth=7 residual_n=347 candidates=347 best=328 best_score=12.5 sb_nodes=8/50
+[SB DATA] graph=frb40-19-1 node=17 depth=8 residual_n=295 candidates=295 best=612 best_score=12 sb_nodes=9/50
+[SB DATA] graph=frb40-19-1 node=19 depth=9 residual_n=245 candidates=245 best=759 best_score=13.75 sb_nodes=10/50
+[SB DATA] graph=frb40-19-1 node=21 depth=10 residual_n=188 candidates=188 best=249 best_score=11.25 sb_nodes=11/50
+[SB DATA] graph=frb40-19-1 node=23 depth=11 residual_n=141 candidates=141 best=242 best_score=9 sb_nodes=12/50
+[SB DATA] graph=frb40-19-1 node=25 depth=12 residual_n=103 candidates=103 best=46 best_score=7.5 sb_nodes=13/50
+[SB DATA] graph=frb40-19-1 node=27 depth=13 residual_n=71 candidates=71 best=628 best_score=5.25 sb_nodes=14/50
+[SB DATA] graph=frb40-19-1 node=28 depth=14 residual_n=70 candidates=70 best=92 best_score=5 sb_nodes=15/50
+[SB DATA] graph=frb40-19-1 node=31 depth=15 residual_n=48 candidates=48 best=389 best_score=3.5 sb_nodes=16/50
+[SB DATA] graph=frb40-19-1 node=33 depth=16 residual_n=32 candidates=32 best=634 best_score=2.25 sb_nodes=17/50
+[SB DATA] graph=frb40-19-1 node=35 depth=17 residual_n=21 candidates=19 best=135 best_score=1 sb_nodes=18/50
+[SB DATA] graph=frb40-19-1 node=37 depth=18 residual_n=15 candidates=11 best=285 best_score=0.5 sb_nodes=19/50
+[SB DATA] graph=frb40-19-1 node=39 depth=19 residual_n=10 candidates=7 best=514 best_score=0.25 sb_nodes=20/50
+[SB DATA] graph=frb40-19-1 node=41 depth=20 residual_n=7 candidates=4 best=413 best_score=1e-06 sb_nodes=21/50
+[SB DATA] graph=frb40-19-1 node=36 depth=18 residual_n=20 candidates=18 best=144 best_score=0.75 sb_nodes=22/50
+[SB DATA] graph=frb40-19-1 node=45 depth=19 residual_n=15 candidates=11 best=514 best_score=0.25 sb_nodes=23/50
+[SB DATA] graph=frb40-19-1 node=44 depth=19 residual_n=19 candidates=17 best=285 best_score=0.5 sb_nodes=24/50
+[SB DATA] graph=frb40-19-1 node=49 depth=20 residual_n=14 candidates=13 best=514 best_score=0.25 sb_nodes=25/50
+[SB DATA] graph=frb40-19-1 node=51 depth=21 residual_n=11 candidates=10 best=71 best_score=1e-12 sb_nodes=26/50
+[SB DATA] graph=frb40-19-1 node=53 depth=22 residual_n=8 candidates=4 best=400 best_score=1e-12 sb_nodes=27/50
+[SB DATA] graph=frb40-19-1 node=34 depth=17 residual_n=31 candidates=31 best=285 best_score=1.5 sb_nodes=28/50
+[SB DATA] graph=frb40-19-1 node=57 depth=18 residual_n=23 candidates=23 best=558 best_score=1.25 sb_nodes=29/50
+[SB DATA] graph=frb40-19-1 node=58 depth=19 residual_n=22 candidates=22 best=135 best_score=1 sb_nodes=30/50
+[SB DATA] graph=frb40-19-1 node=60 depth=20 residual_n=21 candidates=21 best=144 best_score=0.75 sb_nodes=31/50
+[SB DATA] graph=frb40-19-1 node=62 depth=21 residual_n=20 candidates=20 best=145 best_score=0.5 sb_nodes=32/50
+[SB DATA] graph=frb40-19-1 node=64 depth=22 residual_n=19 candidates=19 best=514 best_score=0.25 sb_nodes=33/50
+[SB DATA] graph=frb40-19-1 node=56 depth=18 residual_n=30 candidates=30 best=145 best_score=1.25 sb_nodes=34/50
+[SB DATA] graph=frb40-19-1 node=69 depth=19 residual_n=23 candidates=23 best=558 best_score=1.25 sb_nodes=35/50
+[SB DATA] graph=frb40-19-1 node=70 depth=20 residual_n=22 candidates=22 best=288 best_score=1 sb_nodes=36/50
+[SB DATA] graph=frb40-19-1 node=72 depth=21 residual_n=21 candidates=21 best=299 best_score=0.75 sb_nodes=37/50
+[SB DATA] graph=frb40-19-1 node=74 depth=22 residual_n=20 candidates=20 best=303 best_score=0.5 sb_nodes=38/50
+[SB DATA] graph=frb40-19-1 node=76 depth=23 residual_n=19 candidates=13 best=407 best_score=0.25 sb_nodes=39/50
+[SB DATA] graph=frb40-19-1 node=79 depth=24 residual_n=15 candidates=4 best=471 best_score=1e-12 sb_nodes=40/50
+[SB DATA] graph=frb40-19-1 node=68 depth=19 residual_n=29 candidates=29 best=288 best_score=1.25 sb_nodes=41/50
+[SB DATA] graph=frb40-19-1 node=83 depth=20 residual_n=22 candidates=20 best=71 best_score=0.5 sb_nodes=42/50
+[SB DATA] graph=frb40-19-1 node=84 depth=21 residual_n=21 candidates=19 best=135 best_score=5e-07 sb_nodes=43/50
+[SB DATA] graph=frb40-19-1 node=82 depth=20 residual_n=28 candidates=28 best=558 best_score=1.25 sb_nodes=44/50
+[SB DATA] graph=frb40-19-1 node=89 depth=21 residual_n=21 candidates=19 best=155 best_score=0.25 sb_nodes=45/50
+[SB DATA] graph=frb40-19-1 node=88 depth=21 residual_n=27 candidates=27 best=299 best_score=1 sb_nodes=46/50
+[SB DATA] graph=frb40-19-1 node=93 depth=22 residual_n=21 candidates=21 best=471 best_score=0.25 sb_nodes=47/50
+[SB DATA] graph=frb40-19-1 node=92 depth=22 residual_n=26 candidates=26 best=71 best_score=0.75 sb_nodes=48/50
+[SB DATA] graph=frb40-19-1 node=97 depth=23 residual_n=21 candidates=21 best=290 best_score=0.25 sb_nodes=49/50
+[SB DATA] graph=frb40-19-1 node=96 depth=23 residual_n=25 candidates=25 best=139 best_score=0.75 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb40-19-1 sb_nodes=50
+Processing: frb40-19-2
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 1184
+[MWUA] Final violation: 0.2790749049536845
+[SB DATA] graph=frb40-19-2 node=1 depth=0 residual_n=760 candidates=760 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb40-19-2 node=3 depth=1 residual_n=668 candidates=668 best=19 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb40-19-2 node=5 depth=2 residual_n=556 candidates=556 best=38 best_score=5e-07 sb_nodes=3/50
+[SB DATA] graph=frb40-19-2 node=7 depth=3 residual_n=473 candidates=473 best=563 best_score=11 sb_nodes=4/50
+[SB DATA] graph=frb40-19-2 node=9 depth=4 residual_n=427 candidates=427 best=533 best_score=11.5 sb_nodes=5/50
+[SB DATA] graph=frb40-19-2 node=11 depth=5 residual_n=379 candidates=379 best=490 best_score=12.5 sb_nodes=6/50
+[SB DATA] graph=frb40-19-2 node=13 depth=6 residual_n=327 candidates=327 best=260 best_score=11.25 sb_nodes=7/50
+[SB DATA] graph=frb40-19-2 node=15 depth=7 residual_n=280 candidates=280 best=713 best_score=11.75 sb_nodes=8/50
+[SB DATA] graph=frb40-19-2 node=17 depth=8 residual_n=231 candidates=231 best=380 best_score=11.75 sb_nodes=9/50
+[SB DATA] graph=frb40-19-2 node=19 depth=9 residual_n=182 candidates=182 best=346 best_score=11.5 sb_nodes=10/50
+[SB DATA] graph=frb40-19-2 node=21 depth=10 residual_n=134 candidates=134 best=231 best_score=7.5 sb_nodes=11/50
+[SB DATA] graph=frb40-19-2 node=23 depth=11 residual_n=102 candidates=102 best=81 best_score=5.5 sb_nodes=12/50
+[SB DATA] graph=frb40-19-2 node=25 depth=12 residual_n=78 candidates=78 best=687 best_score=5 sb_nodes=13/50
+[SB DATA] graph=frb40-19-2 node=27 depth=13 residual_n=56 candidates=56 best=362 best_score=3.25 sb_nodes=14/50
+[SB DATA] graph=frb40-19-2 node=28 depth=14 residual_n=55 candidates=55 best=373 best_score=3 sb_nodes=15/50
+[SB DATA] graph=frb40-19-2 node=31 depth=15 residual_n=41 candidates=39 best=307 best_score=2.5 sb_nodes=16/50
+[SB DATA] graph=frb40-19-2 node=33 depth=16 residual_n=29 candidates=25 best=658 best_score=1.5 sb_nodes=17/50
+[SB DATA] graph=frb40-19-2 node=35 depth=17 residual_n=21 candidates=11 best=139 best_score=0.25 sb_nodes=18/50
+[SB DATA] graph=frb40-19-2 node=34 depth=17 residual_n=28 candidates=24 best=61 best_score=1 sb_nodes=19/50
+* 135s|    23 |    17 |  2433 |  76.0 |    LP  |  19 | 760 |  41k|  41k|   0 |  1 |   0 |4823 | 3.800000e+02 | 2.700000e+01 |1307.41%| unknown
+* 140s|    47 |    17 |  2571 |  39.3 |    LP  |  22 | 760 |  41k|  41k|   0 |  1 |   0 |5165 | 3.800000e+02 | 2.800000e+01 |1257.14%| unknown
+* 141s|    51 |    16 |  2593 |  36.6 |    LP  |  22 | 760 |  41k|  41k|   0 |  1 |   0 |5221 | 3.800000e+02 | 2.900000e+01 |1210.34%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 279.23
+Solving Nodes      : 72
+Primal Bound       : +2.90000000000000e+01 (4 solutions)
+Dual Bound         : +3.79500000000000e+02
+Gap                : 1208.62 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.01)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 760 variables (760 bin, 0 int, 0 cont) and 41095 constraints
+  41095 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.3s|     1 |     0 |   762 |     - |    84M |   0 | 760 |  41k|  41k|   0 |  0 |   0 |   0 | 3.800000e+02 |      --      |    Inf | unknown
+ 34.5s|     1 |     2 |   762 |     - |    84M |   0 | 760 |  41k|  41k|   0 |  1 |   0 | 760 | 3.800000e+02 |      --      |    Inf | unknown
+* 148s|    20 |    19 |  2419 |  87.2 |    LP  |  19 | 760 |  41k|  41k|   0 |  1 |   0 |5055 | 3.800000e+02 | 2.500000e+01 |1420.00%| unknown
+* 148s|    21 |    18 |  2420 |  82.9 |    LP  |  19 | 760 |  41k|  41k|   0 |  1 |   0 |5055 | 3.800000e+02 | 2.600000e+01 |1361.54%| unknown
+* 148s|    23 |    18 |  2424 |  75.5 |    LP  |  19 | 760 |  41k|  41k|   0 |  1 |   0 |5075 | 3.800000e+02 | 2.700000e+01 |1307.41%| unknown
+* 150s|    31 |    17 |  2470 |  56.9 |    LP  |  20 | 760 |  41k|  41k|   0 |  1 |   0 |5191 | 3.800000e+02 | 2.800000e+01 |1257.14%| unknown
+[SB DATA] graph=frb40-19-2 node=38 depth=18 residual_n=27 candidates=15 best=139 best_score=0.75 sb_nodes=20/50
+[SB DATA] graph=frb40-19-2 node=32 depth=16 residual_n=40 candidates=38 best=646 best_score=2.25 sb_nodes=21/50
+[SB DATA] graph=frb40-19-2 node=43 depth=17 residual_n=29 candidates=25 best=224 best_score=0.75 sb_nodes=22/50
+[SB DATA] graph=frb40-19-2 node=44 depth=18 residual_n=28 candidates=22 best=269 best_score=0.5 sb_nodes=23/50
+[SB DATA] graph=frb40-19-2 node=46 depth=19 residual_n=27 candidates=21 best=108 best_score=0.25 sb_nodes=24/50
+[SB DATA] graph=frb40-19-2 node=42 depth=17 residual_n=39 candidates=37 best=312 best_score=1.75 sb_nodes=25/50
+[SB DATA] graph=frb40-19-2 node=51 depth=18 residual_n=29 candidates=26 best=139 best_score=1 sb_nodes=26/50
+[SB DATA] graph=frb40-19-2 node=52 depth=19 residual_n=28 candidates=25 best=63 best_score=0.75 sb_nodes=27/50
+[SB DATA] graph=frb40-19-2 node=54 depth=20 residual_n=27 candidates=24 best=108 best_score=0.5 sb_nodes=28/50
+[SB DATA] graph=frb40-19-2 node=56 depth=21 residual_n=26 candidates=23 best=57 best_score=0.25 sb_nodes=29/50
+[SB DATA] graph=frb40-19-2 node=50 depth=18 residual_n=38 candidates=36 best=658 best_score=1.75 sb_nodes=30/50
+[SB DATA] graph=frb40-19-2 node=61 depth=19 residual_n=29 candidates=23 best=108 best_score=0.75 sb_nodes=31/50
+[SB DATA] graph=frb40-19-2 node=62 depth=20 residual_n=28 candidates=22 best=302 best_score=0.5 sb_nodes=32/50
+[SB DATA] graph=frb40-19-2 node=60 depth=19 residual_n=37 candidates=35 best=302 best_score=1.5 sb_nodes=33/50
+[SB DATA] graph=frb40-19-2 node=67 depth=20 residual_n=29 candidates=21 best=57 best_score=0.25 sb_nodes=34/50
+[SB DATA] graph=frb40-19-2 node=66 depth=20 residual_n=36 candidates=34 best=100 best_score=1 sb_nodes=35/50
+[SB DATA] graph=frb40-19-2 node=70 depth=21 residual_n=35 candidates=33 best=108 best_score=0.75 sb_nodes=36/50
+[SB DATA] graph=frb40-19-2 node=72 depth=22 residual_n=34 candidates=32 best=142 best_score=0.5 sb_nodes=37/50
+[SB DATA] graph=frb40-19-2 node=74 depth=23 residual_n=33 candidates=31 best=57 best_score=0.25 sb_nodes=38/50
+[SB DATA] graph=frb40-19-2 node=2 depth=1 residual_n=759 candidates=759 best=1 best_score=5e-07 sb_nodes=39/50
+[SB DATA] graph=frb40-19-2 node=79 depth=2 residual_n=661 candidates=661 best=19 best_score=5e-07 sb_nodes=40/50
+[SB DATA] graph=frb40-19-2 node=81 depth=3 residual_n=549 candidates=549 best=38 best_score=5e-07 sb_nodes=41/50
+[SB DATA] graph=frb40-19-2 node=83 depth=4 residual_n=471 candidates=471 best=94 best_score=11 sb_nodes=42/50
+[SB DATA] graph=frb40-19-2 node=85 depth=5 residual_n=425 candidates=425 best=468 best_score=12.25 sb_nodes=43/50
+[SB DATA] graph=frb40-19-2 node=87 depth=6 residual_n=374 candidates=374 best=328 best_score=11 sb_nodes=44/50
+[SB DATA] graph=frb40-19-2 node=89 depth=7 residual_n=328 candidates=328 best=272 best_score=11 sb_nodes=45/50
+[SB DATA] graph=frb40-19-2 node=91 depth=8 residual_n=282 candidates=282 best=225 best_score=12.75 sb_nodes=46/50
+[SB DATA] graph=frb40-19-2 node=93 depth=9 residual_n=229 candidates=229 best=423 best_score=12 sb_nodes=47/50
+[SB DATA] graph=frb40-19-2 node=95 depth=10 residual_n=179 candidates=179 best=442 best_score=14.25 sb_nodes=48/50
+[SB DATA] graph=frb40-19-2 node=97 depth=11 residual_n=120 candidates=120 best=528 best_score=9.25 sb_nodes=49/50
+[SB DATA] graph=frb40-19-2 node=99 depth=12 residual_n=81 candidates=81 best=235 best_score=5.75 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb40-19-2 sb_nodes=50
+Processing: frb40-19-3
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 1099
+[MWUA] Final violation: 0.24702539743186447
+[SB DATA] graph=frb40-19-3 node=1 depth=0 residual_n=760 candidates=760 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb40-19-3 node=3 depth=1 residual_n=656 candidates=656 best=19 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb40-19-3 node=5 depth=2 residual_n=547 candidates=547 best=343 best_score=9.25 sb_nodes=3/50
+[SB DATA] graph=frb40-19-3 node=7 depth=3 residual_n=508 candidates=508 best=39 best_score=5e-07 sb_nodes=4/50
+[SB DATA] graph=frb40-19-3 node=9 depth=4 residual_n=442 candidates=442 best=458 best_score=10.5 sb_nodes=5/50
+[SB DATA] graph=frb40-19-3 node=11 depth=5 residual_n=398 candidates=398 best=661 best_score=10.5 sb_nodes=6/50
+[SB DATA] graph=frb40-19-3 node=13 depth=6 residual_n=354 candidates=354 best=635 best_score=11.5 sb_nodes=7/50
+[SB DATA] graph=frb40-19-3 node=15 depth=7 residual_n=306 candidates=306 best=718 best_score=11.75 sb_nodes=8/50
+[SB DATA] graph=frb40-19-3 node=17 depth=8 residual_n=257 candidates=257 best=571 best_score=11 sb_nodes=9/50
+[SB DATA] graph=frb40-19-3 node=19 depth=9 residual_n=211 candidates=211 best=678 best_score=11 sb_nodes=10/50
+[SB DATA] graph=frb40-19-3 node=21 depth=10 residual_n=165 candidates=165 best=133 best_score=9.75 sb_nodes=11/50
+[SB DATA] graph=frb40-19-3 node=23 depth=11 residual_n=124 candidates=124 best=375 best_score=7.75 sb_nodes=12/50
+[SB DATA] graph=frb40-19-3 node=25 depth=12 residual_n=91 candidates=91 best=626 best_score=6.5 sb_nodes=13/50
+[SB DATA] graph=frb40-19-3 node=27 depth=13 residual_n=63 candidates=63 best=450 best_score=3.25 sb_nodes=14/50
+[SB DATA] graph=frb40-19-3 node=28 depth=14 residual_n=62 candidates=62 best=78 best_score=3 sb_nodes=15/50
+[SB DATA] graph=frb40-19-3 node=31 depth=15 residual_n=48 candidates=48 best=476 best_score=2.75 sb_nodes=16/50
+[SB DATA] graph=frb40-19-3 node=33 depth=16 residual_n=35 candidates=35 best=212 best_score=2 sb_nodes=17/50
+[SB DATA] graph=frb40-19-3 node=35 depth=17 residual_n=25 candidates=21 best=264 best_score=1 sb_nodes=18/50
+[SB DATA] graph=frb40-19-3 node=37 depth=18 residual_n=18 candidates=7 best=605 best_score=0.75 sb_nodes=19/50
+[SB DATA] graph=frb40-19-3 node=36 depth=18 residual_n=24 candidates=20 best=71 best_score=0.5 sb_nodes=20/50
+[SB DATA] graph=frb40-19-3 node=34 depth=17 residual_n=34 candidates=34 best=71 best_score=1.75 sb_nodes=21/50
+[SB DATA] graph=frb40-19-3 node=43 depth=18 residual_n=25 candidates=23 best=130 best_score=0.25 sb_nodes=22/50
+[SB DATA] graph=frb40-19-3 node=42 depth=18 residual_n=33 candidates=33 best=264 best_score=1.75 sb_nodes=23/50
+[SB DATA] graph=frb40-19-3 node=47 depth=19 residual_n=24 candidates=24 best=98 best_score=1e-12 sb_nodes=24/50
+[SB DATA] graph=frb40-19-3 node=46 depth=19 residual_n=32 candidates=32 best=255 best_score=1 sb_nodes=25/50
+[SB DATA] graph=frb40-19-3 node=50 depth=20 residual_n=31 candidates=31 best=152 best_score=0.75 sb_nodes=26/50
+[SB DATA] graph=frb40-19-3 node=52 depth=21 residual_n=30 candidates=30 best=113 best_score=0.5 sb_nodes=27/50
+[SB DATA] graph=frb40-19-3 node=54 depth=22 residual_n=29 candidates=25 best=123 best_score=0.25 sb_nodes=28/50
+[SB DATA] graph=frb40-19-3 node=2 depth=1 residual_n=759 candidates=759 best=1 best_score=5e-07 sb_nodes=29/50
+[SB DATA] graph=frb40-19-3 node=59 depth=2 residual_n=672 candidates=672 best=19 best_score=5e-07 sb_nodes=30/50
+[SB DATA] graph=frb40-19-3 node=61 depth=3 residual_n=554 candidates=554 best=39 best_score=5e-07 sb_nodes=31/50
+[SB DATA] graph=frb40-19-3 node=63 depth=4 residual_n=481 candidates=481 best=633 best_score=13 sb_nodes=32/50
+[SB DATA] graph=frb40-19-3 node=65 depth=5 residual_n=427 candidates=427 best=484 best_score=11.25 sb_nodes=33/50
+[SB DATA] graph=frb40-19-3 node=67 depth=6 residual_n=380 candidates=380 best=330 best_score=12 sb_nodes=34/50
+[SB DATA] graph=frb40-19-3 node=69 depth=7 residual_n=330 candidates=330 best=466 best_score=11.25 sb_nodes=35/50
+[SB DATA] graph=frb40-19-3 node=71 depth=8 residual_n=283 candidates=283 best=685 best_score=11.5 sb_nodes=36/50
+[SB DATA] graph=frb40-19-3 node=73 depth=9 residual_n=235 candidates=235 best=437 best_score=12 sb_nodes=37/50
+[SB DATA] graph=frb40-19-3 node=75 depth=10 residual_n=185 candidates=185 best=368 best_score=11.25 sb_nodes=38/50
+[SB DATA] graph=frb40-19-3 node=77 depth=11 residual_n=138 candidates=138 best=517 best_score=8.5 sb_nodes=39/50
+[SB DATA] graph=frb40-19-3 node=79 depth=12 residual_n=102 candidates=102 best=392 best_score=6.5 sb_nodes=40/50
+[SB DATA] graph=frb40-19-3 node=81 depth=13 residual_n=74 candidates=74 
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 382.26
+Solving Nodes      : 65
+Primal Bound       : +2.80000000000000e+01 (4 solutions)
+Dual Bound         : +3.79000000000000e+02
+Gap                : 1253.57 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.01)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 760 variables (760 bin, 0 int, 0 cont) and 41605 constraints
+  41605 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.3s|     1 |     0 |   762 |     - |    85M |   0 | 760 |  41k|  41k|   0 |  0 |   0 |   0 | 3.800000e+02 |      --      |    Inf | unknown
+ 36.6s|     1 |     2 |   762 |     - |    85M |   0 | 760 |  41k|  41k|   0 |  1 |   0 | 760 | 3.800000e+02 |      --      |    Inf | unknown
+* 141s|    19 |    18 |  2489 |  95.9 |    LP  |  18 | 760 |  41k|  41k|   0 |  1 |   0 |4652 | 3.800000e+02 | 2.300000e+01 |1552.17%| unknown
+* 141s|    21 |    17 |  2496 |  86.7 |    LP  |  19 | 760 |  41k|  41k|   0 |  1 |   0 |4663 | 3.800000e+02 | 2.400000e+01 |1483.33%| unknown
+* 143s|    30 |    17 |  2526 |  60.8 |    LP  |  22 | 760 |  41k|  41k|   0 |  1 |   0 |4748 | 3.800000e+02 | 2.500000e+01 |1420.00%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 364.79
+Solving Nodes      : 65
+Primal Bound       : +2.50000000000000e+01 (3 solutions)
+Dual Bound         : +3.79000000000000e+02
+Gap                : 1416.00 %
+presolving:
+   (0.0s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.01)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 760 variables (760 bin, 0 int, 0 cont) and 41619 constraints
+  41619 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.3s|     1 |     0 |   762 |     - |    85M |   0 | 760 |  41k|  41k|   0 |  0 |   0 |   0 | 3.800000e+02 |      --      |    Inf | unknown
+ 35.5s|     1 |     2 |   762 |     - |    85M |   0 | 760 |  41k|  41k|   0 |  1 |   0 | 760 | 3.800000e+02 |      --      |    Inf | unknown
+best=494 best_score=4.75 sb_nodes=41/50
+[SB DATA] graph=frb40-19-3 node=32 depth=16 residual_n=47 candidates=47 best=212 best_score=2.25 sb_nodes=42/50
+[SB DATA] graph=frb40-19-3 node=85 depth=17 residual_n=36 candidates=36 best=116 best_score=1.5 sb_nodes=43/50
+[SB DATA] graph=frb40-19-3 node=87 depth=18 residual_n=28 candidates=26 best=71 best_score=0.5 sb_nodes=44/50
+[SB DATA] graph=frb40-19-3 node=88 depth=19 residual_n=27 candidates=25 best=529 best_score=0.25 sb_nodes=45/50
+[SB DATA] graph=frb40-19-3 node=58 depth=2 residual_n=758 candidates=758 best=2 best_score=5e-07 sb_nodes=46/50
+[SB DATA] graph=frb40-19-3 node=93 depth=3 residual_n=674 candidates=674 best=19 best_score=5e-07 sb_nodes=47/50
+[SB DATA] graph=frb40-19-3 node=95 depth=4 residual_n=552 candidates=552 best=39 best_score=5e-07 sb_nodes=48/50
+[SB DATA] graph=frb40-19-3 node=97 depth=5 residual_n=481 candidates=481 best=57 best_score=5e-07 sb_nodes=49/50
+[SB DATA] graph=frb40-19-3 node=99 depth=6 residual_n=398 candidates=398 best=118 best_score=12.25 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb40-19-3 sb_nodes=50
+Processing: frb40-19-4
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 1161
+[MWUA] Final violation: 0.3113831090544732
+[SB DATA] graph=frb40-19-4 node=1 depth=0 residual_n=760 candidates=760 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb40-19-4 node=3 depth=1 residual_n=659 candidates=659 best=19 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb40-19-4 node=5 depth=2 residual_n=577 candidates=577 best=38 best_score=5e-07 sb_nodes=3/50
+[SB DATA] graph=frb40-19-4 node=7 depth=3 residual_n=480 candidates=480 best=57 best_score=5e-07 sb_nodes=4/50
+[SB DATA] graph=frb40-19-4 node=9 depth=4 residual_n=400 candidates=400 best=487 best_score=11.5 sb_nodes=5/50
+[SB DATA] graph=frb40-19-4 node=11 depth=5 residual_n=352 candidates=352 best=127 best_score=10.5 sb_nodes=6/50
+[SB DATA] graph=frb40-19-4 node=13 depth=6 residual_n=308 candidates=308 best=310 best_score=10.5 sb_nodes=7/50
+[SB DATA] graph=frb40-19-4 node=15 depth=7 residual_n=264 candidates=264 best=510 best_score=9.75 sb_nodes=8/50
+[SB DATA] graph=frb40-19-4 node=17 depth=8 residual_n=223 candidates=223 best=83 best_score=11.25 sb_nodes=9/50
+[SB DATA] graph=frb40-19-4 node=19 depth=9 residual_n=176 candidates=176 best=253 best_score=11 sb_nodes=10/50
+[SB DATA] graph=frb40-19-4 node=21 depth=10 residual_n=130 candidates=130 best=411 best_score=8.5 sb_nodes=11/50
+[SB DATA] graph=frb40-19-4 node=23 depth=11 residual_n=94 candidates=94 best=390 best_score=6 sb_nodes=12/50
+[SB DATA] graph=frb40-19-4 node=25 depth=12 residual_n=68 candidates=68 best=601 best_score=4.25 sb_nodes=13/50
+[SB DATA] graph=frb40-19-4 node=27 depth=13 residual_n=49 candidates=49 best=199 best_score=2.75 sb_nodes=14/50
+[SB DATA] graph=frb40-19-4 node=28 depth=14 residual_n=48 candidates=48 best=189 best_score=2.5 sb_nodes=15/50
+[SB DATA] graph=frb40-19-4 node=31 depth=15 residual_n=35 candidates=32 best=520 best_score=2 sb_nodes=16/50
+[SB DATA] graph=frb40-19-4 node=33 depth=16 residual_n=24 candidates=20 best=451 best_score=1.5 sb_nodes=17/50
+[SB DATA] graph=frb40-19-4 node=35 depth=17 residual_n=16 candidates=12 best=550 best_score=1 sb_nodes=18/50
+[SB DATA] graph=frb40-19-4 node=36 depth=18 residual_n=15 candidates=11 best=228 best_score=0.25 sb_nodes=19/50
+[SB DATA] graph=frb40-19-4 node=34 depth=17 residual_n=23 candidates=19 best=550 best_score=1.25 sb_nodes=20/50
+[SB DATA] graph=frb40-19-4 node=40 depth=18 residual_n=22 candidates=18 best=556 best_score=1 sb_nodes=21/50
+[SB DATA] graph=frb40-19-4 node=42 depth=19 residual_n=21 candidates=17 best=437 best_score=0.75 sb_nodes=22/50
+[SB DATA] graph=frb40-19-4 node=44 depth=20 residual_n=20 candidates=16 best=228 best_score=0.5 sb_nodes=23/50
+[SB DATA] graph=frb40-19-4 node=47 depth=21 residual_n=16 candidates=12 best=449 best_score=1e-12 sb_nodes=24/50
+[SB DATA] graph=frb40-19-4 node=2 depth=1 residual_n=759 candidates=759 best=1 best_score=5e-07 sb_nodes=25/50
+[SB DATA] graph=frb40-19-4 node=51 depth=2 residual_n=631 candidates=631 best=19 best_score=5e-07 sb_nodes=26/50
+[SB DATA] graph=frb40-19-4 node=53 depth=3 residual_n=549 candidates=549 best=38 best_score=5e-07 sb_nodes=27/50
+[SB DATA] graph=frb40-19-4 node=55 depth=4 residual_n=458 candidates=458 best=57 best_score=5e-07 sb_nodes=28/50
+[SB DATA] graph=frb40-19-4 node=57 depth=5 residual_n=377 candidates=377 best=384 best_score=10.75 sb_nodes=29/50
+[SB DATA] graph=frb40-19-4 node=59 depth=6 residual_n=332 candidates=332 best=492 best_score=11.25 sb_nodes=30/50
+[SB DATA] graph=frb40-19-4 node=61 depth=7 residual_n=285 candidates=285 best=126 best_score=11 sb_nodes=31/50
+[SB DATA] graph=frb40-19-4 node=63 depth=8 residual_n=239 candidates=239 best=403 best_score=12.25 sb_nodes=32/50
+[SB DATA] graph=frb40-19-4 node=65 depth=9 residual_n=188 candidates=188 best=171 best_score=10 sb_nodes=33/50
+[SB DATA] graph=frb40-19-4 node=67 depth=10 residual_n=146 candidates=146 best=343 best_score=9.25 sb_nodes=34/50
+[SB DATA] graph=frb40-19-4 node=69 depth=11 residual_n=107 candidates=107 best=544 best_score=7.5 sb_nodes=35/50
+[SB DATA] graph=frb40-19-4 node=71 depth=12 residual_n=75 candidates=75 best=273 best_score=5.75 sb_nodes=36/50
+[SB DATA] graph=frb40-19-4 node=73 depth=13 residual_n=50 candidates=50 best=516 best_score=3.75 sb_nodes=37/50
+[SB DATA] graph=frb40-19-4 node=32 depth=16 residual_n=34 candidates=31 best=722 best_score=2 sb_nodes=38/50
+[SB DATA] graph=frb40-19-4 node=77 depth=17 residual_n=24 candidates=19 best=466 best_score=0.75 sb_nodes=39/50
+[SB DATA] graph=frb40-19-4 node=78 depth=18 residual_n=23 candidates=18 best=531 best_score=0.5 sb_nodes=40/50
+[SB DATA] graph=frb40-19-4 node=80 depth=19 residual_n=22 candidates=17 best=749 best_score=0.25 sb_nodes=41/50
+[SB DATA] graph=frb40-19-4 node=76 depth=17 residual_n=33 candidates=30 best=646 best_score=1.75 sb_nodes=42/50
+[SB DATA] graph=frb40-19-4 node=85 depth=18 residual_n=24 candidates=21 best=451 best_score=0.75 sb_nodes=43/50
+[SB DATA] graph=frb40-19-4 node=86 depth=19 residual_n=23 candidates=16 best=330 best_score=0.5 sb_nodes=44/50
+[SB DATA] graph=frb40-19-4 node=88 depth=20 residual_n=22 candidates=11 best=200 best_score=0.25 sb_nodes=45/50
+[SB DATA] graph=frb40-19-4 node=50 depth=2 residual_n=758 candidates=758 best=2 best_score=5e-07 sb_nodes=46/50
+[SB DATA] graph=frb40-19-4 node=93 depth=3 residual_n=644 candidates=644 best=19 best_score=5e-07 sb_nodes=47/50
+[SB DATA] graph=frb40-19-4 node=95 depth=4 residual_n=562 candidates=562 best=38 best_score=5e-07 sb_nodes=48/50
+[SB DATA] graph=frb40-19-4 node=97 depth=5 residual_n=469 candidates=469 best=393 best_score=10.75 sb_nodes=49/50
+[SB DATA] graph=frb40-19-4 node=99 depth=6 residual_n=424 candidates=424 best=703 best_score=9.75 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb40-19-4 sb_nodes=50
+Processing: frb40-19-5
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 1143
+[MWUA] Final violation: 0.3492486956327461
+[SB DATA] graph=frb40-19-5 node=1 depth=0 residual_n=760 candidates=760 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb40-19-5 node=3 depth=1 residual_n=659 candidates=659 best=19 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb40-19-5 node=5 depth=2 residual_n=604 candidates=604 best=38 best_score=5e-07 sb_nodes=3/50
+[SB DATA] graph=frb40-19-5 node=7 depth=3 residual_n=491 candidates=491 best=57 best_score=5e-07 sb_nodes=4/50
+[SB DATA] graph=frb40-19-5 node=9 depth=4 residual_n=431 candidates=431 best=187 best_score=11.5 sb_nodes=5/50
+[SB DATA] graph=frb40-19-5 node=11 depth=5 residual_n=383 candidates=383 best=573 best_score=10.25 sb_nodes=6/50
+[SB DATA] graph=frb40-19-5 node=13 depth=6 residual_n=340 candidates=340 best=599 best_score=11.5 sb_nodes=7/50
+[SB DATA] graph=frb40-19-5 node=15 depth=7 residual_n=292 candidates=292 best=137 best_score=12 sb_nodes=8/50
+[SB DATA] graph=frb40-19-5 node=17 depth=8 residual_n=242 candidates=242 best=353 best_score=12.25 sb_nodes=9/50
+[SB DATA] graph=frb40-19-5 node=19 depth=9 residual_n=191 candidates=191 best=287 best_score=11 sb_nodes=10/50
+[SB DATA] graph=frb40-19-5 node=21 depth=10 residual_n=145* 148s|    20 |    18 |  2432 |  87.9 |    LP  |  19 | 760 |  41k|  41k|   0 |  1 |   0 |4926 | 3.800000e+02 | 2.400000e+01 |1483.33%| unknown
+* 291s|    35 |    31 |  3901 |  92.3 |    LP  |  20 | 760 |  41k|  41k|   0 |  1 |   0 |9725 | 3.795000e+02 | 2.500000e+01 |1418.00%| unknown
+* 291s|    36 |    29 |  3903 |  89.7 |    LP  |  20 | 760 |  41k|  41k|   0 |  1 |   0 |9725 | 3.795000e+02 | 2.600000e+01 |1359.62%| unknown
+* 292s|    45 |    29 |  3955 |  72.6 |    LP  |  22 | 760 |  41k|  41k|   0 |  1 |   0 |9838 | 3.795000e+02 | 2.700000e+01 |1305.56%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 296.84
+Solving Nodes      : 68
+Primal Bound       : +2.70000000000000e+01 (4 solutions)
+Dual Bound         : +3.79500000000000e+02
+Gap                : 1305.56 %
+presolving:
+   (0.1s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.01)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 1150 variables (1150 bin, 0 int, 0 cont) and 80072 constraints
+  80072 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.05
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.6s|     1 |     0 |  1157 |     - |   156M |   0 |1150 |  80k|  80k|   0 |  0 |   0 |   0 | 5.750000e+02 |      --      |    Inf | unknown
+ 71.7s|     1 |     2 |  1157 |     - |   156M |   0 |1150 |  80k|  80k|   0 |  1 |   0 |1150 | 5.750000e+02 |      --      |    Inf | unknown
+* 357s|    23 |    22 |  4030 | 130.6 |    LP  |  22 |1150 |  80k|  80k|   0 |  1 |   0 |8390 | 5.750000e+02 | 3.100000e+01 |1754.84%| unknown
+* 358s|    27 |    21 |  4042 | 111.0 |    LP  |  23 |1150 |  80k|  80k|   0 |  1 |   0 |8424 | 5.750000e+02 | 3.200000e+01 |1696.88%| unknown
+* 361s|    36 |    21 |  4085 |  83.7 |    LP  |  24 |1150 |  80k|  80k|   0 |  1 |   0 |8565 | 5.750000e+02 | 3.300000e+01 |1642.42%| unknown
+* 363s|    40 |    21 |  4094 |  75.3 |    LP  |  25 |1150 |  80k|  80k|   0 |  1 |   0 |8622 | 5.750000e+02 | 3.400000e+01 |1591.18%| unknown
+ candidates=145 best=742 best_score=9 sb_nodes=11/50
+[SB DATA] graph=frb40-19-5 node=23 depth=11 residual_n=107 candidates=107 best=123 best_score=6.5 sb_nodes=12/50
+[SB DATA] graph=frb40-19-5 node=25 depth=12 residual_n=79 candidates=79 best=483 best_score=4.75 sb_nodes=13/50
+[SB DATA] graph=frb40-19-5 node=27 depth=13 residual_n=58 candidates=58 best=657 best_score=3.25 sb_nodes=14/50
+[SB DATA] graph=frb40-19-5 node=28 depth=14 residual_n=57 candidates=57 best=669 best_score=3 sb_nodes=15/50
+[SB DATA] graph=frb40-19-5 node=31 depth=15 residual_n=43 candidates=43 best=95 best_score=2.5 sb_nodes=16/50
+[SB DATA] graph=frb40-19-5 node=33 depth=16 residual_n=31 candidates=27 best=341 best_score=1.75 sb_nodes=17/50
+[SB DATA] graph=frb40-19-5 node=35 depth=17 residual_n=22 candidates=14 best=430 best_score=1.25 sb_nodes=18/50
+[SB DATA] graph=frb40-19-5 node=37 depth=18 residual_n=15 candidates=3 best=284 best_score=0.25 sb_nodes=19/50
+[SB DATA] graph=frb40-19-5 node=2 depth=1 residual_n=759 candidates=759 best=1 best_score=5e-07 sb_nodes=20/50
+[SB DATA] graph=frb40-19-5 node=41 depth=2 residual_n=659 candidates=659 best=19 best_score=5e-07 sb_nodes=21/50
+[SB DATA] graph=frb40-19-5 node=43 depth=3 residual_n=600 candidates=600 best=38 best_score=5e-07 sb_nodes=22/50
+[SB DATA] graph=frb40-19-5 node=45 depth=4 residual_n=496 candidates=496 best=173 best_score=12 sb_nodes=23/50
+[SB DATA] graph=frb40-19-5 node=47 depth=5 residual_n=446 candidates=446 best=59 best_score=11.25 sb_nodes=24/50
+[SB DATA] graph=frb40-19-5 node=49 depth=6 residual_n=399 candidates=399 best=130 best_score=10.5 sb_nodes=25/50
+[SB DATA] graph=frb40-19-5 node=51 depth=7 residual_n=355 candidates=355 best=422 best_score=10.75 sb_nodes=26/50
+[SB DATA] graph=frb40-19-5 node=53 depth=8 residual_n=310 candidates=310 best=255 best_score=11.5 sb_nodes=27/50
+[SB DATA] graph=frb40-19-5 node=55 depth=9 residual_n=262 candidates=262 best=138 best_score=11.75 sb_nodes=28/50
+[SB DATA] graph=frb40-19-5 node=57 depth=10 residual_n=213 candidates=213 best=274 best_score=12.5 sb_nodes=29/50
+[SB DATA] graph=frb40-19-5 node=59 depth=11 residual_n=161 candidates=161 best=695 best_score=10.75 sb_nodes=30/50
+[SB DATA] graph=frb40-19-5 node=61 depth=12 residual_n=116 candidates=116 best=441 best_score=7.75 sb_nodes=31/50
+[SB DATA] graph=frb40-19-5 node=36 depth=18 residual_n=21 candidates=13 best=284 best_score=0.25 sb_nodes=32/50
+[SB DATA] graph=frb40-19-5 node=65 depth=19 residual_n=18 candidates=10 best=425 best_score=1e-06 sb_nodes=33/50
+[SB DATA] graph=frb40-19-5 node=34 depth=17 residual_n=30 candidates=26 best=284 best_score=1.5 sb_nodes=34/50
+[SB DATA] graph=frb40-19-5 node=68 depth=18 residual_n=29 candidates=25 best=339 best_score=1.25 sb_nodes=35/50
+[SB DATA] graph=frb40-19-5 node=70 depth=19 residual_n=28 candidates=24 best=368 best_score=1 sb_nodes=36/50
+[SB DATA] graph=frb40-19-5 node=72 depth=20 residual_n=27 candidates=23 best=400 best_score=0.75 sb_nodes=37/50
+[SB DATA] graph=frb40-19-5 node=75 depth=21 residual_n=21 candidates=10 best=243 best_score=1e-12 sb_nodes=38/50
+[SB DATA] graph=frb40-19-5 node=32 depth=16 residual_n=42 candidates=42 best=97 best_score=2.25 sb_nodes=39/50
+[SB DATA] graph=frb40-19-5 node=79 depth=17 residual_n=30 candidates=29 best=284 best_score=1.25 sb_nodes=40/50
+[SB DATA] graph=frb40-19-5 node=80 depth=18 residual_n=29 candidates=28 best=331 best_score=1 sb_nodes=41/50
+[SB DATA] graph=frb40-19-5 node=82 depth=19 residual_n=28 candidates=27 best=400 best_score=0.75 sb_nodes=42/50
+[SB DATA] graph=frb40-19-5 node=84 depth=20 residual_n=27 candidates=26 best=325 best_score=0.5 sb_nodes=43/50
+[SB DATA] graph=frb40-19-5 node=86 depth=21 residual_n=26 candidates=25 best=243 best_score=0.25 sb_nodes=44/50
+[SB DATA] graph=frb40-19-5 node=78 depth=17 residual_n=41 candidates=41 best=278 best_score=2 sb_nodes=45/50
+[SB DATA] graph=frb40-19-5 node=91 depth=18 residual_n=31 candidates=25 best=381 best_score=1.25 sb_nodes=46/50
+[SB DATA] graph=frb40-19-5 node=92 depth=19 residual_n=30 candidates=22 best=431 best_score=1 sb_nodes=47/50
+[SB DATA] graph=frb40-19-5 node=94 depth=20 residual_n=29 candidates=21 best=433 best_score=0.75 sb_nodes=48/50
+[SB DATA] graph=frb40-19-5 node=96 depth=21 residual_n=28 candidates=20 best=442 best_score=0.5 sb_nodes=49/50
+[SB DATA] graph=frb40-19-5 node=98 depth=22 residual_n=27 candidates=19 best=263 best_score=0.25 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb40-19-5 sb_nodes=50
+Processing: frb50-23-1
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 563
+[MWUA] Final violation: 0.17456080856072775
+[SB DATA] graph=frb50-23-1 node=1 depth=0 residual_n=1150 candidates=1150 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb50-23-1 node=3 depth=1 residual_n=964 candidates=964 best=23 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb50-23-1 node=5 depth=2 residual_n=808 candidates=808 best=50 best_score=5e-07 sb_nodes=3/50
+[SB DATA] graph=frb50-23-1 node=7 depth=3 residual_n=714 candidates=714 best=69 best_score=5e-07 sb_nodes=4/50
+[SB DATA] graph=frb50-23-1 node=9 depth=4 residual_n=609 candidates=609 best=564 best_score=8.25 sb_nodes=5/50
+[SB DATA] graph=frb50-23-1 node=11 depth=5 residual_n=574 candidates=574 best=93 best_score=5e-07 sb_nodes=6/50
+[SB DATA] graph=frb50-23-1 node=13 depth=6 residual_n=501 candidates=501 best=857 best_score=9 sb_nodes=7/50
+[SB DATA] graph=frb50-23-1 node=15 depth=7 residual_n=463 candidates=463 best=646 best_score=8.5 sb_nodes=8/50
+[SB DATA] graph=frb50-23-1 node=17 depth=8 residual_n=427 candidates=427 best=1141 best_score=8.5 sb_nodes=9/50
+[SB DATA] graph=frb50-23-1 node=19 depth=9 residual_n=391 candidates=391 best=1100 best_score=11.5 sb_nodes=10/50
+[SB DATA] graph=frb50-23-1 node=21 depth=10 residual_n=343 candidates=343 best=1116 best_score=12 sb_nodes=11/50
+[SB DATA] graph=frb50-23-1 node=23 depth=11 residual_n=293 candidates=293 best=135 best_score=11.5 sb_nodes=12/50
+[SB DATA] graph=frb50-23-1 node=25 depth=12 residual_n=245 candidates=245 best=1059 best_score=11 sb_nodes=13/50
+[SB DATA] graph=frb50-23-1 node=27 depth=13 residual_n=199 candidates=199 best=414 best_score=11.25 sb_nodes=14/50
+[SB DATA] graph=frb50-23-1 node=28 depth=14 residual_n=198 candidates=198 best=197 best_score=10.5 sb_nodes=15/50
+[SB DATA] graph=frb50-23-1 node=31 depth=15 residual_n=154 candidates=154 best=978 best_score=9.5 sb_nodes=16/50
+[SB DATA] graph=frb50-23-1 node=33 depth=16 residual_n=114 candidates=114 best=673 best_score=7 sb_nodes=17/50
+[SB DATA] graph=frb50-23-1 node=35 depth=17 residual_n=84 candidates=84 best=395 best_score=5 sb_nodes=18/50
+[SB DATA] graph=frb50-23-1 node=37 depth=18 residual_n=62 candidates=62 best=842 best_score=3.75 sb_nodes=19/50
+[SB DATA] graph=frb50-23-1 node=39 depth=19 residual_n=45 candidates=45 best=492 best_score=2.75 sb_nodes=20/50
+[SB DATA] graph=frb50-23-1 node=41 depth=20 residual_n=32 candidates=32 best=940 best_score=1.5 sb_nodes=21/50
+[SB DATA] graph=frb50-23-1 node=43 depth=21 residual_n=24 candidates=20 best=285 best_score=0.5 sb_nodes=22/50
+[SB DATA] graph=frb50-23-1 node=42 depth=21 residual_n=31 candidates=31 best=285 best_score=1 sb_nodes=23/50
+[SB DATA] graph=frb50-23-1 node=47 depth=22 residual_n=23 candidates=3 best=908 best_score=0.25 sb_nodes=24/50
+[SB DATA] graph=frb50-23-1 node=46 depth=22 residual_n=30 candidates=30 best=441 best_score=0.5 sb_nodes=25/50
+[SB DATA] graph=frb50-23-1 node=50 depth=23 residual_n=29 candidates=29 best=270 best_score=0.25 sb_nodes=26/50
+[SB DATA] graph=frb50-23-1 node=40 depth=20 residual_n=44 candidates=40 best=285 best_score=2 sb_nodes=27/50
+[SB DATA] graph=frb50-23-1 node=55 depth=21 residual_n=34 candidates=26 best=489 best_score=1.25 sb_nodes=28/50
+[SB DATA] graph=frb50-23-1 node=57 depth=22 residual_n=26 candidates=3 best=908 best_score=0.25 sb_nodes=29/50
+[SB DATA] graph=frb50-23-1 node=56 depth=22 residual_n=33 candidates=25 best=940 best_score=0.75 sb_nodes=30/50
+[SB DATA] graph=frb50-23-1 node=61 depth=23 residual_n=26 candidates=18 best=183 best_score=1e-12 sb_nodes=31/50
+[SB DATA] graph=frb50-23-1 node=63 depth=24 residual_n=23 candidates=14 best=472 best_score=1e-12 sb_nodes=32/50
+[SB DATA] 
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 695.87
+Solving Nodes      : 60
+Primal Bound       : +3.40000000000000e+01 (4 solutions)
+Dual Bound         : +5.74500000000000e+02
+Gap                : 1589.71 %
+presolving:
+   (0.1s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.01)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 1150 variables (1150 bin, 0 int, 0 cont) and 80851 constraints
+  80851 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.05
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.6s|     1 |     0 |  1150 |     - |   157M |   0 |1150 |  80k|  80k|   0 |  0 |   0 |   0 | 5.750000e+02 |      --      |    Inf | unknown
+ 77.3s|     1 |     2 |  1150 |     - |   157M |   0 |1150 |  80k|  80k|   0 |  1 |   0 |1150 | 5.750000e+02 |      --      |    Inf | unknown
+* 470s|    25 |    24 |  4415 | 136.0 |    LP  |  24 |1150 |  80k|  80k|   0 |  1 |   0 |9987 | 5.750000e+02 | 3.000000e+01 |1816.67%| unknown
+* 471s|    27 |    23 |  4417 | 125.7 |    LP  |  25 |1150 |  80k|  80k|   0 |  1 |   0 |9991 | 5.750000e+02 | 3.100000e+01 |1754.84%| unknown
+* 471s|    29 |    23 |  4426 | 117.0 |    LP  |  25 |1150 |  80k|  80k|   0 |  1 |   0 |  10k| 5.750000e+02 | 3.200000e+01 |1696.88%| unknown
+* 474s|    37 |    23 |  4467 |  92.1 |    LP  |  26 |1150 |  80k|  80k|   0 |  1 |   0 |  10k| 5.750000e+02 | 3.300000e+01 |1642.42%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 1110.24
+Solving Nodes      : 59
+Primal Bound       : +3.30000000000000e+01 (4 solutions)
+Dual Bound         : +5.74000000000000e+02
+Gap                : 1639.39 %
+presolving:
+   (0.1s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.01)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 1150 variables (1150 bin, 0 int, 0 cont) and 81068 constraints
+  81068 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.05
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.6s|     1 |     0 |  1150 |     - |   157M |   0 |1150 |  81k|  81k|   0 |  0 |   0 |   0 | 5.750000e+02 |      --      |    Inf | unknown
+ 77.9s|     1 |     2 |  1150 |     - |   157M |   0 |1150 |  81k|  81k|   0 |  1 |   0 |1150 | 5.750000e+02 |      --      |    Inf | unknown
+graph=frb50-23-1 node=2 depth=1 residual_n=1149 candidates=1149 best=1 best_score=5e-07 sb_nodes=33/50
+[SB DATA] graph=frb50-23-1 node=67 depth=2 residual_n=990 candidates=990 best=23 best_score=5e-07 sb_nodes=34/50
+[SB DATA] graph=frb50-23-1 node=69 depth=3 residual_n=828 candidates=828 best=50 best_score=5e-07 sb_nodes=35/50
+[SB DATA] graph=frb50-23-1 node=71 depth=4 residual_n=727 candidates=727 best=69 best_score=5e-07 sb_nodes=36/50
+[SB DATA] graph=frb50-23-1 node=73 depth=5 residual_n=619 candidates=619 best=93 best_score=5e-07 sb_nodes=37/50
+[SB DATA] graph=frb50-23-1 node=75 depth=6 residual_n=542 candidates=542 best=492 best_score=8.75 sb_nodes=38/50
+[SB DATA] graph=frb50-23-1 node=77 depth=7 residual_n=505 candidates=505 best=857 best_score=9 sb_nodes=39/50
+[SB DATA] graph=frb50-23-1 node=79 depth=8 residual_n=467 candidates=467 best=355 best_score=11.25 sb_nodes=40/50
+[SB DATA] graph=frb50-23-1 node=81 depth=9 residual_n=420 candidates=420 best=782 best_score=8.5 sb_nodes=41/50
+[SB DATA] graph=frb50-23-1 node=83 depth=10 residual_n=384 candidates=384 best=640 best_score=9.75 sb_nodes=42/50
+[SB DATA] graph=frb50-23-1 node=85 depth=11 residual_n=343 candidates=343 best=1098 best_score=11 sb_nodes=43/50
+[SB DATA] graph=frb50-23-1 node=87 depth=12 residual_n=297 candidates=297 best=917 best_score=10.75 sb_nodes=44/50
+[SB DATA] graph=frb50-23-1 node=89 depth=13 residual_n=252 candidates=252 best=132 best_score=10.5 sb_nodes=45/50
+[SB DATA] graph=frb50-23-1 node=54 depth=21 residual_n=43 candidates=39 best=286 best_score=1.75 sb_nodes=46/50
+[SB DATA] graph=frb50-23-1 node=93 depth=22 residual_n=33 candidates=30 best=219 best_score=0.5 sb_nodes=47/50
+[SB DATA] graph=frb50-23-1 node=94 depth=23 residual_n=32 candidates=17 best=441 best_score=0.25 sb_nodes=48/50
+[SB DATA] graph=frb50-23-1 node=97 depth=24 residual_n=29 candidates=14 best=270 best_score=1e-12 sb_nodes=49/50
+[SB DATA] graph=frb50-23-1 node=99 depth=25 residual_n=26 candidates=4 best=488 best_score=1e-12 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb50-23-1 sb_nodes=50
+Processing: frb50-23-2
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 571
+[MWUA] Final violation: 0.13704882289947107
+[SB DATA] graph=frb50-23-2 node=1 depth=0 residual_n=1150 candidates=1150 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb50-23-2 node=3 depth=1 residual_n=1068 candidates=1068 best=23 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb50-23-2 node=5 depth=2 residual_n=952 candidates=952 best=46 best_score=5e-07 sb_nodes=3/50
+[SB DATA] graph=frb50-23-2 node=7 depth=3 residual_n=845 candidates=845 best=69 best_score=5e-07 sb_nodes=4/50
+[SB DATA] graph=frb50-23-2 node=9 depth=4 residual_n=767 candidates=767 best=92 best_score=5e-07 sb_nodes=5/50
+[SB DATA] graph=frb50-23-2 node=11 depth=5 residual_n=654 candidates=654 best=115 best_score=5e-07 sb_nodes=6/50
+[SB DATA] graph=frb50-23-2 node=13 depth=6 residual_n=588 candidates=588 best=138 best_score=5e-07 sb_nodes=7/50
+[SB DATA] graph=frb50-23-2 node=15 depth=7 residual_n=493 candidates=493 best=717 best_score=8.5 sb_nodes=8/50
+[SB DATA] graph=frb50-23-2 node=17 depth=8 residual_n=457 candidates=457 best=811 best_score=7.75 sb_nodes=9/50
+[SB DATA] graph=frb50-23-2 node=19 depth=9 residual_n=424 candidates=424 best=931 best_score=8.25 sb_nodes=10/50
+[SB DATA] graph=frb50-23-2 node=21 depth=10 residual_n=389 candidates=389 best=562 best_score=7 sb_nodes=11/50
+[SB DATA] graph=frb50-23-2 node=23 depth=11 residual_n=359 candidates=359 best=243 best_score=9 sb_nodes=12/50
+[SB DATA] graph=frb50-23-2 node=25 depth=12 residual_n=321 candidates=321 best=1028 best_score=8.25 sb_nodes=13/50
+[SB DATA] graph=frb50-23-2 node=27 depth=13 residual_n=286 candidates=286 best=549 best_score=8.5 sb_nodes=14/50
+[SB DATA] graph=frb50-23-2 node=28 depth=14 residual_n=285 candidates=285 best=1120 best_score=8.75 sb_nodes=15/50
+[SB DATA] graph=frb50-23-2 node=31 depth=15 residual_n=248 candidates=248 best=1005 best_score=10.5 sb_nodes=16/50
+[SB DATA] graph=frb50-23-2 node=33 depth=16 residual_n=204 candidates=204 best=1101 best_score=10.75 sb_nodes=17/50
+[SB DATA] graph=frb50-23-2 node=35 depth=17 residual_n=159 candidates=159 best=208 best_score=9.75 sb_nodes=18/50
+[SB DATA] graph=frb50-23-2 node=37 depth=18 residual_n=118 candidates=118 best=777 best_score=8.25 sb_nodes=19/50
+[SB DATA] graph=frb50-23-2 node=39 depth=19 residual_n=83 candidates=83 best=443 best_score=5.5 sb_nodes=20/50
+[SB DATA] graph=frb50-23-2 node=41 depth=20 residual_n=59 candidates=59 best=701 best_score=3.75 sb_nodes=21/50
+[SB DATA] graph=frb50-23-2 node=43 depth=21 residual_n=42 candidates=42 best=371 best_score=3 sb_nodes=22/50
+[SB DATA] graph=frb50-23-2 node=45 depth=22 residual_n=28 candidates=28 best=672 best_score=2 sb_nodes=23/50
+[SB DATA] graph=frb50-23-2 node=47 depth=23 residual_n=18 candidates=8 best=477 best_score=1e-06 sb_nodes=24/50
+[SB DATA] graph=frb50-23-2 node=48 depth=24 residual_n=17 candidates=4 best=596 best_score=1e-12 sb_nodes=25/50
+[SB DATA] graph=frb50-23-2 node=46 depth=23 residual_n=27 candidates=27 best=671 best_score=1.25 sb_nodes=26/50
+[SB DATA] graph=frb50-23-2 node=52 depth=24 residual_n=26 candidates=24 best=477 best_score=0.5 sb_nodes=27/50
+[SB DATA] graph=frb50-23-2 node=54 depth=25 residual_n=25 candidates=11 best=596 best_score=0.25 sb_nodes=28/50
+[SB DATA] graph=frb50-23-2 node=44 depth=22 residual_n=41 candidates=41 best=668 best_score=2.75 sb_nodes=29/50
+[SB DATA] graph=frb50-23-2 node=59 depth=23 residual_n=28 candidates=28 best=379 best_score=1 sb_nodes=30/50
+[SB DATA] graph=frb50-23-2 node=60 depth=24 residual_n=27 candidates=27 best=301 best_score=0.25 sb_nodes=31/50
+[SB DATA] graph=frb50-23-2 node=2 depth=1 residual_n=1149 candidates=1149 best=1 best_score=5e-07 sb_nodes=32/50
+[SB DATA] graph=frb50-23-2 node=65 depth=2 residual_n=1063 candidates=1063 best=27 best_score=5e-07 sb_nodes=33/50
+[SB DATA] graph=frb50-23-2 node=67 depth=3 residual_n=938 candidates=938 best=46 best_score=5e-07 sb_nodes=34/50
+[SB DATA] graph=frb50-23-2 node=69 depth=4 residual_n=821 candidates=821 best=69 best_score=5e-07 sb_nodes=35/50
+[SB DATA] graph=frb50-23-2 node=71 depth=5 residual_n=743 candidates=743 best=93 best_score=5e-07 sb_nodes=36/50
+[SB DATA] graph=frb50-23-2 node=73 depth=6 residual_n=637 candidates=637 best=121 best_score=5e-07 sb_nodes=37/50
+[SB DATA] graph=frb50-23-2 node=75 depth=7 residual_n=569 candidates=569 best=140 best_score=5e-07 sb_nodes=38/50
+[SB DATA] graph=frb50-23-2 node=77 depth=8 residual_n=492 candidates=492 best=164 best_score=5e-07 sb_nodes=39/50
+[SB DATA] graph=frb50-23-2 node=79 depth=9 residual_n=432 candidates=432 best=571 best_score=10.25 sb_nodes=40/50
+[SB DATA] graph=frb50-23-2 node=81 depth=10 residual_n=389 candidates=389 best=806 best_score=7.75 sb_nodes=41/50
+[SB DATA] graph=frb50-23-2 node=83 depth=11 residual_n=356 candidates=356 best=1011 best_score=10 sb_nodes=42/50
+[SB DATA] graph=frb50-23-2 node=85 depth=12 residual_n=314 candidates=314 best=619 best_score=9.25 sb_nodes=43/50
+[SB DATA] graph=frb50-23-2 node=87 depth=13 residual_n=275 candidates=275 best=288 best_score=9.5 sb_nodes=44/50
+[SB DATA] graph=frb50-23-2 node=89 depth=14 residual_n=235 candidates=235 best=749 best_score=11.5 sb_nodes=45/50
+[SB DATA] graph=frb50-23-2 node=91 depth=15 residual_n=187 candidates=187 best=225 best_score=10.25 sb_nodes=46/50
+[SB DATA] graph=frb50-23-2 node=64 depth=2 residual_n=1148 candidates=1148 best=2 best_score=5e-07 sb_nodes=47/50
+[SB DATA] graph=frb50-23-2 node=95 depth=3 residual_n=1059 candidates=1059 best=24 best_score=5e-07 sb_nodes=48/50
+[SB DATA] graph=frb50-23-2 node=97 depth=4 residual_n=951 candidates=951 best=46 best_score=5e-07 sb_nodes=49/50
+[SB DATA] graph=frb50-23-2 node=99 depth=5 residual_n=840 candidates=840 best=69 best_score=5e-07 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb50-23-2 sb_nodes=50
+Processing: frb50-23-3
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 568
+[MWUA] Final violation: 0.1883802816901411
+[SB DATA] graph=frb50-23-3 node=1 depth=0 residual_n=1150 candidates=1150 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb50-23-3 node=3 depth=1* 370s|    21 |    20 |  4407 | 162.8 |    LP  |  20 |1150 |  81k|  81k|   0 |  1 |   0 |8069 | 5.750000e+02 | 3.500000e+01 |1542.86%| unknown
+* 397s|    74 |    20 |  4757 |  49.4 |    LP  |  28 |1150 |  81k|  81k|   0 |  1 |   0 |9071 | 5.750000e+02 | 3.600000e+01 |1497.22%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 400.74
+Solving Nodes      : 79
+Primal Bound       : +3.60000000000000e+01 (2 solutions)
+Dual Bound         : +5.75000000000000e+02
+Gap                : 1497.22 %
+presolving:
+   (0.1s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.01)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 1150 variables (1150 bin, 0 int, 0 cont) and 80258 constraints
+  80258 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.05
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.6s|     1 |     0 |  1151 |     - |   156M |   0 |1150 |  80k|  80k|   0 |  0 |   0 |   0 | 5.750000e+02 |      --      |    Inf | unknown
+ 76.0s|     1 |     2 |  1151 |     - |   156M |   0 |1150 |  80k|  80k|   0 |  1 |   0 |1150 | 5.750000e+02 |      --      |    Inf | unknown
+ residual_n=957 candidates=957 best=24 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb50-23-3 node=5 depth=2 residual_n=844 candidates=844 best=47 best_score=5e-07 sb_nodes=3/50
+[SB DATA] graph=frb50-23-3 node=7 depth=3 residual_n=733 candidates=733 best=69 best_score=5e-07 sb_nodes=4/50
+[SB DATA] graph=frb50-23-3 node=9 depth=4 residual_n=635 candidates=635 best=92 best_score=5e-07 sb_nodes=5/50
+[SB DATA] graph=frb50-23-3 node=11 depth=5 residual_n=547 candidates=547 best=115 best_score=5e-07 sb_nodes=6/50
+[SB DATA] graph=frb50-23-3 node=13 depth=6 residual_n=500 candidates=500 best=516 best_score=7.25 sb_nodes=7/50
+[SB DATA] graph=frb50-23-3 node=15 depth=7 residual_n=469 candidates=469 best=139 best_score=5e-07 sb_nodes=8/50
+[SB DATA] graph=frb50-23-3 node=17 depth=8 residual_n=401 candidates=401 best=161 best_score=5e-07 sb_nodes=9/50
+[SB DATA] graph=frb50-23-3 node=19 depth=9 residual_n=344 candidates=344 best=699 best_score=10.5 sb_nodes=10/50
+[SB DATA] graph=frb50-23-3 node=21 depth=10 residual_n=300 candidates=300 best=537 best_score=9.25 sb_nodes=11/50
+[SB DATA] graph=frb50-23-3 node=23 depth=11 residual_n=261 candidates=261 best=505 best_score=11.25 sb_nodes=12/50
+[SB DATA] graph=frb50-23-3 node=25 depth=12 residual_n=214 candidates=214 best=299 best_score=11 sb_nodes=13/50
+[SB DATA] graph=frb50-23-3 node=27 depth=13 residual_n=168 candidates=168 best=280 best_score=9.25 sb_nodes=14/50
+[SB DATA] graph=frb50-23-3 node=28 depth=14 residual_n=167 candidates=167 best=297 best_score=9.25 sb_nodes=15/50
+[SB DATA] graph=frb50-23-3 node=31 depth=15 residual_n=128 candidates=128 best=348 best_score=8 sb_nodes=16/50
+[SB DATA] graph=frb50-23-3 node=33 depth=16 residual_n=94 candidates=94 best=414 best_score=5.75 sb_nodes=17/50
+[SB DATA] graph=frb50-23-3 node=35 depth=17 residual_n=69 candidates=69 best=604 best_score=3.25 sb_nodes=18/50
+[SB DATA] graph=frb50-23-3 node=37 depth=18 residual_n=54 candidates=52 best=255 best_score=2.5 sb_nodes=19/50
+[SB DATA] graph=frb50-23-3 node=39 depth=19 residual_n=42 candidates=36 best=869 best_score=2 sb_nodes=20/50
+[SB DATA] graph=frb50-23-3 node=40 depth=20 residual_n=41 candidates=35 best=398 best_score=1.25 sb_nodes=21/50
+[SB DATA] graph=frb50-23-3 node=42 depth=21 residual_n=40 candidates=34 best=400 best_score=1 sb_nodes=22/50
+[SB DATA] graph=frb50-23-3 node=44 depth=22 residual_n=39 candidates=33 best=561 best_score=0.75 sb_nodes=23/50
+[SB DATA] graph=frb50-23-3 node=46 depth=23 residual_n=38 candidates=32 best=592 best_score=0.5 sb_nodes=24/50
+[SB DATA] graph=frb50-23-3 node=48 depth=24 residual_n=37 candidates=31 best=210 best_score=0.25 sb_nodes=25/50
+[SB DATA] graph=frb50-23-3 node=38 depth=19 residual_n=53 candidates=51 best=869 best_score=2.25 sb_nodes=26/50
+[SB DATA] graph=frb50-23-3 node=53 depth=20 residual_n=42 candidates=40 best=777 best_score=1.5 sb_nodes=27/50
+[SB DATA] graph=frb50-23-3 node=54 depth=21 residual_n=41 candidates=39 best=189 best_score=1.25 sb_nodes=28/50
+[SB DATA] graph=frb50-23-3 node=56 depth=22 residual_n=40 candidates=36 best=241 best_score=1 sb_nodes=29/50
+[SB DATA] graph=frb50-23-3 node=58 depth=23 residual_n=39 candidates=35 best=195 best_score=0.75 sb_nodes=30/50
+[SB DATA] graph=frb50-23-3 node=60 depth=24 residual_n=38 candidates=34 best=561 best_score=0.5 sb_nodes=31/50
+[SB DATA] graph=frb50-23-3 node=62 depth=25 residual_n=37 candidates=33 best=200 best_score=0.25 sb_nodes=32/50
+[SB DATA] graph=frb50-23-3 node=52 depth=20 residual_n=52 candidates=50 best=190 best_score=1.75 sb_nodes=33/50
+[SB DATA] graph=frb50-23-3 node=67 depth=21 residual_n=43 candidates=39 best=400 best_score=1.5 sb_nodes=34/50
+[SB DATA] graph=frb50-23-3 node=69 depth=22 residual_n=34 candidates=27 best=628 best_score=0.25 sb_nodes=35/50
+[SB DATA] graph=frb50-23-3 node=68 depth=22 residual_n=42 candidates=38 best=762 best_score=1.5 sb_nodes=36/50
+[SB DATA] graph=frb50-23-3 node=72 depth=23 residual_n=41 candidates=37 best=751 best_score=1.25 sb_nodes=37/50
+[SB DATA] graph=frb50-23-3 node=74 depth=24 residual_n=40 candidates=36 best=398 best_score=1 sb_nodes=38/50
+[SB DATA] graph=frb50-23-3 node=76 depth=25 residual_n=39 candidates=35 best=210 best_score=0.75 sb_nodes=39/50
+[SB DATA] graph=frb50-23-3 node=78 depth=26 residual_n=38 candidates=32 best=592 best_score=0.5 sb_nodes=40/50
+[SB DATA] graph=frb50-23-3 node=80 depth=27 residual_n=37 candidates=31 best=465 best_score=0.25 sb_nodes=41/50
+[SB DATA] graph=frb50-23-3 node=66 depth=21 residual_n=51 candidates=49 best=400 best_score=1.75 sb_nodes=42/50
+[SB DATA] graph=frb50-23-3 node=85 depth=22 residual_n=41 candidates=38 best=762 best_score=1.5 sb_nodes=43/50
+[SB DATA] graph=frb50-23-3 node=86 depth=23 residual_n=40 candidates=37 best=765 best_score=1.25 sb_nodes=44/50
+[SB DATA] graph=frb50-23-3 node=88 depth=24 residual_n=39 candidates=34 best=189 best_score=1 sb_nodes=45/50
+[SB DATA] graph=frb50-23-3 node=90 depth=25 residual_n=38 candidates=33 best=200 best_score=0.75 sb_nodes=46/50
+[SB DATA] graph=frb50-23-3 node=93 depth=26 residual_n=33 candidates=26 best=210 best_score=1e-12 sb_nodes=47/50
+[SB DATA] graph=frb50-23-3 node=84 depth=22 residual_n=50 candidates=48 best=762 best_score=1.75 sb_nodes=48/50
+[SB DATA] graph=frb50-23-3 node=97 depth=23 residual_n=41 candidates=37 best=195 best_score=0.75 sb_nodes=49/50
+[SB DATA] graph=frb50-23-3 node=98 depth=24 residual_n=40 candidates=36 best=200 best_score=0.5 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb50-23-3 sb_nodes=50
+Processing: frb50-23-4
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 597
+[MWUA] Final violation: 0.17206087317756102
+[SB DATA] graph=frb50-23-4 node=1 depth=0 residual_n=1150 candidates=1150 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb50-23-4 node=3 depth=1 residual_n=981 candidates=981 best=24 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb50-23-4 node=5 depth=2 residual_n=871 candidates=871 best=46 best_score=5e-07 sb_nodes=3/50
+[SB DATA] graph=frb50-23-4 node=7 depth=3 residual_n=773 candidates=773 best=74 best_score=5e-07 sb_nodes=4/50
+[SB DATA] graph=frb50-23-4 node=9 depth=4 residual_n=689 candidates=689 best=92 best_score=5e-07 sb_nodes=5/50
+[SB DATA] graph=frb50-23-4 node=11 depth=5 residual_n=620 candidates=620 best=116 best_score=5e-07 sb_nodes=6/50
+[SB DATA] graph=frb50-23-4 node=13 depth=6 residual_n=561 candidates=561 best=158 best_score=9 sb_nodes=7/50
+[SB DATA] graph=frb50-23-4 node=15 depth=7 residual_n=523 candidates=523 best=837 best_score=7.75 sb_nodes=8/50
+[SB DATA] graph=frb50-23-4 node=17 depth=8 residual_n=490 candidates=490 best=986 best_score=10.75 sb_nodes=9/50
+[SB DATA] graph=frb50-23-4 node=19 depth=9 residual_n=445 candidates=445 best=197 best_score=10 sb_nodes=10/50
+[SB DATA] graph=frb50-23-4 node=21 depth=10 residual_n=403 candidates=403 best=563 best_score=9.25 sb_nodes=11/50
+[SB DATA] graph=frb50-23-4 node=23 depth=11 residual_n=364 candidates=364 best=232 best_score=10.5 sb_nodes=12/50
+[SB DATA] graph=frb50-23-4 node=25 depth=12 residual_n=320 candidates=320 best=226 best_score=10 sb_nodes=13/50
+[SB DATA] graph=frb50-23-4 node=27 depth=13 residual_n=278 candidates=278 best=284 best_score=8.5 sb_nodes=14/50
+[SB DATA] graph=frb50-23-4 node=28 depth=14 residual_n=277 candidates=277 best=476 best_score=11 sb_nodes=15/50
+[SB DATA] graph=frb50-23-4 node=31 depth=15 residual_n=231 candidates=231 best=953 best_score=10.5 sb_nodes=16/50
+[SB DATA] graph=frb50-23-4 node=33 depth=16 residual_n=187 candidates=187 best=941 best_score=10.25 sb_nodes=17/50
+[SB DATA] graph=frb50-23-4 node=35 depth=17 residual_n=144 candidates=144 best=875 best_score=10 sb_nodes=18/50
+[SB DATA] graph=frb50-23-4 node=37 depth=18 residual_n=102 candidates=102 best=266 best_score=6 sb_nodes=19/50
+[SB DATA] graph=frb50-23-4 node=39 depth=19 residual_n=76 candidates=76 best=577 best_score=5 sb_nodes=20/50
+[SB DATA] graph=frb50-23-4 node=41 depth=20 residual_n=54 candidates=52 best=699 best_score=3 sb_nodes=21/50
+[SB DATA] graph=frb50-23-4 node=43 depth=21 residual_n=40 candidates=38 best=599 best_score=1.75 sb_nodes=22/50
+[SB DATA] graph=frb50-23-4 node=45 depth=22 residual_n=31 candidates=29 best=734 best_score=1.25 * 421s|    26 |    25 |  4333 | 127.3 |    LP  |  25 |1150 |  80k|  80k|   0 |  1 |   0 |9628 | 5.750000e+02 | 3.000000e+01 |1816.67%| unknown
+* 421s|    27 |    24 |  4334 | 122.4 |    LP  |  25 |1150 |  80k|  80k|   0 |  1 |   0 |9628 | 5.750000e+02 | 3.100000e+01 |1754.84%| unknown
+* 421s|    29 |    23 |  4339 | 113.9 |    LP  |  25 |1150 |  80k|  80k|   0 |  1 |   0 |9637 | 5.750000e+02 | 3.300000e+01 |1642.42%| unknown
+* 423s|    36 |    23 |  4379 |  92.2 |    LP  |  27 |1150 |  80k|  80k|   0 |  1 |   0 |9718 | 5.750000e+02 | 3.400000e+01 |1591.18%| unknown
+* 430s|    57 |    23 |  4491 |  59.6 |    LP  |  28 |1150 |  80k|  80k|   0 |  1 |   0 |9986 | 5.750000e+02 | 3.500000e+01 |1542.86%| unknown
+
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 437.69
+Solving Nodes      : 75
+Primal Bound       : +3.50000000000000e+01 (5 solutions)
+Dual Bound         : +5.75000000000000e+02
+Gap                : 1542.86 %
+presolving:
+   (0.1s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (0.1s) no symmetry present (symcode time: 0.01)
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 1150 variables (1150 bin, 0 int, 0 cont) and 80035 constraints
+  80035 constraints of type <linear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.05
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  0.6s|     1 |     0 |  1152 |     - |   156M |   0 |1150 |  80k|  80k|   0 |  0 |   0 |   0 | 5.750000e+02 |      --      |    Inf | unknown
+ 77.5s|     1 |     2 |  1152 |     - |   156M |   0 |1150 |  80k|  80k|   0 |  1 |   0 |1150 | 5.750000e+02 |      --      |    Inf | unknown
+* 416s|    24 |    22 |  4099 | 128.1 |    LP  |  23 |1150 |  80k|  80k|   0 |  1 |   0 |9048 | 5.750000e+02 | 3.200000e+01 |1696.88%| unknown
+* 417s|    27 |    22 |  4107 | 113.7 |    LP  |  24 |1150 |  80k|  80k|   0 |  1 |   0 |9072 | 5.750000e+02 | 3.300000e+01 |1642.42%| unknown
+* 422s|    40 |    21 |  4165 |  77.3 |    LP  |  26 |1150 |  80k|  80k|   0 |  1 |   0 |9256 | 5.750000e+02 | 3.400000e+01 |1591.18%| unknown
+sb_nodes=23/50
+[SB DATA] graph=frb50-23-4 node=47 depth=23 residual_n=23 candidates=20 best=1083 best_score=1.5 sb_nodes=24/50
+[SB DATA] graph=frb50-23-4 node=49 depth=24 residual_n=15 candidates=4 best=1018 best_score=1e-06 sb_nodes=25/50
+[SB DATA] graph=frb50-23-4 node=48 depth=24 residual_n=22 candidates=9 best=1018 best_score=0.25 sb_nodes=26/50
+[SB DATA] graph=frb50-23-4 node=46 depth=23 residual_n=30 candidates=28 best=773 best_score=1 sb_nodes=27/50
+[SB DATA] graph=frb50-23-4 node=54 depth=24 residual_n=29 candidates=23 best=799 best_score=0.75 sb_nodes=28/50
+[SB DATA] graph=frb50-23-4 node=56 depth=25 residual_n=28 candidates=22 best=353 best_score=0.5 sb_nodes=29/50
+[SB DATA] graph=frb50-23-4 node=59 depth=26 residual_n=23 candidates=6 best=412 best_score=1e-12 sb_nodes=30/50
+[SB DATA] graph=frb50-23-4 node=44 depth=22 residual_n=39 candidates=37 best=870 best_score=1.75 sb_nodes=31/50
+[SB DATA] graph=frb50-23-4 node=63 depth=23 residual_n=30 candidates=18 best=179 best_score=0.5 sb_nodes=32/50
+[SB DATA] graph=frb50-23-4 node=64 depth=24 residual_n=29 candidates=15 best=382 best_score=0.25 sb_nodes=33/50
+[SB DATA] graph=frb50-23-4 node=62 depth=23 residual_n=38 candidates=36 best=734 best_score=1.5 sb_nodes=34/50
+[SB DATA] graph=frb50-23-4 node=69 depth=24 residual_n=29 candidates=26 best=353 best_score=0.5 sb_nodes=35/50
+[SB DATA] graph=frb50-23-4 node=70 depth=25 residual_n=28 candidates=23 best=170 best_score=0.25 sb_nodes=36/50
+[SB DATA] graph=frb50-23-4 node=68 depth=24 residual_n=37 candidates=35 best=746 best_score=1.5 sb_nodes=37/50
+[SB DATA] graph=frb50-23-4 node=75 depth=25 residual_n=29 candidates=19 best=354 best_score=0.25 sb_nodes=38/50
+[SB DATA] graph=frb50-23-4 node=74 depth=25 residual_n=36 candidates=26 best=412 best_score=1 sb_nodes=39/50
+[SB DATA] graph=frb50-23-4 node=79 depth=26 residual_n=29 candidates=14 best=381 best_score=0.25 sb_nodes=40/50
+[SB DATA] graph=frb50-23-4 node=81 depth=27 residual_n=24 candidates=3 best=909 best_score=0.25 sb_nodes=41/50
+[SB DATA] graph=frb50-23-4 node=78 depth=26 residual_n=35 candidates=17 best=456 best_score=0.75 sb_nodes=42/50
+[SB DATA] graph=frb50-23-4 node=84 depth=27 residual_n=34 candidates=16 best=381 best_score=0.5 sb_nodes=43/50
+[SB DATA] graph=frb50-23-4 node=86 depth=28 residual_n=33 candidates=15 best=1018 best_score=0.25 sb_nodes=44/50
+[SB DATA] graph=frb50-23-4 node=42 depth=21 residual_n=53 candidates=51 best=599 best_score=2.75 sb_nodes=45/50
+[SB DATA] graph=frb50-23-4 node=91 depth=22 residual_n=40 candidates=38 best=794 best_score=2 sb_nodes=46/50
+[SB DATA] graph=frb50-23-4 node=92 depth=23 residual_n=39 candidates=37 best=412 best_score=1.5 sb_nodes=47/50
+[SB DATA] graph=frb50-23-4 node=95 depth=24 residual_n=30 candidates=25 best=382 best_score=0.25 sb_nodes=48/50
+[SB DATA] graph=frb50-23-4 node=94 depth=24 residual_n=38 candidates=36 best=690 best_score=1.5 sb_nodes=49/50
+[SB DATA] graph=frb50-23-4 node=98 depth=25 residual_n=37 candidates=35 best=734 best_score=1.25 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb50-23-4 sb_nodes=50
+Processing: frb50-23-5
+[MWUA] Time limit reached: 90.0 seconds
+[MWUA] Completed rounds: 604
+[MWUA] Final violation: 0.193708609271523
+[SB DATA] graph=frb50-23-5 node=1 depth=0 residual_n=1150 candidates=1150 best=0 best_score=5e-07 sb_nodes=1/50
+[SB DATA] graph=frb50-23-5 node=3 depth=1 residual_n=1049 candidates=1049 best=23 best_score=5e-07 sb_nodes=2/50
+[SB DATA] graph=frb50-23-5 node=5 depth=2 residual_n=948 candidates=948 best=46 best_score=5e-07 sb_nodes=3/50
+[SB DATA] graph=frb50-23-5 node=7 depth=3 residual_n=832 candidates=832 best=69 best_score=5e-07 sb_nodes=4/50
+[SB DATA] graph=frb50-23-5 node=9 depth=4 residual_n=684 candidates=684 best=93 best_score=5e-07 sb_nodes=5/50
+[SB DATA] graph=frb50-23-5 node=11 depth=5 residual_n=598 candidates=598 best=115 best_score=5e-07 sb_nodes=6/50
+[SB DATA] graph=frb50-23-5 node=13 depth=6 residual_n=515 candidates=515 best=661 best_score=7.25 sb_nodes=7/50
+[SB DATA] graph=frb50-23-5 node=15 depth=7 residual_n=484 candidates=484 best=461 best_score=11.5 sb_nodes=8/50
+[SB DATA] graph=frb50-23-5 node=17 depth=8 residual_n=436 candidates=436 best=385 best_score=9.75 sb_nodes=9/50
+[SB DATA] graph=frb50-23-5 node=19 depth=9 residual_n=395 candidates=395 best=605 best_score=9.5 sb_nodes=10/50
+[SB DATA] graph=frb50-23-5 node=21 depth=10 residual_n=355 candidates=355 best=318 best_score=11 sb_nodes=11/50
+[SB DATA] graph=frb50-23-5 node=23 depth=11 residual_n=309 candidates=309 best=926 best_score=10.5 sb_nodes=12/50
+[SB DATA] graph=frb50-23-5 node=25 depth=12 residual_n=265 candidates=265 best=715 best_score=10.75 sb_nodes=13/50
+[SB DATA] graph=frb50-23-5 node=27 depth=13 residual_n=220 candidates=220 best=290 best_score=9.5 sb_nodes=14/50
+[SB DATA] graph=frb50-23-5 node=28 depth=14 residual_n=219 candidates=219 best=824 best_score=11.5 sb_nodes=15/50
+[SB DATA] graph=frb50-23-5 node=31 depth=15 residual_n=171 candidates=171 best=768 best_score=9.25 sb_nodes=16/50
+[SB DATA] graph=frb50-23-5 node=33 depth=16 residual_n=132 candidates=132 best=1025 best_score=8 sb_nodes=17/50
+[SB DATA] graph=frb50-23-5 node=35 depth=17 residual_n=98 candidates=98 best=295 best_score=5.75 sb_nodes=18/50
+[SB DATA] graph=frb50-23-5 node=37 depth=18 residual_n=73 candidates=73 best=623 best_score=4.25 sb_nodes=19/50
+[SB DATA] graph=frb50-23-5 node=39 depth=19 residual_n=54 candidates=54 best=354 best_score=3.25 sb_nodes=20/50
+[SB DATA] graph=frb50-23-5 node=41 depth=20 residual_n=39 candidates=35 best=324 best_score=2 sb_nodes=21/50
+[SB DATA] graph=frb50-23-5 node=43 depth=21 residual_n=29 candidates=23 best=844 best_score=1 sb_nodes=22/50
+[SB DATA] graph=frb50-23-5 node=45 depth=22 residual_n=20 candidates=3 best=522 best_score=0.25 sb_nodes=23/50
+[SB DATA] graph=frb50-23-5 node=44 depth=22 residual_n=28 candidates=20 best=405 best_score=0.5 sb_nodes=24/50
+[SB DATA] graph=frb50-23-5 node=49 depth=23 residual_n=23 candidates=4 best=138 best_score=1e-12 sb_nodes=25/50
+[SB DATA] graph=frb50-23-5 node=42 depth=21 residual_n=38 candidates=34 best=341 best_score=1.75 sb_nodes=26/50
+[SB DATA] graph=frb50-23-5 node=53 depth=22 residual_n=29 candidates=25 best=199 best_score=0.25 sb_nodes=27/50
+[SB DATA] graph=frb50-23-5 node=52 depth=22 residual_n=37 candidates=33 best=343 best_score=1.5 sb_nodes=28/50
+[SB DATA] graph=frb50-23-5 node=57 depth=23 residual_n=29 candidates=19 best=138 best_score=0.25 sb_nodes=29/50
+[SB DATA] graph=frb50-23-5 node=56 depth=23 residual_n=36 candidates=30 best=549 best_score=1.25 sb_nodes=30/50
+[SB DATA] graph=frb50-23-5 node=61 depth=24 residual_n=29 candidates=21 best=786 best_score=0.25 sb_nodes=31/50
+[SB DATA] graph=frb50-23-5 node=63 depth=25 residual_n=26 candidates=18 best=138 best_score=1e-12 sb_nodes=32/50
+[SB DATA] graph=frb50-23-5 node=2 depth=1 residual_n=1149 candidates=1149 best=1 best_score=5e-07 sb_nodes=33/50
+[SB DATA] graph=frb50-23-5 node=67 depth=2 residual_n=1044 candidates=1044 best=23 best_score=5e-07 sb_nodes=34/50
+[SB DATA] graph=frb50-23-5 node=69 depth=3 residual_n=948 candidates=948 best=46 best_score=5e-07 sb_nodes=35/50
+[SB DATA] graph=frb50-23-5 node=71 depth=4 residual_n=834 candidates=834 best=69 best_score=5e-07 sb_nodes=36/50
+[SB DATA] graph=frb50-23-5 node=73 depth=5 residual_n=683 candidates=683 best=93 best_score=5e-07 sb_nodes=37/50
+[SB DATA] graph=frb50-23-5 node=75 depth=6 residual_n=593 candidates=593 best=374 best_score=9 sb_nodes=38/50
+[SB DATA] graph=frb50-23-5 node=77 depth=7 residual_n=555 candidates=555 best=116 best_score=5e-07 sb_nodes=39/50
+[SB DATA] graph=frb50-23-5 node=79 depth=8 residual_n=490 candidates=490 best=534 best_score=8.75 sb_nodes=40/50
+[SB DATA] graph=frb50-23-5 node=81 depth=9 residual_n=453 candidates=453 best=329 best_score=7.25 sb_nodes=41/50
+[SB DATA] graph=frb50-23-5 node=83 depth=10 residual_n=422 candidates=422 best=1138 best_score=9 sb_nodes=42/50
+[SB DATA] graph=frb50-23-5 node=85 depth=11 residual_n=384 candidates=384 best=450 best_score=11.5 sb_nodes=43/50
+[SB DATA] graph=frb50-23-5 node=87 depth=12 residual_n=336 candidates=336 best=462 best_score=9.75 sb_nodes=44/50
+[SB DATA] graph=frb50-23-5 node=89 
+SCIP Status        : solving was interrupted [user interrupt]
+Solving Time (sec) : 953.00
+Solving Nodes      : 62
+Primal Bound       : +3.40000000000000e+01 (3 solutions)
+Dual Bound         : +5.74000000000000e+02
+Gap                : 1588.24 %
+depth=13 residual_n=295 candidates=295 best=752 best_score=10.25 sb_nodes=45/50
+[SB DATA] graph=frb50-23-5 node=60 depth=24 residual_n=35 candidates=29 best=327 best_score=0.75 sb_nodes=46/50
+[SB DATA] graph=frb50-23-5 node=92 depth=25 residual_n=34 candidates=28 best=138 best_score=0.5 sb_nodes=47/50
+[SB DATA] graph=frb50-23-5 node=94 depth=26 residual_n=33 candidates=27 best=199 best_score=0.25 sb_nodes=48/50
+[SB DATA] graph=frb50-23-5 node=66 depth=2 residual_n=1148 candidates=1148 best=2 best_score=5e-07 sb_nodes=49/50
+[SB DATA] graph=frb50-23-5 node=99 depth=3 residual_n=1037 candidates=1037 best=23 best_score=5e-07 sb_nodes=50/50
+
+[SB COLLECTION COMPLETE] graph=frb50-23-5 sb_nodes=50
+======================================================================
+BHOSLIB RESULTS
+======================================================================
+Samples: 1000
+top1: 13.70%
+top3: 28.50%
+top5: 36.40%
+mrr: 0.2563
+rank: 56.9860
+spearman: 0.1497
+kendall: 0.1346
