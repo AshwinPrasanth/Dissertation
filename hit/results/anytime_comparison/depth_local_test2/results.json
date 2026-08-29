@@ -1,0 +1,950 @@
+[
+    {
+        "graph": "frb30-15-1",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 30.0,
+        "nodes": 58942,
+        "branches": 7,
+        "solve_time": 739.4095412919996,
+        "total_time": 830.8579797690036,
+        "incumbent_history": [
+            [
+                0.290165,
+                23
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.290163,
+                22,
+                23,
+                1
+            ]
+        ],
+        "incumbents_seen": 10,
+        "local_search_calls": 9,
+        "candidate_improvements": 1,
+        "accepted_improvements": 1,
+        "average_gain": 1.0,
+        "average_accepted_gain": 1.0,
+        "maximum_gain": 1,
+        "acceptance_rate": 1.0,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 830.8580814100569
+    },
+    {
+        "graph": "frb30-15-2",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 29.0,
+        "nodes": 15336,
+        "branches": 14,
+        "solve_time": 1200.001637296984,
+        "total_time": 1291.3644654960372,
+        "incumbent_history": [
+            [
+                0.446538,
+                23
+            ],
+            [
+                0.502404,
+                25
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.446536,
+                19,
+                23,
+                4
+            ],
+            [
+                0.502402,
+                23,
+                25,
+                2
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 7,
+        "candidate_improvements": 2,
+        "accepted_improvements": 1,
+        "average_gain": 3.0,
+        "average_accepted_gain": 2.0,
+        "maximum_gain": 4,
+        "acceptance_rate": 0.5,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1291.3645784979453
+    },
+    {
+        "graph": "frb30-15-3",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 30.0,
+        "nodes": 63557,
+        "branches": 7,
+        "solve_time": 722.0565106429858,
+        "total_time": 813.6128807839705,
+        "incumbent_history": [
+            [
+                0.29795499999999997,
+                25
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.297954,
+                23,
+                25,
+                2
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 7,
+        "candidate_improvements": 1,
+        "accepted_improvements": 1,
+        "average_gain": 2.0,
+        "average_accepted_gain": 2.0,
+        "maximum_gain": 2,
+        "acceptance_rate": 1.0,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 813.612974650925
+    },
+    {
+        "graph": "frb30-15-4",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 30.0,
+        "nodes": 4096,
+        "branches": 14,
+        "solve_time": 314.91111002198886,
+        "total_time": 406.40201937104575,
+        "incumbent_history": [
+            [
+                0.297472,
+                24
+            ],
+            [
+                16.778634,
+                27
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.297471,
+                21,
+                24,
+                3
+            ],
+            [
+                7.570727,
+                22,
+                24,
+                2
+            ],
+            [
+                16.778632,
+                25,
+                27,
+                2
+            ],
+            [
+                16.791391,
+                26,
+                27,
+                1
+            ]
+        ],
+        "incumbents_seen": 10,
+        "local_search_calls": 9,
+        "candidate_improvements": 4,
+        "accepted_improvements": 0,
+        "average_gain": 2.0,
+        "average_accepted_gain": 0.0,
+        "maximum_gain": 3,
+        "acceptance_rate": 0.0,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 406.40210634388495
+    },
+    {
+        "graph": "frb30-15-5",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 30.0,
+        "nodes": 44405,
+        "branches": 7,
+        "solve_time": 582.8524631740293,
+        "total_time": 674.357311891974,
+        "incumbent_history": [
+            [
+                0.299961,
+                24
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.299959,
+                21,
+                24,
+                3
+            ]
+        ],
+        "incumbents_seen": 9,
+        "local_search_calls": 8,
+        "candidate_improvements": 1,
+        "accepted_improvements": 1,
+        "average_gain": 3.0,
+        "average_accepted_gain": 3.0,
+        "maximum_gain": 3,
+        "acceptance_rate": 1.0,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 674.3574037150247
+    },
+    {
+        "graph": "frb35-17-1",
+        "original_n": 595,
+        "core_n": 595,
+        "objective": 33.0,
+        "nodes": 42556,
+        "branches": 7,
+        "solve_time": 1200.001016994007,
+        "total_time": 1292.3463606010191,
+        "incumbent_history": [
+            [
+                0.589826,
+                29
+            ],
+            [
+                469.628148,
+                32
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.589824,
+                26,
+                29,
+                3
+            ],
+            [
+                469.628143,
+                31,
+                32,
+                1
+            ]
+        ],
+        "incumbents_seen": 7,
+        "local_search_calls": 6,
+        "candidate_improvements": 2,
+        "accepted_improvements": 1,
+        "average_gain": 2.0,
+        "average_accepted_gain": 3.0,
+        "maximum_gain": 3,
+        "acceptance_rate": 0.5,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1292.34648372198
+    },
+    {
+        "graph": "frb35-17-2",
+        "original_n": 595,
+        "core_n": 595,
+        "objective": 32.0,
+        "nodes": 35234,
+        "branches": 7,
+        "solve_time": 1200.0071610650048,
+        "total_time": 1292.5243304240284,
+        "incumbent_history": [
+            [
+                0.585818,
+                28
+            ],
+            [
+                0.6343519999999999,
+                29
+            ],
+            [
+                21.692672,
+                31
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.585816,
+                23,
+                28,
+                5
+            ],
+            [
+                0.634351,
+                26,
+                29,
+                3
+            ],
+            [
+                0.7493099999999999,
+                28,
+                29,
+                1
+            ],
+            [
+                21.692671,
+                30,
+                31,
+                1
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 7,
+        "candidate_improvements": 4,
+        "accepted_improvements": 1,
+        "average_gain": 2.5,
+        "average_accepted_gain": 1.0,
+        "maximum_gain": 5,
+        "acceptance_rate": 0.25,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1292.5244484449504
+    },
+    {
+        "graph": "frb35-17-3",
+        "original_n": 595,
+        "core_n": 595,
+        "objective": 34.0,
+        "nodes": 63738,
+        "branches": 7,
+        "solve_time": 1200.000303125009,
+        "total_time": 1292.5240402189083,
+        "incumbent_history": [
+            [
+                0.567665,
+                28
+            ],
+            [
+                29.521531,
+                32
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.567663,
+                27,
+                28,
+                1
+            ],
+            [
+                29.521529,
+                31,
+                32,
+                1
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 7,
+        "candidate_improvements": 2,
+        "accepted_improvements": 2,
+        "average_gain": 1.0,
+        "average_accepted_gain": 1.0,
+        "maximum_gain": 1,
+        "acceptance_rate": 1.0,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1292.524149394012
+    },
+    {
+        "graph": "frb35-17-4",
+        "original_n": 595,
+        "core_n": 595,
+        "objective": 33.0,
+        "nodes": 45038,
+        "branches": 7,
+        "solve_time": 1200.0005011470057,
+        "total_time": 1292.3831916879863,
+        "incumbent_history": [
+            [
+                0.5847939999999999,
+                28
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.584793,
+                25,
+                28,
+                3
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 7,
+        "candidate_improvements": 1,
+        "accepted_improvements": 1,
+        "average_gain": 3.0,
+        "average_accepted_gain": 3.0,
+        "maximum_gain": 3,
+        "acceptance_rate": 1.0,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1292.3833013540134
+    },
+    {
+        "graph": "frb35-17-5",
+        "original_n": 595,
+        "core_n": 595,
+        "objective": 33.0,
+        "nodes": 66512,
+        "branches": 7,
+        "solve_time": 1200.0027383019915,
+        "total_time": 1292.5640668569831,
+        "incumbent_history": [
+            [
+                0.662018,
+                30
+            ],
+            [
+                275.155042,
+                32
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.6620159999999999,
+                24,
+                30,
+                6
+            ],
+            [
+                275.155038,
+                31,
+                32,
+                1
+            ]
+        ],
+        "incumbents_seen": 6,
+        "local_search_calls": 5,
+        "candidate_improvements": 2,
+        "accepted_improvements": 1,
+        "average_gain": 3.5,
+        "average_accepted_gain": 6.0,
+        "maximum_gain": 6,
+        "acceptance_rate": 0.5,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1292.5641797790304
+    },
+    {
+        "graph": "frb40-19-1",
+        "original_n": 760,
+        "core_n": 760,
+        "objective": 37.0,
+        "nodes": 29222,
+        "branches": 7,
+        "solve_time": 1200.0015455250395,
+        "total_time": 1293.6659355789889,
+        "incumbent_history": [
+            [
+                0.994586,
+                32
+            ],
+            [
+                168.572816,
+                36
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.9945839999999999,
+                30,
+                32,
+                2
+            ],
+            [
+                168.57281,
+                35,
+                36,
+                1
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 7,
+        "candidate_improvements": 2,
+        "accepted_improvements": 1,
+        "average_gain": 1.5,
+        "average_accepted_gain": 2.0,
+        "maximum_gain": 2,
+        "acceptance_rate": 0.5,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1293.6660446129972
+    },
+    {
+        "graph": "frb40-19-2",
+        "original_n": 760,
+        "core_n": 760,
+        "objective": 36.0,
+        "nodes": 34678,
+        "branches": 7,
+        "solve_time": 1200.0020475960337,
+        "total_time": 1293.8293094700202,
+        "incumbent_history": [
+            [
+                1.02325,
+                32
+            ],
+            [
+                1.094292,
+                33
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                1.023248,
+                27,
+                32,
+                5
+            ],
+            [
+                1.094289,
+                30,
+                33,
+                3
+            ],
+            [
+                1.221728,
+                31,
+                32,
+                1
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 7,
+        "candidate_improvements": 3,
+        "accepted_improvements": 1,
+        "average_gain": 3.0,
+        "average_accepted_gain": 1.0,
+        "maximum_gain": 5,
+        "acceptance_rate": 0.3333333333333333,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1293.8294276619563
+    },
+    {
+        "graph": "frb40-19-3",
+        "original_n": 760,
+        "core_n": 760,
+        "objective": 37.0,
+        "nodes": 17133,
+        "branches": 7,
+        "solve_time": 1200.0005833508912,
+        "total_time": 1293.7546448069625,
+        "incumbent_history": [
+            [
+                1.074238,
+                31
+            ],
+            [
+                28.928315,
+                34
+            ],
+            [
+                998.006065,
+                38
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                1.074237,
+                29,
+                31,
+                2
+            ],
+            [
+                28.928312,
+                33,
+                34,
+                1
+            ],
+            [
+                998.006061,
+                37,
+                38,
+                1
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 7,
+        "candidate_improvements": 3,
+        "accepted_improvements": 1,
+        "average_gain": 1.3333333333333333,
+        "average_accepted_gain": 2.0,
+        "maximum_gain": 2,
+        "acceptance_rate": 0.3333333333333333,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1293.7547622569837
+    },
+    {
+        "graph": "frb40-19-4",
+        "original_n": 760,
+        "core_n": 760,
+        "objective": 37.0,
+        "nodes": 26029,
+        "branches": 7,
+        "solve_time": 1200.0005232680123,
+        "total_time": 1293.7561059569707,
+        "incumbent_history": [
+            [
+                1.072146,
+                33
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                1.072144,
+                27,
+                33,
+                6
+            ],
+            [
+                1.181042,
+                28,
+                33,
+                5
+            ],
+            [
+                1.3631929999999999,
+                30,
+                33,
+                3
+            ]
+        ],
+        "incumbents_seen": 9,
+        "local_search_calls": 8,
+        "candidate_improvements": 3,
+        "accepted_improvements": 1,
+        "average_gain": 4.666666666666667,
+        "average_accepted_gain": 3.0,
+        "maximum_gain": 6,
+        "acceptance_rate": 0.3333333333333333,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1293.7562352400273
+    },
+    {
+        "graph": "frb40-19-5",
+        "original_n": 760,
+        "core_n": 760,
+        "objective": 35.0,
+        "nodes": 18736,
+        "branches": 6,
+        "solve_time": 1200.0012653900776,
+        "total_time": 1293.7747521930141,
+        "incumbent_history": [
+            [
+                1.082752,
+                31
+            ],
+            [
+                66.475994,
+                33
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                1.082749,
+                28,
+                31,
+                3
+            ],
+            [
+                1.288414,
+                29,
+                31,
+                2
+            ],
+            [
+                66.475992,
+                32,
+                33,
+                1
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 7,
+        "candidate_improvements": 3,
+        "accepted_improvements": 2,
+        "average_gain": 2.0,
+        "average_accepted_gain": 1.5,
+        "maximum_gain": 3,
+        "acceptance_rate": 0.6666666666666666,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1293.7748699939111
+    },
+    {
+        "graph": "frb50-23-1",
+        "original_n": 1150,
+        "core_n": 1150,
+        "objective": 44.0,
+        "nodes": 5935,
+        "branches": 7,
+        "solve_time": 1200.0007994869957,
+        "total_time": 1297.5858199560316,
+        "incumbent_history": [
+            [
+                2.219309,
+                40
+            ],
+            [
+                2.440181,
+                41
+            ],
+            [
+                187.800773,
+                44
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                2.219307,
+                31,
+                40,
+                9
+            ],
+            [
+                2.440179,
+                34,
+                41,
+                7
+            ],
+            [
+                2.801606,
+                35,
+                41,
+                6
+            ],
+            [
+                187.800764,
+                43,
+                44,
+                1
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 7,
+        "candidate_improvements": 4,
+        "accepted_improvements": 2,
+        "average_gain": 5.75,
+        "average_accepted_gain": 3.5,
+        "maximum_gain": 9,
+        "acceptance_rate": 0.5,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1297.5859477659687
+    },
+    {
+        "graph": "frb50-23-2",
+        "original_n": 1150,
+        "core_n": 1150,
+        "objective": 42.0,
+        "nodes": 6355,
+        "branches": 7,
+        "solve_time": 1200.0006855321117,
+        "total_time": 1297.7430948499823,
+        "incumbent_history": [
+            [
+                2.216301,
+                39
+            ],
+            [
+                184.429574,
+                41
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                2.216299,
+                35,
+                39,
+                4
+            ],
+            [
+                184.429568,
+                40,
+                41,
+                1
+            ]
+        ],
+        "incumbents_seen": 6,
+        "local_search_calls": 5,
+        "candidate_improvements": 2,
+        "accepted_improvements": 1,
+        "average_gain": 2.5,
+        "average_accepted_gain": 4.0,
+        "maximum_gain": 4,
+        "acceptance_rate": 0.5,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1297.7432163379854
+    },
+    {
+        "graph": "frb50-23-3",
+        "original_n": 1150,
+        "core_n": 1150,
+        "objective": 42.0,
+        "nodes": 5112,
+        "branches": 7,
+        "solve_time": 1200.0008414150216,
+        "total_time": 1297.7813783599995,
+        "incumbent_history": [
+            [
+                2.267473,
+                38
+            ],
+            [
+                82.230084,
+                41
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                2.267471,
+                35,
+                38,
+                3
+            ],
+            [
+                82.230079,
+                40,
+                41,
+                1
+            ]
+        ],
+        "incumbents_seen": 6,
+        "local_search_calls": 5,
+        "candidate_improvements": 2,
+        "accepted_improvements": 2,
+        "average_gain": 2.0,
+        "average_accepted_gain": 2.0,
+        "maximum_gain": 3,
+        "acceptance_rate": 1.0,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1297.7815001190174
+    },
+    {
+        "graph": "frb50-23-4",
+        "original_n": 1150,
+        "core_n": 1150,
+        "objective": 44.0,
+        "nodes": 8334,
+        "branches": 7,
+        "solve_time": 1200.0010118540376,
+        "total_time": 1297.8411929249996,
+        "incumbent_history": [
+            [
+                2.2192629999999998,
+                39
+            ],
+            [
+                2.681689,
+                41
+            ],
+            [
+                195.389756,
+                43
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                2.219261,
+                35,
+                39,
+                4
+            ],
+            [
+                2.681687,
+                38,
+                41,
+                3
+            ],
+            [
+                195.389748,
+                42,
+                43,
+                1
+            ]
+        ],
+        "incumbents_seen": 7,
+        "local_search_calls": 6,
+        "candidate_improvements": 3,
+        "accepted_improvements": 1,
+        "average_gain": 2.6666666666666665,
+        "average_accepted_gain": 3.0,
+        "maximum_gain": 4,
+        "acceptance_rate": 0.3333333333333333,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1297.841319082072
+    },
+    {
+        "graph": "frb50-23-5",
+        "original_n": 1150,
+        "core_n": 1150,
+        "objective": 42.0,
+        "nodes": 6167,
+        "branches": 7,
+        "solve_time": 1200.000826176023,
+        "total_time": 1297.6307807370322,
+        "incumbent_history": [
+            [
+                2.259911,
+                39
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                2.259908,
+                37,
+                39,
+                2
+            ]
+        ],
+        "incumbents_seen": 5,
+        "local_search_calls": 4,
+        "candidate_improvements": 1,
+        "accepted_improvements": 1,
+        "average_gain": 2.0,
+        "average_accepted_gain": 2.0,
+        "maximum_gain": 2,
+        "acceptance_rate": 1.0,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1297.630889661028
+    }
+]

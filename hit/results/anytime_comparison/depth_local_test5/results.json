@@ -1,0 +1,58 @@
+[
+    {
+        "graph": "frb30-15-1",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 28.0,
+        "nodes": 8686,
+        "branches": 39,
+        "solve_time": 162.29283344501164,
+        "total_time": 253.75353531807195,
+        "incumbent_history": [
+            [
+                0.290035,
+                23
+            ],
+            [
+                9.025127,
+                25
+            ],
+            [
+                14.938293999999999,
+                27
+            ]
+        ],
+        "local_improvements": 0,
+        "improvement_history": [
+            [
+                0.290032,
+                22,
+                23,
+                1
+            ],
+            [
+                9.025125,
+                24,
+                25,
+                1
+            ],
+            [
+                14.938293,
+                26,
+                27,
+                1
+            ]
+        ],
+        "incumbents_seen": 8,
+        "local_search_calls": 0,
+        "candidate_improvements": 3,
+        "accepted_improvements": 2,
+        "average_gain": 1.0,
+        "average_accepted_gain": 1.0,
+        "maximum_gain": 1,
+        "acceptance_rate": 0.6666666666666666,
+        "method": "SCIP+XGB",
+        "xgb_depth": 5,
+        "experiment_time": 253.753630917985
+    }
+]

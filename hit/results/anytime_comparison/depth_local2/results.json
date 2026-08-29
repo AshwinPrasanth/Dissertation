@@ -1,0 +1,874 @@
+[
+    {
+        "graph": "frb30-15-1",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 30.0,
+        "nodes": 73217,
+        "branches": 7,
+        "solve_time": 872.0309276839253,
+        "total_time": 963.4295279430225,
+        "incumbent_history": [
+            [
+                0.288612,
+                23
+            ],
+            [
+                7.849007,
+                25
+            ],
+            [
+                13.317919,
+                24.0
+            ],
+            [
+                14.674482,
+                25.0
+            ],
+            [
+                15.807303,
+                26.0
+            ],
+            [
+                19.34035,
+                27.0
+            ],
+            [
+                114.229579,
+                28.0
+            ],
+            [
+                347.528495,
+                29.0
+            ],
+            [
+                872.019008,
+                30.0
+            ]
+        ],
+        "local_improvements": 2,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 963.4296201159013
+    },
+    {
+        "graph": "frb30-15-2",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 28.0,
+        "nodes": 70279,
+        "branches": 7,
+        "solve_time": 1200.0007036159514,
+        "total_time": 1291.354382277932,
+        "incumbent_history": [
+            [
+                0.44201999999999997,
+                23
+            ],
+            [
+                0.498447,
+                25
+            ],
+            [
+                8.717472,
+                28
+            ],
+            [
+                15.602644,
+                25.0
+            ],
+            [
+                37.977437,
+                27
+            ],
+            [
+                51.928383,
+                27.0
+            ],
+            [
+                219.286051,
+                28.0
+            ]
+        ],
+        "local_improvements": 4,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1291.3544873059727
+    },
+    {
+        "graph": "frb30-15-3",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 29.0,
+        "nodes": 133739,
+        "branches": 7,
+        "solve_time": 1200.0016637870576,
+        "total_time": 1291.359756927006,
+        "incumbent_history": [
+            [
+                0.290141,
+                25
+            ],
+            [
+                9.758221,
+                26
+            ],
+            [
+                9.785381,
+                26
+            ],
+            [
+                16.812885,
+                26.0
+            ],
+            [
+                21.504179,
+                27.0
+            ],
+            [
+                78.929594,
+                28.0
+            ],
+            [
+                1089.958543,
+                29.0
+            ]
+        ],
+        "local_improvements": 3,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1291.3598674449604
+    },
+    {
+        "graph": "frb30-15-4",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 30.0,
+        "nodes": 8209,
+        "branches": 14,
+        "solve_time": 466.94554583204444,
+        "total_time": 558.2962247990072,
+        "incumbent_history": [
+            [
+                0.312695,
+                24
+            ],
+            [
+                7.59812,
+                24
+            ],
+            [
+                7.668411,
+                24.0
+            ],
+            [
+                12.041948,
+                25.0
+            ],
+            [
+                19.71121,
+                26.0
+            ],
+            [
+                21.165844,
+                27.0
+            ],
+            [
+                229.249844,
+                28.0
+            ],
+            [
+                302.274005,
+                29.0
+            ],
+            [
+                466.938503,
+                30.0
+            ]
+        ],
+        "local_improvements": 2,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 558.296322803013
+    },
+    {
+        "graph": "frb30-15-5",
+        "original_n": 450,
+        "core_n": 450,
+        "objective": 30.0,
+        "nodes": 40834,
+        "branches": 7,
+        "solve_time": 538.566391783068,
+        "total_time": 630.0968199180206,
+        "incumbent_history": [
+            [
+                0.33411399999999997,
+                24
+            ],
+            [
+                6.661108,
+                24.0
+            ],
+            [
+                19.143372,
+                25.0
+            ],
+            [
+                23.574414,
+                26.0
+            ],
+            [
+                44.056911,
+                27.0
+            ],
+            [
+                129.50402,
+                28.0
+            ],
+            [
+                468.169563,
+                29.0
+            ],
+            [
+                538.556094,
+                30.0
+            ]
+        ],
+        "local_improvements": 1,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 630.0969190739561
+    },
+    {
+        "graph": "frb35-17-1",
+        "original_n": 595,
+        "core_n": 595,
+        "objective": 32.0,
+        "nodes": 40508,
+        "branches": 7,
+        "solve_time": 1200.0028537079925,
+        "total_time": 1292.3404710970353,
+        "incumbent_history": [
+            [
+                0.606815,
+                29
+            ],
+            [
+                14.998298,
+                28.0
+            ],
+            [
+                39.714837,
+                30
+            ],
+            [
+                49.891089,
+                30.0
+            ],
+            [
+                103.990367,
+                31.0
+            ],
+            [
+                800.853796,
+                32.0
+            ]
+        ],
+        "local_improvements": 2,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1292.34057238698
+    },
+    {
+        "graph": "frb35-17-2",
+        "original_n": 595,
+        "core_n": 595,
+        "objective": 32.0,
+        "nodes": 47159,
+        "branches": 7,
+        "solve_time": 1200.0010473110015,
+        "total_time": 1292.5797293379437,
+        "incumbent_history": [
+            [
+                0.590704,
+                28
+            ],
+            [
+                0.639528,
+                29
+            ],
+            [
+                0.753811,
+                29
+            ],
+            [
+                26.175228,
+                29.0
+            ],
+            [
+                26.838039,
+                30.0
+            ],
+            [
+                556.236817,
+                32
+            ],
+            [
+                951.942139,
+                32.0
+            ]
+        ],
+        "local_improvements": 4,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1292.579842659994
+    },
+    {
+        "graph": "frb35-17-3",
+        "original_n": 595,
+        "core_n": 595,
+        "objective": 33.0,
+        "nodes": 53328,
+        "branches": 7,
+        "solve_time": 1200.0006515990244,
+        "total_time": 1292.5670041659614,
+        "incumbent_history": [
+            [
+                0.606722,
+                28
+            ],
+            [
+                15.002581,
+                30
+            ],
+            [
+                24.831274,
+                30.0
+            ],
+            [
+                167.991628,
+                31.0
+            ],
+            [
+                169.873839,
+                32.0
+            ],
+            [
+                789.440682,
+                33.0
+            ]
+        ],
+        "local_improvements": 2,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1292.5671109750401
+    },
+    {
+        "graph": "frb35-17-4",
+        "original_n": 595,
+        "core_n": 595,
+        "objective": 33.0,
+        "nodes": 50875,
+        "branches": 7,
+        "solve_time": 1200.0008897349471,
+        "total_time": 1292.5060523579596,
+        "incumbent_history": [
+            [
+                0.591258,
+                28
+            ],
+            [
+                16.411347,
+                27.0
+            ],
+            [
+                16.665664,
+                31.0
+            ],
+            [
+                72.140554,
+                32.0
+            ],
+            [
+                626.11414,
+                33.0
+            ]
+        ],
+        "local_improvements": 1,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1292.5061657710467
+    },
+    {
+        "graph": "frb35-17-5",
+        "original_n": 595,
+        "core_n": 595,
+        "objective": 32.0,
+        "nodes": 28972,
+        "branches": 7,
+        "solve_time": 1200.000485247001,
+        "total_time": 1292.658056717948,
+        "incumbent_history": [
+            [
+                0.696983,
+                30
+            ],
+            [
+                14.054979,
+                29
+            ],
+            [
+                14.077049,
+                29
+            ],
+            [
+                27.970461,
+                29.0
+            ],
+            [
+                31.769594,
+                30.0
+            ],
+            [
+                173.423994,
+                31.0
+            ],
+            [
+                818.245283,
+                32.0
+            ]
+        ],
+        "local_improvements": 3,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1292.6581621570513
+    },
+    {
+        "graph": "frb40-19-1",
+        "original_n": 760,
+        "core_n": 760,
+        "objective": 38.0,
+        "nodes": 31201,
+        "branches": 7,
+        "solve_time": 1200.0012398220133,
+        "total_time": 1293.6065684329951,
+        "incumbent_history": [
+            [
+                0.997838,
+                32
+            ],
+            [
+                22.845367,
+                35
+            ],
+            [
+                31.05192,
+                35.0
+            ],
+            [
+                620.347344,
+                38
+            ],
+            [
+                915.676164,
+                38.0
+            ]
+        ],
+        "local_improvements": 3,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1293.6066703239921
+    },
+    {
+        "graph": "frb40-19-2",
+        "original_n": 760,
+        "core_n": 760,
+        "objective": 38.0,
+        "nodes": 30212,
+        "branches": 7,
+        "solve_time": 1200.0009138899622,
+        "total_time": 1293.6997533340473,
+        "incumbent_history": [
+            [
+                1.02002,
+                32
+            ],
+            [
+                1.088929,
+                33
+            ],
+            [
+                1.215903,
+                32
+            ],
+            [
+                48.963894,
+                33
+            ],
+            [
+                52.315821,
+                33.0
+            ],
+            [
+                64.89125,
+                34.0
+            ],
+            [
+                144.311004,
+                37
+            ],
+            [
+                145.989917,
+                37
+            ],
+            [
+                268.973968,
+                37.0
+            ],
+            [
+                594.355271,
+                38.0
+            ]
+        ],
+        "local_improvements": 6,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1293.6998690610053
+    },
+    {
+        "graph": "frb40-19-3",
+        "original_n": 760,
+        "core_n": 760,
+        "objective": 35.0,
+        "nodes": 19751,
+        "branches": 7,
+        "solve_time": 1200.0007458849577,
+        "total_time": 1293.718147106003,
+        "incumbent_history": [
+            [
+                1.028872,
+                31
+            ],
+            [
+                23.555794,
+                33
+            ],
+            [
+                52.43109,
+                35
+            ],
+            [
+                54.09471,
+                35
+            ],
+            [
+                648.552723,
+                36
+            ]
+        ],
+        "local_improvements": 5,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1293.7182682439452
+    },
+    {
+        "graph": "frb40-19-4",
+        "original_n": 760,
+        "core_n": 760,
+        "objective": 37.0,
+        "nodes": 32403,
+        "branches": 7,
+        "solve_time": 1200.0012917899294,
+        "total_time": 1293.8287542680046,
+        "incumbent_history": [
+            [
+                1.110798,
+                33
+            ],
+            [
+                1.225733,
+                33
+            ],
+            [
+                1.410998,
+                33
+            ],
+            [
+                71.893444,
+                32
+            ],
+            [
+                107.448238,
+                32.0
+            ],
+            [
+                109.95503,
+                33.0
+            ],
+            [
+                112.606595,
+                34.0
+            ],
+            [
+                264.856117,
+                35.0
+            ],
+            [
+                480.074076,
+                37.0
+            ]
+        ],
+        "local_improvements": 4,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1293.8288687439635
+    },
+    {
+        "graph": "frb40-19-5",
+        "original_n": 760,
+        "core_n": 760,
+        "objective": 36.0,
+        "nodes": 16997,
+        "branches": 7,
+        "solve_time": 1200.0006070350064,
+        "total_time": 1293.7351276379777,
+        "incumbent_history": [
+            [
+                1.118519,
+                31
+            ],
+            [
+                1.324921,
+                31
+            ],
+            [
+                70.33022,
+                32
+            ],
+            [
+                76.328049,
+                32.0
+            ],
+            [
+                106.340233,
+                34
+            ],
+            [
+                117.476942,
+                34.0
+            ],
+            [
+                1150.985957,
+                36.0
+            ]
+        ],
+        "local_improvements": 4,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1293.735230901977
+    },
+    {
+        "graph": "frb50-23-1",
+        "original_n": 1150,
+        "core_n": 1150,
+        "objective": 43.0,
+        "nodes": 5541,
+        "branches": 7,
+        "solve_time": 1200.0007840070175,
+        "total_time": 1297.8018204040127,
+        "incumbent_history": [
+            [
+                2.194257,
+                40
+            ],
+            [
+                2.414245,
+                41
+            ],
+            [
+                2.777024,
+                41
+            ],
+            [
+                45.849057,
+                40
+            ],
+            [
+                61.877953,
+                39
+            ],
+            [
+                173.00849,
+                43
+            ],
+            [
+                173.094366,
+                43
+            ],
+            [
+                193.493082,
+                42.0
+            ],
+            [
+                407.459024,
+                43.0
+            ]
+        ],
+        "local_improvements": 7,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1297.801956788986
+    },
+    {
+        "graph": "frb50-23-2",
+        "original_n": 1150,
+        "core_n": 1150,
+        "objective": 43.0,
+        "nodes": 4755,
+        "branches": 7,
+        "solve_time": 1200.0008129019989,
+        "total_time": 1297.650744903949,
+        "incumbent_history": [
+            [
+                2.649552,
+                39
+            ],
+            [
+                57.386046,
+                37
+            ],
+            [
+                57.476824,
+                37.0
+            ],
+            [
+                58.183311,
+                43
+            ],
+            [
+                78.348868,
+                43.0
+            ]
+        ],
+        "local_improvements": 3,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1297.6508457229938
+    },
+    {
+        "graph": "frb50-23-3",
+        "original_n": 1150,
+        "core_n": 1150,
+        "objective": 45.0,
+        "nodes": 5462,
+        "branches": 7,
+        "solve_time": 1200.0005540960701,
+        "total_time": 1297.6622938109795,
+        "incumbent_history": [
+            [
+                2.296818,
+                38
+            ],
+            [
+                58.247605,
+                41
+            ],
+            [
+                78.847449,
+                39
+            ],
+            [
+                78.927638,
+                39.0
+            ],
+            [
+                108.694981,
+                41
+            ],
+            [
+                170.250679,
+                42
+            ],
+            [
+                183.2511,
+                45.0
+            ]
+        ],
+        "local_improvements": 5,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1297.6624051999534
+    },
+    {
+        "graph": "frb50-23-4",
+        "original_n": 1150,
+        "core_n": 1150,
+        "objective": 43.0,
+        "nodes": 6203,
+        "branches": 7,
+        "solve_time": 1200.0008859779919,
+        "total_time": 1297.5828290069476,
+        "incumbent_history": [
+            [
+                2.229448,
+                39
+            ],
+            [
+                2.689737,
+                41
+            ],
+            [
+                58.602906,
+                41.0
+            ],
+            [
+                184.450638,
+                42.0
+            ],
+            [
+                339.37772,
+                43.0
+            ]
+        ],
+        "local_improvements": 2,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1297.5829291749978
+    },
+    {
+        "graph": "frb50-23-5",
+        "original_n": 1150,
+        "core_n": 1150,
+        "objective": 43.0,
+        "nodes": 6375,
+        "branches": 7,
+        "solve_time": 1200.0043577989563,
+        "total_time": 1297.6548758809222,
+        "incumbent_history": [
+            [
+                2.203381,
+                39
+            ],
+            [
+                184.970587,
+                40
+            ],
+            [
+                193.209827,
+                41.0
+            ],
+            [
+                480.724105,
+                42.0
+            ],
+            [
+                762.727241,
+                44
+            ]
+        ],
+        "local_improvements": 3,
+        "method": "SCIP+XGB",
+        "xgb_depth": 2,
+        "experiment_time": 1297.654993381002
+    }
+]
