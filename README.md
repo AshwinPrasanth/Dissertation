@@ -1,246 +1,172 @@
-# MWUA Feature Extraction Framework (CPAIOR 2026 Reference Implementation)
+# Combining Static Global and Dynamic Local Features for Fast Learning-to-Branch Heuristics
 
-This repository contains the reference implementation of the **Multiplicative Weights Update Algorithm (MWUA)** feature generation framework used in the CPAIOR 2026 work:
+**MSc Dissertation — Advanced Artificial Intelligence**
+Ashwin Prasanth (Student ID: 25234753)
+Supervisor: Dr. Deepak Ajwani
+UCD School of Computer Science, University College Dublin — August 2026
 
-> *“A Scalable Learning Approach for Efficient Computation of Independent Set and Cover Variants”*
-> Ryan O’Connor, Noah Coleman, Darren Strash, Saurabh Ray, and Deepak Ajwani
+This repository contains the full implementation, training pipelines, and evaluation
+scripts accompanying the dissertation *"Combining Static Global and Dynamic Local
+Features for Fast Learning-to-Branch Heuristics."* It supports two combinatorial
+optimisation settings:
 
-The implementation focuses on generating lightweight structural signals for combinatorial optimization problems such as:
+1. **Maximum Independent Set / Minimum Vertex Cover (MIS/MVC)** — solved with a
+   custom SCIP-based Branch-and-Bound framework. See [`README_MIS.md`](README_MIS.md).
+2. **Hitting Set (HS)** — solved with a modified version of the UZL solver
+   (PACE 2025 Exact Track winner), integrating a learned branching policy into
+   the embedded CaDiCaL MaxSAT solver via EvalMaxSAT. See [`README_HittingSet.md`](README_HittingSet.md).
 
-* Minimum Vertex Cover (MVC)
-* Maximum Independent Set (MIS)
-* General Hitting Set Problems
-
-The code is designed as a **fast structural feature generator**, not as a full exact optimization solver.
-
----
-
-# Core Idea
-
-The framework computes a **global structural certainty snapshot** over a graph using a variant of the **Multiplicative Weights Update Algorithm (MWUA)**.
-
-Instead of repeatedly recomputing expensive graph features during optimization, the algorithm:
-
-1. analyzes the graph structure once,
-2. iteratively updates constraint weights,
-3. generates fractional variable assignments,
-4. and produces structural certainty signals that can later guide:
-
-   * branching,
-   * pruning,
-   * reductions,
-   * or learning-to-branch heuristics.
-
-The implementation is lightweight, scalable, and structure-driven.
+For a map of the repository, per-file responsibilities, and guidance on adapting
+the pipeline to new problems/solvers, see [`README_CodeStructure.md`](README_CodeStructure.md).
 
 ---
 
-# Repository Structure
+## 1. Motivation
 
-## `mwua_feature.cpp`
+Exact solvers for NP-hard problems depend heavily on the variable selected at
+each branching or decision point:
 
-High-level feature generation pipeline.
+- LP-based Branch-and-Bound solvers (e.g. SCIP) can use anything from cheap
+  heuristics (most-fractional, pseudocost) to **Strong Branching**, which is
+  informative but too expensive to run at every node.
+- Conflict-driven MaxSAT solvers (e.g. CaDiCaL) typically rely on cheap
+  activity-based heuristics (EVSIDS), which are inexpensive but uninformative
+  early in search, before conflict information has accumulated.
 
-Responsibilities:
+Learning-to-branch approaches can inject additional signal into this decision,
+but many recompute expensive features from the *residual* instance at every
+node, adding overhead to an already high-frequency part of the solver.
 
-* reads graph edge-list input,
-* constructs the hitting-set formulation,
-* converts MVC/MIS constraints into MWUA-compatible structures,
-* executes the MWUA solver,
-* writes fractional solutions and structural features.
+**Core research question:** does a *global* optimisation signal, computed
+**once** before search begins, remain useful as a branching heuristic
+throughout an evolving search tree — without needing to be repeatedly
+recomputed or numerically exact?
 
-Important concept:
+## 2. Approach
 
-* each edge becomes a constraint/set,
-* vertices become selectable elements,
-* the graph is transformed into a generic hitting-set problem.
+1. A **Multiplicative Weights Update Algorithm (MWUA)** oracle is run **once**
+   on the reduced covering-formulation instance (shared by MVC and Hitting
+   Set). This produces:
+   - an averaged fractional solution,
+   - per-vertex certainty information,
+   - normalised constraint weights.
+2. This static, one-shot signal is combined with lightweight, **solver-specific
+   dynamic features** (computed cheaply at each branching node) into a
+   15-dimensional feature vector per candidate variable.
+3. **XGBoost Learning-to-Rank** models are trained to imitate an expert
+   branching signal:
+   - **MIS/MVC**: imitates **Strong Branching** within SCIP.
+   - **Hitting Set**: imitates **native CaDiCaL** decisions within the
+     PACE 2025-winning UZL/EvalMaxSAT solver.
+4. At deployment, the learned policy is used **only for the first *k* decision
+   layers** of search (depth-bounded intervention: e.g. D1, D2, D5, D10, or
+   unrestricted "Full"), after which control reverts to the solver's native
+   branching strategy. Learning is confined strictly to **variable selection**
+   — propagation, conflict analysis, bounding, and pruning are left unchanged.
 
-This file mainly handles preprocessing and feature extraction orchestration.
+## 3. Key Results
 
----
+| Setting | Headline result |
+|---|---|
+| **MIS/MVC** | ML intervention to depth 2 gives a median **25.9%** reduction in explored nodes and **11.9%** reduction in solve time, improving on 83.0% and 72.0% of instances respectively. Depth 5 attains the highest exact-optimality rate. Models trained on small DIMACS graphs generalise to dense BHOSLIB instances and to SNAP/DIMACS10 graphs of up to **1.8M vertices**. |
+| **Hitting Set** | Guidance over the first two decision levels solves **76/100** private PACE 2025 test instances vs. **75/100** for the native CaDiCaL baseline, with a **23.1%** median runtime reduction. |
+| **General finding** | Extending learned control *further* into the search **degrades** performance in both settings — broader intervention is not necessarily better. Downstream branching quality is **non-monotonic** in MWUA iteration count: it improves sharply up to ~5,000 iterations, then degrades/fluctuates, even as the MWUA fractional solution keeps converging to the LP optimum. The most useful signal is not the most numerically converged one. |
 
-## `mwua_impl.cpp`
+## 4. Repository Layout (top level)
 
-Core MWUA implementation.
-
-This file contains the actual optimization logic responsible for:
-
-* constraint weighting,
-* iterative multiplicative updates,
-* greedy fractional assignment,
-* violation/slack computation,
-* running-average consensus generation.
-
-### Key Components
-
-#### `greedySolveCombined(...)`
-
-Most important routine in the implementation.
-
-Given current constraint weights:
-
-* greedily constructs fractional assignments,
-* prioritizes high-pressure variables,
-* distributes coverage mass efficiently,
-* and generates interim structural solutions.
-
-This method is central to how the framework produces:
-
-* soft certainty estimates,
-* structural pressure signals,
-* and lightweight global guidance.
-
----
-
-#### Constraint Weight Updates
-
-The MWUA iteratively:
-
-1. evaluates constraint satisfaction,
-2. measures violation/slack,
-3. upweights difficult constraints,
-4. and recomputes fractional solutions.
-
-This gradually builds:
-
-* global structural awareness,
-* variable importance estimates,
-* and stable consensus assignments.
-
----
-
-#### `Xavg`
-
-The final output is not a single instantaneous solution.
-
-Instead, the framework maintains:
-
-* a running average of fractional assignments across iterations.
-
-This averaged solution acts as:
-
-* a global structural certainty map,
-* highlighting variables consistently pushed toward:
-
-  * 0 (unlikely),
-  * or 1 (structurally important).
-
----
-
-## `mwua.h`
-
-Header file defining:
-
-* solver interfaces,
-* data structures,
-* configuration parameters,
-* and helper utilities.
-
----
-
-## `toy1graph`
-
-Small toy graph instance for testing and experimentation.
-
-Can be used to:
-
-* compile the implementation,
-* verify outputs,
-* and inspect generated MWUA feature values.
-
----
-
-# Conceptual Interpretation
-
-This MWUA framework should be interpreted as:
-
-```text
-Global Structural Signal Generator
+```
+dissertation_ashwin/
+├── CHSZLabLib/build-kamis/_kamis     KaMIS/ReduMIS reduction interface (shared)
+├── training/                         MIS/MVC pipeline           → see README_MIS.md
+├── HIT/                              Hitting Set feature generation
+└── PACE2025/                         Modified UZL/CaDiCaL solver → see README_HittingSet.md
 ```
 
-NOT as:
+Full per-file documentation is in [`README_CodeStructure.md`](README_CodeStructure.md).
 
-* a full exact solver,
-* a branch-and-bound engine,
-* or a neural optimization system.
+## 5. Software / Hardware Environment
 
-The generated fractional certainties can later be used inside:
+All experiments reported in the dissertation were run on:
 
-* exact branch-and-bound solvers,
-* learning-to-branch systems,
-* pruning heuristics,
-* or hybrid optimization pipelines.
+- **Hardware:** CPU-only server, AMD EPYC 7281 (16 physical cores / 32 threads), 94 GB RAM.
+- **OS:** Ubuntu 18.04.6 LTS.
+- **Software:**
+  - Python 3.10.20
+  - XGBoost 2.1.4
+  - PySCIPOpt 6.2.1
+  - NumPy 2.2.6
+  - SciPy 1.15.2
+  - Rust (stable toolchain, via `cargo`) for the PACE2025/UZL solver
+  - C++17 toolchain for EvalMaxSAT/CaDiCaL
+  - KaMIS/ReduMIS build (`CHSZLabLib/build-kamis/_kamis`) for exact reductions
 
----
+A conda environment named `dissertation` was used throughout:
 
-# Important Theoretical Insight
-
-The implementation is fundamentally:
-
-* structure-dependent,
-* not size-dependent.
-
-The generated signals depend on:
-
-* graph topology,
-* constraint interactions,
-* residual structural pressure,
-* and hitting-set geometry,
-
-rather than:
-
-* graph IDs,
-* fixed graph sizes,
-* or learned embeddings.
-
-This makes the framework naturally scalable and transferable across graph distributions.
-
----
-
-# Relationship to Exact Optimization
-
-This implementation itself does NOT perform:
-
-* exact branch-and-bound,
-* pruning,
-* cutting planes,
-* or combinatorial search.
-
-Instead, it provides:
-
-* lightweight global structural priors
-  which can guide exact search systems.
-
-In a larger solver architecture, MWUA can act as:
-
-```text
-Global Prior
-    +
-Dynamic Local Search Corrections
+```bash
+conda activate dissertation
 ```
 
-where:
+> **Reproducibility note:** exact package versions are listed above; a
+> `requirements.txt` / `environment.yml` pinning these versions is recommended
+> when re-creating the environment (see [`README_CodeStructure.md`](README_CodeStructure.md)
+> §"Environment setup").
 
-* MWUA provides root-level structural certainty,
-* and local search mechanisms adapt during optimization.
+## 6. Benchmarks Used
 
----
+| Domain | Benchmarks | Role |
+|---|---|---|
+| MIS/MVC | DIMACS | Training / model development (small graphs) |
+| MIS/MVC | BHOSLIB | Dense out-of-distribution generalisation test |
+| MIS/MVC | SNAP, DIMACS10 | Large-scale generalisation test (up to 1.8M vertices) |
+| Hitting Set | PACE 2025 Exact Track — 100 public instances | Training / instrumentation (32 instrumented, 24 used for training) |
+| Hitting Set | PACE 2025 Exact Track — 100 private test instances | End-to-end held-out evaluation |
 
-# Why This Matters
+## 7. High-Level Reproduction Path
 
-Classical exact branching methods such as strong branching are powerful but computationally expensive because they repeatedly solve local LP approximations during search.
+For either domain, the pipeline follows the same conceptual stages:
 
-This framework explores an alternative philosophy:
-
-```text
-Can a single cheap global structural snapshot remain useful deep into optimization?
+```
+Raw instances (DIMACS graphs / PACE hypergraphs)
+        ↓
+Exact reduction / kernelisation (KaMIS/ReduMIS)
+        ↓
+MWUA oracle (once per instance) → static global features
+        ↓
+Solver-specific dynamic features (Strong Branching stats / CaDiCaL CDCL signals)
+        ↓
+Branching-decision data collection (expert imitation targets)
+        ↓
+Grouped Learning-to-Rank dataset construction
+        ↓
+Instance-level train/validation/test split
+        ↓
+XGBoost ranking-model training
+        ↓
+Deployment: bounded-depth or full learned branching inside the exact solver
+        ↓
+Anytime / end-to-end evaluation vs. native solver baseline
 ```
 
-The MWUA-generated certainties attempt to capture:
+See [`README_MIS.md`](README_MIS.md) and [`README_HittingSet.md`](README_HittingSet.md)
+for the exact commands, scripts, and configuration used for each domain.
 
-* persistent structural importance,
-* backbone-like variables,
-* and globally difficult constraints
-  using only lightweight iterative updates.
+## 8. Citing / Attribution
 
----
+If reusing this code, please cite the dissertation:
+
+> Ashwin Prasanth, *"Combining Static Global and Dynamic Local Features for
+> Fast Learning-to-Branch Heuristics,"* MSc Dissertation, School of Computer
+> Science, University College Dublin, August 2026. Supervisor: Dr. Deepak Ajwani.
+
+This work builds on and modifies:
+- **SCIP / PySCIPOpt** for the MIS/MVC Branch-and-Bound framework.
+- **KaMIS / ReduMIS** for exact kernelisation reductions.
+- **UZL** and **EvalMaxSAT / CaDiCaL** (PACE 2025 Exact Track winning Hitting
+  Set solver), modified to embed a learned branching policy.
+- **XGBoost** (Chen & Guestrin) for the Learning-to-Rank models.
+
+## 9. Use of Generative AI
+
+Per the dissertation's Appendix C ("Use of Generative AI"), generative AI
+tools were used in parts of this project's development; refer to the thesis
+document itself for the full disclosure statement.
